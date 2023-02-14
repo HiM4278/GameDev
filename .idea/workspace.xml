@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="throw">
+    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="add Node">
+      <change afterPath="$PROJECT_DIR$/src/main/java/EvalException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/BinaryArithExpr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/BinaryArithExpr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Expression.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,9 +68,6 @@
   }
 }</component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="evaluator.node" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>
@@ -99,28 +97,7 @@
       <option name="project" value="LOCAL" />
       <updated>1676360334083</updated>
     </task>
-    <task id="LOCAL-00003" summary="All Expression">
-      <created>1676363596220</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1676363596220</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Move Expression">
-      <created>1676363849767</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1676363849767</updated>
-    </task>
-    <task id="LOCAL-00005" summary="throw">
-      <created>1676364392756</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1676364392756</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,9 +129,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="move main" />
     <MESSAGE value="add Node" />
-    <MESSAGE value="All Expression" />
-    <MESSAGE value="Move Expression" />
-    <MESSAGE value="throw" />
-    <option name="LAST_COMMIT_MESSAGE" value="throw" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Node" />
   </component>
 </project>
