@@ -1,3 +1,7 @@
+package evaluator.tokenizer;
+
+import exeption.SyntaxErrorException;
+
 public interface Tokenizer {
     boolean hasNextToken();
     String peek();
