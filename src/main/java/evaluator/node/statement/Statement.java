@@ -6,5 +6,5 @@ import exeption.EvalException;
 import java.util.HashMap;
 
 public interface Statement extends Node {
-    boolean execute(HashMap<String, Integer> identifier) throws EvalException;
+    boolean execute(HashMap<String, Integer> identifiers) throws EvalException;
 }

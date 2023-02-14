@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="Update gitignore">
+    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="Add IfStatement.java and WhileStatement.java">
+      <change afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/AssignStatement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/BlockStatement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/BinaryArithExpr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/expression/BinaryArithExpr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/expression/Expression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/Identifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/expression/Identifier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/expression/Info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/IntLit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/expression/IntLit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/IfStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/IfStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/Statement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/Statement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/WhileStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/WhileStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/parser/PlanParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/evaluator/parser/PlanParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676367314288</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add IfStatement.java and WhileStatement.java">
+      <created>1676369603064</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1676369603064</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,6 +189,7 @@
     <MESSAGE value="add Node" />
     <MESSAGE value="Update Statement" />
     <MESSAGE value="Update gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update gitignore" />
+    <MESSAGE value="Add IfStatement.java and WhileStatement.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add IfStatement.java and WhileStatement.java" />
   </component>
 </project>
