@@ -1,5 +1,7 @@
 package evaluator.node;
 
+import exeption.EvalException;
+
 import java.util.HashMap;
 
 public class Identifier implements Expression{
@@ -9,7 +11,8 @@ public class Identifier implements Expression{
     }
     @Override
     public int eval(HashMap<String, Integer> identifier) throws EvalException {
-        return identifier.get(name);
+        if(identifier.containsKey(name)) return identifier.get(name);
+        throw new EvalException("undefined variable: " + name);
     }
 
     @Override
