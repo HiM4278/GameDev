@@ -5,8 +5,8 @@ import exeption.EvalException;
 import java.util.HashMap;
 
 public class BinaryArithExpr implements Expression{
-    private Expression left,right;
-    private String op;
+    Expression left,right;
+    String op;
     public BinaryArithExpr(Expression left, String op, Expression right){
         this.left = left;
         this.op = op;

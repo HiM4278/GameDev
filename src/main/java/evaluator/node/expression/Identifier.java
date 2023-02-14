@@ -5,7 +5,7 @@ import exeption.EvalException;
 import java.util.HashMap;
 
 public class Identifier implements Expression{
-    private String name;
+    String name;
     public Identifier(String name){
         this.name = name;
     }

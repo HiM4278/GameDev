@@ -1,6 +1,6 @@
 package evaluator.node.statement;
 
-import evaluator.node.Expression;
+import evaluator.node.expression.Expression;
 import exeption.EvalException;
 
 import java.util.HashMap;
@@ -22,11 +22,11 @@ public class IfStatement implements Statement{
     }
 
     @Override
-    public boolean execute(HashMap<String, Integer> identifier) throws EvalException {
-        if(condition.eval(identifier) > 0){
-            return statementIfTrue.execute(identifier);
+    public boolean execute(HashMap<String, Integer> identifiers) throws EvalException {
+        if(condition.eval(identifiers) > 0){
+            return statementIfTrue.execute(identifiers);
         }else {
-            return statementIfFalse.execute(identifier);
+            return statementIfFalse.execute(identifiers);
         }
     }
 }

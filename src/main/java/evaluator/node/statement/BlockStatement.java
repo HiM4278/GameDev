@@ -1,29 +1,33 @@
 package evaluator.node.statement;
 
-import evaluator.node.expression.Expression;
 import exeption.EvalException;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 
-public class WhileStatement implements Statement{
-    private final Expression condition;
-    private final Statement statement;
+public class BlockStatement implements Statement{
+    private final LinkedList<Statement> statements;
 
-    public WhileStatement(Expression condition, Statement statement) {
-        this.condition = condition;
-        this.statement = statement;
+    public BlockStatement() {
+        statements = new LinkedList<>();
     }
 
     @Override
     public void prettyPrint(StringBuilder s) {
+
     }
 
     @Override
     public boolean execute(HashMap<String, Integer> identifiers) throws EvalException {
         boolean isEnd = false;
-        while(condition.eval(identifiers) > 0 && !isEnd){
+        for(Statement statement: statements) {
             isEnd = statement.execute(identifiers);
+            if(isEnd) break;
         }
         return isEnd;
+    }
+
+    public void append(Statement statement){
+        statements.add(statement);
     }
 }
