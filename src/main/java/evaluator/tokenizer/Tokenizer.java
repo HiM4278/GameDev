@@ -4,8 +4,8 @@ import exeption.SyntaxErrorException;
 
 public interface Tokenizer {
     boolean hasNextToken();
-    String peek();
-    boolean peek(String s);
-    String consume();
+    String peek() throws SyntaxErrorException;
+    boolean peek(String s) throws SyntaxErrorException;
+    String consume() throws SyntaxErrorException;
     void consume(String s) throws SyntaxErrorException;
 }
