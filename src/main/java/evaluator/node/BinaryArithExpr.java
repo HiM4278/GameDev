@@ -1,3 +1,5 @@
+package evaluator.node;
+
 import java.util.HashMap;
 
 public class BinaryArithExpr implements Expression{

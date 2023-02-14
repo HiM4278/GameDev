@@ -1,17 +1,19 @@
+package evaluator.node;
+
 import java.util.HashMap;
 
-public class Identifier implements Expression{
-    String name;
-    public Identifier(String name){
-        this.name = name;
+public class IntLit implements Expression {
+    int value;
+    public IntLit(int value){
+        this.value = value;
     }
     @Override
     public int eval(HashMap<String, Integer> identifier) throws EvalException {
-        return identifier.get(name);
+        return value;
     }
 
     @Override
     public void prettyPrint(StringBuilder s) {
-        s.append(name);
+        s.append(value);
     }
 }

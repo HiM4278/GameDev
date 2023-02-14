@@ -1,3 +1,7 @@
+package evaluator.node;
+
+import evaluator.node.Directional;
+
 import java.util.HashMap;
 
 public class Info implements Expression{
