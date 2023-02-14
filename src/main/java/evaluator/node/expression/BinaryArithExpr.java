@@ -1,10 +1,10 @@
-package evaluator.node;
+package evaluator.node.expression;
 
 import exeption.EvalException;
 
 import java.util.HashMap;
 
-public class BinaryArithExpr implements Expression{
+public class BinaryArithExpr implements Expression {
     Expression left,right;
     String op;
     public BinaryArithExpr(Expression left, String op, Expression right){

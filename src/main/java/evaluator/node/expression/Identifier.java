@@ -1,10 +1,11 @@
-package evaluator.node;
+package evaluator.node.expression;
 
+import evaluator.node.expression.Expression;
 import exeption.EvalException;
 
 import java.util.HashMap;
 
-public class Identifier implements Expression{
+public class Identifier implements Expression {
     String name;
     public Identifier(String name){
         this.name = name;

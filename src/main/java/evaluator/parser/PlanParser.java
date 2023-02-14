@@ -1,6 +1,6 @@
 package evaluator.parser;
 
-import evaluator.node.Expression;
+import evaluator.node.expression.Expression;
 import evaluator.node.Plan;
 import exeption.SyntaxErrorException;
 
@@ -17,9 +17,9 @@ public class PlanParser implements Parser {
 //            while(tkz.peek("+") || tkz.peek("-")) {
 //                String operator = tkz.consume();
 //                if(operator.equals("+")) {
-//                    expr = new evaluator.node.BinaryArithExpr(expr,"+",parseT());
+//                    expr = new evaluator.node.expression.BinaryArithExpr(expr,"+",parseT());
 //                } else if(operator.equals("-")){
-//                    expr = new evaluator.node.BinaryArithExpr(expr,"-",parseT());
+//                    expr = new evaluator.node.expression.BinaryArithExpr(expr,"-",parseT());
 //                }
 //            }
 //        } catch (NoSuchElementException | UnknownTokenException e){

@@ -1,5 +1,6 @@
-package evaluator.node;
+package evaluator.node.expression;
 
+import evaluator.node.expression.Expression;
 import exeption.EvalException;
 
 import java.util.HashMap;
