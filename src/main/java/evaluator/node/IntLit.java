@@ -5,7 +5,7 @@ import exeption.EvalException;
 import java.util.HashMap;
 
 public class IntLit implements Expression {
-    int value;
+    private int value;
     public IntLit(int value){
         this.value = value;
     }

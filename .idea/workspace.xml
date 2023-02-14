@@ -4,7 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="Update gitignore" />
+    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="throw">
+      <change afterPath="$PROJECT_DIR$/src/main/java/evaluator/gameObject/CityCenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/evaluator/gameObject/CityCrew.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/evaluator/gameObject/GameObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/evaluator/gameObject/Land.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/evaluator/gameObject/Realty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/evaluator/gameObject/Unit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/main/Configuration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/main/Counter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/main/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/main/LoopCounter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/main/Region.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/main/Territory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/BinaryArithExpr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/BinaryArithExpr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/Identifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/Identifier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/Info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/IntLit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/IntLit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Player.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,16 +34,6 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
-  </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <task path="$PROJECT_DIR$">
-          <activation />
-        </task>
-        <projects_view />
-      </state>
-    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -53,9 +63,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2LIuKXIQiSPxH7BIGnrgfBfEY9w" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -76,24 +84,12 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="evaluator.node" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="LowGradeCivilization" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="LowGradeCivilization" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -120,21 +116,28 @@
       <option name="project" value="LOCAL" />
       <updated>1676360334083</updated>
     </task>
-    <task id="LOCAL-00003" summary="Update Statement">
-      <created>1676366844809</created>
+    <task id="LOCAL-00003" summary="All Expression">
+      <created>1676363596220</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1676366844809</updated>
+      <updated>1676363596220</updated>
     </task>
-    <task id="LOCAL-00004" summary="Update gitignore">
-      <created>1676366955587</created>
+    <task id="LOCAL-00004" summary="Move Expression">
+      <created>1676363849767</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1676366955587</updated>
+      <updated>1676363849767</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="throw">
+      <created>1676364392756</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1676364392756</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,8 +169,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="move main" />
     <MESSAGE value="add Node" />
-    <MESSAGE value="Update Statement" />
-    <MESSAGE value="Update gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update gitignore" />
+    <MESSAGE value="All Expression" />
+    <MESSAGE value="Move Expression" />
+    <MESSAGE value="throw" />
+    <option name="LAST_COMMIT_MESSAGE" value="throw" />
   </component>
 </project>

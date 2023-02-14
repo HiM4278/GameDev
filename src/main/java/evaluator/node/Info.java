@@ -6,8 +6,8 @@ import exeption.EvalException;
 import java.util.HashMap;
 
 public class Info implements Expression{
-    InformationType type;
-    Directional.Direction direction;
+    private InformationType type;
+    private Directional.Direction direction;
     public Info (InformationType type, Directional.Direction direction){
         this.type = type;
         this.direction = direction;
