@@ -2,7 +2,6 @@ package evaluator.parser;
 
 import evaluator.node.Expression;
 import evaluator.node.Plan;
-import evaluator.parser.Parser;
 import exeption.SyntaxErrorException;
 
 public class PlanParser implements Parser {

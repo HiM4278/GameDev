@@ -1,5 +1,7 @@
 package evaluator.node;
 
+import exeption.EvalException;
+
 import java.util.HashMap;
 
 public class IntLit implements Expression {

@@ -1,6 +1,7 @@
 package evaluator.node;
 
 import evaluator.node.Directional;
+import exeption.EvalException;
 
 import java.util.HashMap;
 
