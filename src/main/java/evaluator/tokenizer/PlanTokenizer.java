@@ -59,7 +59,7 @@ public class PlanTokenizer implements Tokenizer{
     }
 
     private boolean isOperator(char c) {
-        char[] operators = {'=','+','-','*','/','/','%','^','(',')','{','}'};
+        char[] operators = {'=','+','-','*','/','%','^','(',')','{','}'};
         for(char operator: operators) {
             if(c == operator) return true;
         }

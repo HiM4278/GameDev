@@ -28,4 +28,19 @@ public class PlanTokenizerTest {
         assertEquals("1", tokenizer.consume());
     }
 
+    @Test
+    public void ExpressionInfoTest() throws SyntaxErrorException {
+        PlanTokenizer tokenizer = new PlanTokenizer();
+        tokenizer.updateSource("10 ^ (nearby downleft % 100 + 1)");
+        assertEquals("10", tokenizer.consume());
+        assertEquals("^", tokenizer.consume());
+        assertEquals("(", tokenizer.consume());
+        assertEquals("nearby", tokenizer.consume());
+        assertEquals("downleft", tokenizer.consume());
+        assertEquals("%", tokenizer.consume());
+        assertEquals("100", tokenizer.consume());
+        assertEquals("+", tokenizer.consume());
+        assertEquals("1", tokenizer.consume());
+    }
+
 }

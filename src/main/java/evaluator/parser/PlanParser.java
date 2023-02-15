@@ -3,6 +3,7 @@ package evaluator.parser;
 import evaluator.node.Plan;
 import evaluator.node.expression.Expression;
 import evaluator.node.expression.Identifier;
+import evaluator.node.expression.Info;
 import evaluator.node.expression.IntLit;
 import evaluator.node.statement.*;
 import evaluator.node.statement.command.*;
@@ -119,7 +120,7 @@ public class PlanParser implements Parser {
             tokenizer.consume();
             return Direction.DOWNLEFT;
         } else if (tokenizer.peek("downright")){
-            tokenizer.consume("downright");
+            tokenizer.consume();
             return Direction.DOWNRIGHT;
         } else {
             throw new SyntaxErrorException("the direction is missing", tokenizer.getCurrentLine());
@@ -172,7 +173,16 @@ public class PlanParser implements Parser {
         try {
             if (isNumber(tokenizer.peek())) {
                 return new IntLit(Integer.parseInt(tokenizer.consume()));
-            } else if(isVariable(tokenizer.peek())) {
+            } else if(tokenizer.peek("nearby")) {
+                tokenizer.consume();
+                return new Info(Info.InformationType.NEARBY, parseDirection());
+            } else if(tokenizer.peek("opponent")) {
+                tokenizer.consume();
+                return new Info(Info.InformationType.OPPONENT, null);
+            }else if(isVariable(tokenizer.peek())) {
+                if(isReservedWords(tokenizer.peek())){
+                    throw new SyntaxErrorException("\""+ tokenizer.peek() + "\" is reserved word.", tokenizer.getCurrentLine());
+                }
                 return new Identifier(tokenizer.consume());
             } else {
                 tokenizer.consume("(");
@@ -191,5 +201,13 @@ public class PlanParser implements Parser {
 
     private boolean isVariable(String s){
         return s.matches("[A-Za-z]+\\d*");
+    }
+
+    private boolean isReservedWords(String s){
+        String[] reserve = {"collect", "done", "down", "downleft", "downright", "else", "if", "invest", "move", "nearby", "opponent", "relocate", "shoot", "then", "up", "upleft", "upright", "while"};
+        for(String word: reserve) {
+            if(s.equals(word)) return true;
+        }
+        return false;
     }
 }
