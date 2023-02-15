@@ -59,10 +59,18 @@ public class PlanTokenizer implements Tokenizer{
         return false;
     }
 
+    private boolean isIgnore(char c) {
+        char[] operators = {'\t'};
+        for(char operator: operators) {
+            if(c == operator) return true;
+        }
+        return Character.isWhitespace(c);
+    }
+
     private void computeNext() throws SyntaxErrorException {
         StringBuilder s = new StringBuilder();
 
-        while (pos < src.length() && Character.isWhitespace(src.charAt(pos)))
+        while (pos < src.length() && isIgnore(src.charAt(pos)))
             pos++; // ignore whitespace
 
         if (pos == src.length())
@@ -77,7 +85,7 @@ public class PlanTokenizer implements Tokenizer{
                 } // no more tokens
             }
             pos++;
-            while (pos < src.length() && Character.isWhitespace(src.charAt(pos)))
+            while (pos < src.length() && isIgnore(src.charAt(pos)))
                 pos++;
         }
 
@@ -97,9 +105,7 @@ public class PlanTokenizer implements Tokenizer{
         }
         else if (isOperator(c)) { // start of operator
             s.append(c);
-            for (pos++; pos < src.length() && isOperator(src.charAt(pos)); pos++) {
-                s.append(src.charAt(pos));
-            }
+            pos++;
         }
         else {
             throw new SyntaxErrorException("lexical error");
