@@ -1,4 +1,4 @@
-package game.main;
+package extra;
 
 public interface Counter {
     int value();

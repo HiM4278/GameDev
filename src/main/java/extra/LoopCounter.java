@@ -1,8 +1,8 @@
-package game.main;
+package extra;
 
 import java.util.Set;
 
-public class LoopCounter implements Counter{
+public class LoopCounter implements Counter {
     private int count = 1;
     private int maximum;
     private boolean [] check = new boolean[maximum];
