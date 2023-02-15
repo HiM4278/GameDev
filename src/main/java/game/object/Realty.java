@@ -1,4 +1,4 @@
-package evaluator.gameObject;
+package game.object;
 
 public interface Realty extends GameObject{
     int getDeposit();

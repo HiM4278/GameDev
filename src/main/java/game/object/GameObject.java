@@ -1,4 +1,4 @@
-package evaluator.gameObject;
+package game.object;
 
 import game.main.Region;
 
