@@ -1,5 +1,7 @@
 package game.main;
 
+import extra.LoopCounter;
+
 import java.util.ArrayList;
 
 public class Game {
