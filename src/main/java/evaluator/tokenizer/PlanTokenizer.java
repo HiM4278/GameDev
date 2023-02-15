@@ -5,6 +5,7 @@ import exeption.SyntaxErrorException;
 public class PlanTokenizer implements Tokenizer{
     private String src, next;
     private int pos;
+    private int curLine;
 
     public PlanTokenizer(){
     }
@@ -12,7 +13,13 @@ public class PlanTokenizer implements Tokenizer{
     public void updateSource(String src) throws SyntaxErrorException {
         this.src = src;
         this.pos = 0;
+        this.curLine = 1;
         computeNext();
+    }
+
+    @Override
+    public int getCurrentLine() {
+        return curLine;
     }
 
     @Override
@@ -62,6 +69,10 @@ public class PlanTokenizer implements Tokenizer{
     private boolean isIgnore(char c) {
         char[] operators = {'\t'};
         for(char operator: operators) {
+            if(c == '\n') {
+                curLine++;
+                return true;
+            }
             if(c == operator) return true;
         }
         return Character.isWhitespace(c);
@@ -84,6 +95,7 @@ public class PlanTokenizer implements Tokenizer{
                     return;
                 } // no more tokens
             }
+            curLine++;
             pos++;
             while (pos < src.length() && isIgnore(src.charAt(pos)))
                 pos++;
