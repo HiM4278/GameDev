@@ -55,7 +55,7 @@ public class Main {
                     else if (dir - 3) then move downleft
                     else if (dir - 2) then move down
                     else if (dir - 1) then move downright
-                    else if (up) then move upright # 50
+                    else if (dir) then move upright # 50
                     else move up
                     m = m + 1
                   }

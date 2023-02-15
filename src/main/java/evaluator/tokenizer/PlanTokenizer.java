@@ -87,7 +87,7 @@ public class PlanTokenizer implements Tokenizer{
         if (pos == src.length())
             { next = null; return; } // no more tokens
 
-        if (src.charAt(pos) == '#') { // start of the comment
+        while (src.charAt(pos) == '#') { // start of the comment
             while (src.charAt(pos) != '\n') {
                 pos++;
                 if (pos == src.length()) {
@@ -120,7 +120,7 @@ public class PlanTokenizer implements Tokenizer{
             pos++;
         }
         else {
-            throw new SyntaxErrorException("lexical error", curLine);
+            throw new SyntaxErrorException("\"" + s + "\" lexical error!", curLine);
         }
         next = s.toString();
 
