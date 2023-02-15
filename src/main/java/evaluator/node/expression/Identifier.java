@@ -16,7 +16,7 @@ public class Identifier implements Expression{
     }
 
     @Override
-    public void prettyPrint(StringBuilder s) {
+    public void prettyPrint(StringBuilder s, int depth) {
         s.append(name);
     }
 }

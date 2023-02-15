@@ -1,14 +1,14 @@
 package evaluator.node.expression;
 
-import extra.Directional;
+import extra.Direction;
 import exeption.EvalException;
 
 import java.util.HashMap;
 
 public class Info implements Expression {
     InformationType type;
-    Directional.Direction direction;
-    public Info (InformationType type, Directional.Direction direction){
+    Direction direction;
+    public Info (InformationType type, Direction direction){
         this.type = type;
         this.direction = direction;
     }
@@ -18,7 +18,7 @@ public class Info implements Expression {
     }
 
     @Override
-    public void prettyPrint(StringBuilder s) {
+    public void prettyPrint(StringBuilder s, int depth) {
         s.append(type);
     }
 

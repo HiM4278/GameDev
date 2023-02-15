@@ -1,5 +1,6 @@
 package evaluator.node.expression;
 
+import evaluator.node.Node;
 import exeption.EvalException;
 
 import java.util.HashMap;
@@ -26,11 +27,11 @@ public class BinaryArithExpr implements Expression{
     }
 
     @Override
-    public void prettyPrint(StringBuilder s) {
+    public void prettyPrint(StringBuilder s, int depth) {
         s.append("(");
-        left.prettyPrint(s);
+        left.prettyPrint(s, depth);
         s.append(op);
-        right.prettyPrint(s);
+        right.prettyPrint(s, depth);
         s.append(")");
     }
 }

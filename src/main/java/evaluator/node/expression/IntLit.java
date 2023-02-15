@@ -6,7 +6,7 @@ import exeption.EvalException;
 import java.util.HashMap;
 
 public class IntLit implements Expression {
-    private int value;
+    private final int value;
     public IntLit(int value){
         this.value = value;
     }
@@ -16,7 +16,7 @@ public class IntLit implements Expression {
     }
 
     @Override
-    public void prettyPrint(StringBuilder s) {
+    public void prettyPrint(StringBuilder s, int depth) {
         s.append(value);
     }
 }
