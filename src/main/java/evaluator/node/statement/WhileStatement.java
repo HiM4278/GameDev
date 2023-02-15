@@ -15,7 +15,13 @@ public class WhileStatement implements Statement{
     }
 
     @Override
-    public void prettyPrint(StringBuilder s) {
+    public void prettyPrint(StringBuilder s, int depth) {
+        // new line
+        Statement.super.prettyPrint(s,depth);
+        s.append("while (");
+        condition.prettyPrint(s, depth);
+        s.append(")");
+        statement.prettyPrint(s, depth);
     }
 
     @Override

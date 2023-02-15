@@ -6,12 +6,19 @@ import exeption.EvalException;
 import java.util.HashMap;
 
 public class AssignStatement implements Statement{
-    String identifier;
-    Expression value;
+    private final String identifier;
+    private final Expression value;
+
+    public AssignStatement(String identifier, Expression value) {
+        this.identifier = identifier;
+        this.value = value;
+    }
 
     @Override
-    public void prettyPrint(StringBuilder s) {
-
+    public void prettyPrint(StringBuilder s, int depth) {
+        s.append(identifier);
+        s.append(" = ");
+        value.prettyPrint(s,depth);
     }
 
     @Override

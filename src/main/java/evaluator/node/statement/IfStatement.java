@@ -17,8 +17,17 @@ public class IfStatement implements Statement{
     }
 
     @Override
-    public void prettyPrint(StringBuilder s) {
-
+    public void prettyPrint(StringBuilder s, int depth) {
+        // new line
+        Statement.super.prettyPrint(s,depth);
+        s.append("if (");
+        condition.prettyPrint(s, depth);
+        s.append(")");
+        statementIfTrue.prettyPrint(s, depth);
+        // new line
+        Statement.super.prettyPrint(s,depth);
+        s.append("else");
+        statementIfFalse.prettyPrint(s, depth);
     }
 
     @Override
