@@ -7,26 +7,25 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PlanTokenizerTest {
     @Test
     public void ComputeNext_CommentTest() throws SyntaxErrorException {
-        PlanTokenizer p = new PlanTokenizer("123 -x # comment \n i (deposit)");
-
-        assertEquals("123", p.consume());
-        assertEquals("-", p.consume());
-        assertEquals("x", p.consume());
-        assertEquals("i", p.consume());
-        assertEquals("(", p.consume());
-        assertEquals("deposit", p.consume());
-        assertEquals(")", p.consume());
+        PlanTokenizer tokenizer = new PlanTokenizer();
+        tokenizer.updateSource("123 -x # comment \n i (deposit)");
+        assertEquals("123", tokenizer.consume());
+        assertEquals("-", tokenizer.consume());
+        assertEquals("x", tokenizer.consume());
+        assertEquals("i", tokenizer.consume());
+        assertEquals("(", tokenizer.consume());
+        assertEquals("deposit", tokenizer.consume());
+        assertEquals(")", tokenizer.consume());
     }
 
     @Test
     public void namingVarTest() throws SyntaxErrorException {
-        PlanTokenizer p = new PlanTokenizer("var1 = 2 \n 1var = 3");
-
-        assertEquals("var1", p.consume());
-        p.consume();
-        p.consume();
-        assertEquals("1var", p.consume());
-        //assertThrows(SyntaxErrorException.class, );
+        PlanTokenizer tokenizer = new PlanTokenizer();
+        tokenizer.updateSource("var1 = 2 \n 1var = 3");
+        assertEquals("var1", tokenizer.consume());
+        tokenizer.consume();
+        tokenizer.consume();
+        assertEquals("1var", tokenizer.consume());
     }
 
 }

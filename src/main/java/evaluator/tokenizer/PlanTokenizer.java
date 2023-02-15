@@ -6,12 +6,14 @@ public class PlanTokenizer implements Tokenizer{
     private String src, next;
     private int pos;
 
-    public PlanTokenizer(String src) throws SyntaxErrorException {
+    public PlanTokenizer(){
+    }
+
+    public void updateSource(String src) throws SyntaxErrorException {
         this.src = src;
         this.pos = 0;
         computeNext();
     }
-
 
     @Override
     public boolean hasNextToken() {
@@ -49,16 +51,10 @@ public class PlanTokenizer implements Tokenizer{
         }
     }
 
-    private boolean isDigit(char c) {
-        return c >= '0' && c <= '9';
-    }
-    private boolean isCharacter(char c) {
-        return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
-    }
     private boolean isOperator(char c) {
+
         return c == '+' || c == '-' || c == '*' || c == '/' || c == '%' || c == '^'|| c == '(' || c == ')'|| c == '=';
     }
-    private boolean isComment(char c) { return c == '#'; }
 
     private void computeNext() throws SyntaxErrorException {
         StringBuilder s = new StringBuilder();
@@ -69,7 +65,7 @@ public class PlanTokenizer implements Tokenizer{
         if (pos == src.length())
             { next = null; return; } // no more tokens
 
-        if (isComment(src.charAt(pos))) { // start of the comment
+        if (src.charAt(pos) == '#') { // start of the comment
             while (src.charAt(pos) != '\n') {
                 pos++;
                 if (pos == src.length()) {
@@ -84,15 +80,15 @@ public class PlanTokenizer implements Tokenizer{
 
         char c = src.charAt(pos); // assign c to be the same character at src index position
 
-        if (isDigit(c)) {   // start of number
+        if (Character.isDigit(c)) {   // start with number
             s.append(c);
-            for (pos++; pos < src.length() && isDigit(src.charAt(pos)); pos++) {
+            for (pos++; pos < src.length() && Character.isDigit(src.charAt(pos)); pos++) {
                 s.append(src.charAt(pos));
             }
         }
-        else if (isCharacter(c)) { // start of character
+        else if (Character.isLetter(c)) { // start of character
             s.append(c);
-            for (pos++; pos < src.length() && ( isCharacter(src.charAt(pos)) || isDigit(src.charAt((pos))) ); pos++) {
+            for (pos++; pos < src.length() && ( Character.isLetter(src.charAt(pos)) || Character.isDigit(src.charAt((pos))) ); pos++) {
                 s.append(src.charAt(pos));
             }
         }
