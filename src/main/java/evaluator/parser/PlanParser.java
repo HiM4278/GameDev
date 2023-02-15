@@ -122,7 +122,7 @@ public class PlanParser implements Parser {
             tokenizer.consume("downright");
             return Direction.DOWNRIGHT;
         } else {
-            throw new SyntaxErrorException("Line " + tokenizer.getCurrentLine() + ": the direction is missing");
+            throw new SyntaxErrorException("the direction is missing", tokenizer.getCurrentLine());
         }
     }
 

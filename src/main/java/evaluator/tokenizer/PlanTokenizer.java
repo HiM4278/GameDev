@@ -54,7 +54,7 @@ public class PlanTokenizer implements Tokenizer{
         if (peek(s)) {
             consume();
         } else {
-            throw new SyntaxErrorException(s + " expected");
+            throw new SyntaxErrorException(s + " expected", curLine);
         }
     }
 
@@ -120,7 +120,7 @@ public class PlanTokenizer implements Tokenizer{
             pos++;
         }
         else {
-            throw new SyntaxErrorException("lexical error");
+            throw new SyntaxErrorException("lexical error", curLine);
         }
         next = s.toString();
 
