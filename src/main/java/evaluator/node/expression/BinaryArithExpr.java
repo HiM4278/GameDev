@@ -30,7 +30,7 @@ public class BinaryArithExpr implements Expression{
     public void prettyPrint(StringBuilder s, int depth) {
         s.append("(");
         left.prettyPrint(s, depth);
-        s.append(op);
+        s.append(" " + op + " ");
         right.prettyPrint(s, depth);
         s.append(")");
     }

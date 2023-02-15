@@ -16,6 +16,9 @@ public class AssignStatement implements Statement{
 
     @Override
     public void prettyPrint(StringBuilder s, int depth) {
+        if(!s.isEmpty() && s.substring(s.length()-1,s.length()).equals("\n")) {
+            Statement.super.prettyPrint(s, depth);
+        }
         s.append(identifier);
         s.append(" = ");
         value.prettyPrint(s,depth);

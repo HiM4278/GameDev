@@ -14,7 +14,7 @@ public class Plan implements Node {
     @Override
     public void prettyPrint(StringBuilder s, int depth) {
         for(Statement statement: statements) {
-            statement.prettyPrint(s, depth+1);
+            statement.prettyPrint(s, depth);
             s.append("\n");
         }
     }

@@ -20,8 +20,8 @@ public class WhileStatement implements Statement{
         Statement.super.prettyPrint(s,depth);
         s.append("while (");
         condition.prettyPrint(s, depth);
-        s.append(")");
-        statement.prettyPrint(s, depth);
+        s.append(") ");
+        statement.prettyPrint(s, depth+1);
     }
 
     @Override

@@ -19,15 +19,23 @@ public class IfStatement implements Statement{
     @Override
     public void prettyPrint(StringBuilder s, int depth) {
         // new line
+//        if(s.substring(s.length()-5,s.length()).equals("then ")) {
+//            s.append("\n");
+//            Statement.super.prettyPrint(s,depth);
+//        }else if(!s.substring(s.length()-5,s.length()).equals("else ")){
+//            Statement.super.prettyPrint(s,depth);
+//        }
+        s.append("\n");
         Statement.super.prettyPrint(s,depth);
         s.append("if (");
         condition.prettyPrint(s, depth);
-        s.append(")");
-        statementIfTrue.prettyPrint(s, depth);
+        s.append(") then ");
+        statementIfTrue.prettyPrint(s, depth+1);
         // new line
+        s.append("\n");
         Statement.super.prettyPrint(s,depth);
-        s.append("else");
-        statementIfFalse.prettyPrint(s, depth);
+        s.append("else ");
+        statementIfFalse.prettyPrint(s, depth+1);
     }
 
     @Override

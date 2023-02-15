@@ -22,7 +22,7 @@ public class RegionCommand implements Statement {
 
     @Override
     public void prettyPrint(StringBuilder s, int depth) {
-        s.append(type);
+        s.append(type.toString().toLowerCase());
         s.append(" ");
         volume.prettyPrint(s, depth);
     }

@@ -20,7 +20,10 @@ public class Info implements Expression {
     @Override
     public void prettyPrint(StringBuilder s, int depth) {
         s.append(type.toString().toLowerCase());
-        if(type == InformationType.NEARBY) s.append(direction.toString().toLowerCase());
+        if(type == InformationType.NEARBY) {
+            s.append(" ");
+            s.append(direction.toString().toLowerCase());
+        }
     }
 
     public enum InformationType {OPPONENT,NEARBY}

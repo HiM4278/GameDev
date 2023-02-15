@@ -14,18 +14,20 @@ public class BlockStatement implements Statement{
 
     @Override
     public void prettyPrint(StringBuilder s, int depth) {
-        s.append(" {");
+        s.append("{");
         if(!statements.isEmpty()){
             s.append("\n");
         }
         for(Statement statement: statements) {
             // new line
-            Statement.super.prettyPrint(s,depth+1);
+//            Statement.super.prettyPrint(s,depth);
             statement.prettyPrint(s, depth);
             s.append("\n");
         }
         // new line
-        Statement.super.prettyPrint(s,depth);
+        if(!statements.isEmpty()){
+            Statement.super.prettyPrint(s,depth-1);
+        }
         s.append("}");
     }
 
