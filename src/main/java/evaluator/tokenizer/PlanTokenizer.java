@@ -52,8 +52,11 @@ public class PlanTokenizer implements Tokenizer{
     }
 
     private boolean isOperator(char c) {
-
-        return c == '+' || c == '-' || c == '*' || c == '/' || c == '%' || c == '^'|| c == '(' || c == ')'|| c == '=';
+        char[] operators = {'=','+','-','*','/','/','%','^','(',')','{','}'};
+        for(char operator: operators) {
+            if(c == operator) return true;
+        }
+        return false;
     }
 
     private void computeNext() throws SyntaxErrorException {

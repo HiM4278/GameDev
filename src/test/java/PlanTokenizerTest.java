@@ -25,7 +25,7 @@ public class PlanTokenizerTest {
         assertEquals("var1", tokenizer.consume());
         tokenizer.consume();
         tokenizer.consume();
-        assertEquals("1var", tokenizer.consume());
+        assertEquals("1", tokenizer.consume());
     }
 
 }
