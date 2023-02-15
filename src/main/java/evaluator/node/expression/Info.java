@@ -1,11 +1,11 @@
-package evaluator.node;
+package evaluator.node.expression;
 
-import evaluator.node.Directional;
+import extra.Directional;
 import exeption.EvalException;
 
 import java.util.HashMap;
 
-public class Info implements Expression{
+public class Info implements Expression {
     InformationType type;
     Directional.Direction direction;
     public Info (InformationType type, Directional.Direction direction){

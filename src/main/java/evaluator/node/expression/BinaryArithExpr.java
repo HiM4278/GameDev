@@ -1,4 +1,4 @@
-package evaluator.node;
+package evaluator.node.expression;
 
 import exeption.EvalException;
 
