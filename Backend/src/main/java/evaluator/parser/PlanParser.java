@@ -13,6 +13,7 @@ import exeption.SyntaxErrorException;
 import exeption.UnknownTokenException;
 import extra.Direction;
 
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 public class PlanParser implements Parser {
@@ -32,11 +33,11 @@ public class PlanParser implements Parser {
     }
 
     private Plan parsePlan() throws SyntaxErrorException {
-        Plan plan = new Plan();
+        LinkedList<Statement> statements = new LinkedList<>();
         while(tokenizer.hasNextToken()){
-            plan.append(parseStatement());
+            statements.push(parseStatement());
         }
-        return plan;
+        return new Plan(statements);
     }
 
     private Statement parseStatement() throws SyntaxErrorException{

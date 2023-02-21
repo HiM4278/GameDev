@@ -1,14 +1,18 @@
 package evaluator.node;
 
 import evaluator.node.statement.Statement;
-
-import java.util.LinkedList;
+import exeption.SyntaxErrorException;
+import java.util.List;
 
 public class Plan implements Node {
-    private final LinkedList<Statement> statements;
+    private final List<Statement> statements;
 
-    public Plan() {
-        this.statements = new LinkedList<>();
+    public Plan(List<Statement> statements) throws SyntaxErrorException {
+        if(statements.isEmpty()){
+            throw new SyntaxErrorException("The construction plan must contain at least one statement");
+        }else {
+            this.statements = statements;
+        }
     }
 
     @Override
@@ -17,9 +21,5 @@ public class Plan implements Node {
             statement.prettyPrint(s, depth);
             s.append("\n");
         }
-    }
-
-    public void append(Statement statement){
-        statements.add(statement);
     }
 }
