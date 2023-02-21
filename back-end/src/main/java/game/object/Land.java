@@ -7,15 +7,22 @@ public class Land implements Realty{
     protected Region position;
     private Player Owner;
     protected double deposit;
+    public Land(double deposit,Player owner,Region region){
+        this.deposit = deposit;
+        this.Owner = owner;
+        this.position = region;
+    }
+
+
 
     @Override
     public Region getPosition() {
-        return null;
+        return position;
     }
 
     @Override
     public int getDeposit() {
-        return 0;
+        return (int) deposit;
     }
 
     @Override
