@@ -1,6 +1,5 @@
 package evaluator.parser;
 
-import evaluator.node.Node;
 import evaluator.node.expression.Expression;
 import evaluator.node.expression.Identifier;
 import evaluator.node.expression.Info;
@@ -124,7 +123,7 @@ public class ExprParser implements Parser{
         return s.matches("[A-Za-z]+\\d*");
     }
 
-    private boolean isReservedWords(String s){
+    public static boolean isReservedWords(String s){
         String[] reserve = {"collect", "done", "down", "downleft", "downright", "else", "if", "invest", "move", "nearby", "opponent", "relocate", "shoot", "then", "up", "upleft", "upright", "while"};
         for(String word: reserve) {
             if(s.equals(word)) return true;

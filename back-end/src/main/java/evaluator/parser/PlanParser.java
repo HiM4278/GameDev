@@ -4,7 +4,6 @@ import evaluator.node.Plan;
 import evaluator.node.expression.Expression;
 import evaluator.node.statement.*;
 import evaluator.node.statement.command.*;
-import evaluator.tokenizer.PlanTokenizer;
 import evaluator.tokenizer.Tokenizer;
 import exeption.SyntaxErrorException;
 import extra.Direction;
@@ -62,6 +61,9 @@ public class PlanParser implements Parser {
             tokenizer.consume();
             return new AttackCommand(parseDirection(), exprParser.parse());
         } else {
+            if(ExprParser.isReservedWords(tokenizer.peek())) {
+                throw new SyntaxErrorException("\"" + tokenizer.peek() + "\" is reserved word.", tokenizer.getCurrentLine());
+            }
             String identifier = tokenizer.consume();
             tokenizer.consume("=");
             Expression value = exprParser.parse();
