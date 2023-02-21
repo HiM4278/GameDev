@@ -1,0 +1,238 @@
+Index: src/main/java/evaluator/node/Directional.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/evaluator/node/Directional.java b/src/main/java/extra/Directional.java
+rename from src/main/java/evaluator/node/Directional.java
+rename to src/main/java/extra/Directional.java
+--- a/src/main/java/evaluator/node/Directional.java	(revision 377c345875fb294fd77df891083edc24d3c3a8d2)
++++ b/src/main/java/extra/Directional.java	(date 1676373183411)
+@@ -1,5 +1,5 @@
+-package evaluator.node;
++package extra;
+ 
+ public class Directional {
+-    public enum Direction {UP,DOWN,UPLEFT,UPRIGHT,DOWNLEFT,DOWNRIGHT}
++    public enum Direction {UP, DOWN, UPLEFT, UPRIGHT, DOWNLEFT, DOWNRIGHT}
+ }
+Index: src/main/java/evaluator/parser/PlanParser.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package evaluator.parser;\r\n\r\nimport evaluator.node.expression.Expression;\r\nimport evaluator.node.Plan;\r\nimport exeption.SyntaxErrorException;\r\n\r\npublic class PlanParser implements Parser {\r\n\r\n    @Override\r\n    public Plan parse() throws SyntaxErrorException {\r\n        return null;\r\n    }\r\n\r\n    private Expression parseExpression(){\r\n//        Expr expr = parseT();\r\n//        try {\r\n//            while(tkz.peek(\"+\") || tkz.peek(\"-\")) {\r\n//                String operator = tkz.consume();\r\n//                if(operator.equals(\"+\")) {\r\n//                    expr = new evaluator.node.expression.BinaryArithExpr(expr,\"+\",parseT());\r\n//                } else if(operator.equals(\"-\")){\r\n//                    expr = new evaluator.node.expression.BinaryArithExpr(expr,\"-\",parseT());\r\n//                }\r\n//            }\r\n//        } catch (NoSuchElementException | UnknownTokenException e){\r\n//            throw new exeption.SyntaxErrorException(e.getMessage());\r\n//        }\r\n//        return expr;\r\n        return null;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/evaluator/parser/PlanParser.java b/src/main/java/evaluator/parser/PlanParser.java
+--- a/src/main/java/evaluator/parser/PlanParser.java	(revision 377c345875fb294fd77df891083edc24d3c3a8d2)
++++ b/src/main/java/evaluator/parser/PlanParser.java	(date 1676373328670)
+@@ -3,6 +3,9 @@
+ import evaluator.node.expression.Expression;
+ import evaluator.node.Plan;
+ import exeption.SyntaxErrorException;
++import exeption.UnknownTokenException;
++
++import java.util.NoSuchElementException;
+ 
+ public class PlanParser implements Parser {
+ 
+@@ -11,21 +14,20 @@
+         return null;
+     }
+ 
+-    private Expression parseExpression(){
+-//        Expr expr = parseT();
+-//        try {
+-//            while(tkz.peek("+") || tkz.peek("-")) {
+-//                String operator = tkz.consume();
+-//                if(operator.equals("+")) {
+-//                    expr = new evaluator.node.expression.BinaryArithExpr(expr,"+",parseT());
+-//                } else if(operator.equals("-")){
+-//                    expr = new evaluator.node.expression.BinaryArithExpr(expr,"-",parseT());
+-//                }
+-//            }
+-//        } catch (NoSuchElementException | UnknownTokenException e){
+-//            throw new exeption.SyntaxErrorException(e.getMessage());
+-//        }
+-//        return expr;
+-        return null;
++    private Expression parseExpression() throws SyntaxErrorException {
++        Expr expr = parseT();
++        try {
++            while(tkz.peek("+") || tkz.peek("-")) {
++                String operator = tkz.consume();
++                if(operator.equals("+")) {
++                    expr = new evaluator.node.expression.BinaryArithExpr(expr,"+",parseT());
++                } else if(operator.equals("-")){
++                    expr = new evaluator.node.expression.BinaryArithExpr(expr,"-",parseT());
++                }
++            }
++        } catch (NoSuchElementException | UnknownTokenException e){
++            throw new exeption.SyntaxErrorException(e.getMessage());
++        }
++        return expr;
+     }
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"ae3d9051-5c2f-4624-b7c2-15ddceb5c461\" name=\"Changes\" comment=\"Add IfStatement.java and WhileStatement.java\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/evaluator/node/statement/AssignStatement.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/evaluator/node/statement/BlockStatement.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/evaluator/node/statement/IfStatement.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/evaluator/node/statement/IfStatement.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/evaluator/node/statement/Statement.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/evaluator/node/statement/Statement.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/evaluator/node/statement/WhileStatement.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/evaluator/node/statement/WhileStatement.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"ExternalProjectsManager\">\r\n    <system id=\"GRADLE\">\r\n      <state>\r\n        <task path=\"$PROJECT_DIR$\">\r\n          <activation />\r\n        </task>\r\n        <projects_view />\r\n      </state>\r\n    </system>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"0baae514-84ef-4a46-913c-fc787e77f902\" />\r\n        <option name=\"url\" value=\"https://github.com/HiM4278/GameDev.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2LIuKXIQiSPxH7BIGnrgfBfEY9w\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\r\n      <module name=\"LowGradeCivilization\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\r\n      <module name=\"LowGradeCivilization\" />\r\n      <option name=\"filePath\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"ae3d9051-5c2f-4624-b7c2-15ddceb5c461\" name=\"Changes\" comment=\"\" />\r\n      <created>1675570856629</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1675570856629</updated>\r\n      <workItem from=\"1675570857871\" duration=\"388000\" />\r\n      <workItem from=\"1676359335037\" duration=\"369000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"move main\">\r\n      <created>1676359380746</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676359380746</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"add Node\">\r\n      <created>1676360334083</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676360334083</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Update Statement\">\r\n      <created>1676366844809</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676366844809</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Update gitignore\">\r\n      <created>1676366955587</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676366955587</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Update gitignore\">\r\n      <created>1676367314288</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676367314288</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Add IfStatement.java and WhileStatement.java\">\r\n      <created>1676369603064</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676369603064</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"7\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"main\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"move main\" />\r\n    <MESSAGE value=\"add Node\" />\r\n    <MESSAGE value=\"Update Statement\" />\r\n    <MESSAGE value=\"Update gitignore\" />\r\n    <MESSAGE value=\"Add IfStatement.java and WhileStatement.java\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Add IfStatement.java and WhileStatement.java\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 377c345875fb294fd77df891083edc24d3c3a8d2)
++++ b/.idea/workspace.xml	(date 1676373244732)
+@@ -4,13 +4,14 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="Add IfStatement.java and WhileStatement.java">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/AssignStatement.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/BlockStatement.java" afterDir="false" />
++    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="Add BlockStatement.java and AssignStatement.java">
++      <change afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/command/Command.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/command/RelocateCommand.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/exeption/UnknownTokenException.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/IfStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/IfStatement.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/Statement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/Statement.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/WhileStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/WhileStatement.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/Directional.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/extra/Directional.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/expression/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/evaluator/node/expression/Info.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/parser/PlanParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/evaluator/parser/PlanParser.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -84,6 +85,7 @@
+ }</component>
+   <component name="RecentsManager">
+     <key name="CopyClassDialog.RECENTS_KEY">
++      <recent name="exeption" />
+       <recent name="" />
+     </key>
+   </component>
+@@ -155,7 +157,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1676369603064</updated>
+     </task>
+-    <option name="localTasksCounter" value="7" />
++    <task id="LOCAL-00007" summary="Add BlockStatement.java and AssignStatement.java">
++      <created>1676371961058</created>
++      <option name="number" value="00007" />
++      <option name="presentableId" value="LOCAL-00007" />
++      <option name="project" value="LOCAL" />
++      <updated>1676371961058</updated>
++    </task>
++    <option name="localTasksCounter" value="8" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -190,6 +199,7 @@
+     <MESSAGE value="Update Statement" />
+     <MESSAGE value="Update gitignore" />
+     <MESSAGE value="Add IfStatement.java and WhileStatement.java" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Add IfStatement.java and WhileStatement.java" />
++    <MESSAGE value="Add BlockStatement.java and AssignStatement.java" />
++    <option name="LAST_COMMIT_MESSAGE" value="Add BlockStatement.java and AssignStatement.java" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/main/java/evaluator/node/statement/command/RelocateCommand.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/evaluator/node/statement/command/RelocateCommand.java b/src/main/java/evaluator/node/statement/command/RelocateCommand.java
+new file mode 100644
+--- /dev/null	(date 1676372942775)
++++ b/src/main/java/evaluator/node/statement/command/RelocateCommand.java	(date 1676372942775)
+@@ -0,0 +1,18 @@
++package evaluator.node.statement.command;
++
++import evaluator.node.statement.Statement;
++import exeption.EvalException;
++
++import java.util.HashMap;
++
++public class RelocateCommand implements Statement {
++    @Override
++    public void prettyPrint(StringBuilder s) {
++
++    }
++
++    @Override
++    public boolean execute(HashMap<String, Integer> identifiers) throws EvalException {
++        return false;
++    }
++}
+Index: src/main/java/evaluator/node/statement/command/Command.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/evaluator/node/statement/command/Command.java b/src/main/java/evaluator/node/statement/command/Command.java
+new file mode 100644
+--- /dev/null	(date 1676372890816)
++++ b/src/main/java/evaluator/node/statement/command/Command.java	(date 1676372890816)
+@@ -0,0 +1,24 @@
++package evaluator.node.statement.command;
++
++import evaluator.node.statement.Statement;
++import exeption.EvalException;
++
++import java.util.HashMap;
++
++public class Command implements Statement {
++    protected boolean isEnd;
++
++    public Command(boolean isEnd){
++        this.isEnd = isEnd;
++    }
++
++    @Override
++    public void prettyPrint(StringBuilder s) {
++
++    }
++
++    @Override
++    public boolean execute(HashMap<String, Integer> identifiers) throws EvalException {
++        return isEnd;
++    }
++}
+Index: src/main/java/evaluator/node/expression/Info.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package evaluator.node.expression;\r\n\r\nimport evaluator.node.Directional;\r\nimport evaluator.node.expression.Expression;\r\nimport exeption.EvalException;\r\n\r\nimport java.util.HashMap;\r\n\r\npublic class Info implements Expression {\r\n    InformationType type;\r\n    Directional.Direction direction;\r\n    public Info (InformationType type, Directional.Direction direction){\r\n        this.type = type;\r\n        this.direction = direction;\r\n    }\r\n    @Override\r\n    public int eval(HashMap<String, Integer> identifier) throws EvalException {\r\n        return 0;\r\n    }\r\n\r\n    @Override\r\n    public void prettyPrint(StringBuilder s) {\r\n        s.append(type);\r\n    }\r\n\r\n    public enum InformationType {OPPONENT,NEARBY}\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/evaluator/node/expression/Info.java b/src/main/java/evaluator/node/expression/Info.java
+--- a/src/main/java/evaluator/node/expression/Info.java	(revision 377c345875fb294fd77df891083edc24d3c3a8d2)
++++ b/src/main/java/evaluator/node/expression/Info.java	(date 1676373097974)
+@@ -1,7 +1,6 @@
+ package evaluator.node.expression;
+ 
+-import evaluator.node.Directional;
+-import evaluator.node.expression.Expression;
++import extra.Directional;
+ import exeption.EvalException;
+ 
+ import java.util.HashMap;
+Index: src/main/java/exeption/UnknownTokenException.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/exeption/UnknownTokenException.java b/src/main/java/exeption/UnknownTokenException.java
+new file mode 100644
+--- /dev/null	(date 1676373244660)
++++ b/src/main/java/exeption/UnknownTokenException.java	(date 1676373244660)
+@@ -0,0 +1,7 @@
++package exeption;
++
++public class UnknownTokenException extends RuntimeException {
++    public UnknownTokenException(String message){
++        super(message);
++    }
++}
