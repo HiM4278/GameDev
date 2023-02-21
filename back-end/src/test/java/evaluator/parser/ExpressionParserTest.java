@@ -1,6 +1,8 @@
 package evaluator.parser;
 
 import evaluator.node.Plan;
+import evaluator.tokenizer.PlanTokenizer;
+import evaluator.tokenizer.Tokenizer;
 import exeption.SyntaxErrorException;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Nested;
@@ -20,8 +22,10 @@ class ExpressionParserTest {
         }
         @Test
         public void shoot_test () throws SyntaxErrorException {
-            PlanParser psr = new PlanParser();
-            Plan plan = psr.parse("shoot up cost");
+            Tokenizer tokenizer = new PlanTokenizer();
+            tokenizer.updateSource("shoot up cost");
+            PlanParser psr = new PlanParser(tokenizer);
+            Plan plan = psr.parse();
             StringBuilder s = new StringBuilder();
             plan.prettyPrint(s, 0);
             assertEquals("shoot up cost\n",s.toString());

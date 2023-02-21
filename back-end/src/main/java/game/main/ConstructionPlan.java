@@ -8,14 +8,12 @@ import java.util.HashMap;
 
 public class ConstructionPlan {
     private Player owner;
-    private PlanParser planParser;
     private String strPlan;
     private Plan plan;
     private HashMap<String, Integer> identifiers;
 
     public ConstructionPlan(Player owner){
         this.owner = owner;
-        planParser = new PlanParser();
     }
 
     public void updatePlan(String src){
