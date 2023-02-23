@@ -1,9 +1,8 @@
 package evaluator.node.expression;
 
-import evaluator.node.Node;
 import exeption.EvalException;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class BinaryArithExpr implements Expression{
     Expression left,right;
@@ -14,7 +13,7 @@ public class BinaryArithExpr implements Expression{
         this.right = right;
     }
     @Override
-    public int eval(HashMap<String, Integer> identifier) throws EvalException {
+    public int eval(Map<String, Integer> identifier) throws EvalException {
         int lv = left.eval(identifier);
         int rv = right.eval(identifier);
         if (op.equals("+")) return lv + rv;
@@ -30,7 +29,7 @@ public class BinaryArithExpr implements Expression{
     public void prettyPrint(StringBuilder s, int depth) {
         s.append("(");
         left.prettyPrint(s, depth);
-        s.append(" " + op + " ");
+        s.append(" ").append(op).append(" ");
         right.prettyPrint(s, depth);
         s.append(")");
     }

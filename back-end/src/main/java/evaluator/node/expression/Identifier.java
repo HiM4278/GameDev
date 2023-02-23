@@ -2,7 +2,7 @@ package evaluator.node.expression;
 
 import exeption.EvalException;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class Identifier implements Expression{
     String name;
@@ -10,7 +10,7 @@ public class Identifier implements Expression{
         this.name = name;
     }
     @Override
-    public int eval(HashMap<String, Integer> identifier) throws EvalException {
+    public int eval(Map<String, Integer> identifier) throws EvalException {
         if(identifier.containsKey(name)) return identifier.get(name);
         throw new EvalException("undefined variable: " + name);
     }
