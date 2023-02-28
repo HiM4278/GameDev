@@ -12,7 +12,7 @@ public class Game {
     private Territory territory;
     private Configuration configuration;
     private LoopCounter currPlayID;
-    public Game(int maxPlayer,){
+    public Game(int maxPlayer){
 
     }
     private void appendPlayer(){

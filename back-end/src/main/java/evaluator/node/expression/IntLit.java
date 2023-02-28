@@ -1,9 +1,8 @@
 package evaluator.node.expression;
 
-import evaluator.node.expression.Expression;
 import exeption.EvalException;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class IntLit implements Expression {
     private final int value;
@@ -11,7 +10,7 @@ public class IntLit implements Expression {
         this.value = value;
     }
     @Override
-    public int eval(HashMap<String, Integer> identifier) throws EvalException {
+    public int eval(Map<String, Integer> identifier) throws EvalException {
         return value;
     }
 

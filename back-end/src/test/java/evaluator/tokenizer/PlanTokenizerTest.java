@@ -1,4 +1,5 @@
-import evaluator.tokenizer.PlanTokenizer;
+package evaluator.tokenizer;
+
 import exeption.SyntaxErrorException;
 import org.junit.jupiter.api.Test;
 

@@ -3,7 +3,7 @@ package evaluator.node.expression;
 import extra.Direction;
 import exeption.EvalException;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class Info implements Expression {
     InformationType type;
@@ -13,7 +13,7 @@ public class Info implements Expression {
         this.direction = direction;
     }
     @Override
-    public int eval(HashMap<String, Integer> identifier) throws EvalException {
+    public int eval(Map<String, Integer> identifier) throws EvalException {
         return 0;
     }
 

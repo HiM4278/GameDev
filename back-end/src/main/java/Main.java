@@ -1,5 +1,5 @@
 import evaluator.node.expression.Expression;
-import evaluator.parser.ExprParser;
+import evaluator.parser.PlanParser;
 import evaluator.tokenizer.PlanTokenizer;
 import exeption.EvalException;
 import exeption.SyntaxErrorException;
@@ -10,8 +10,8 @@ public class Main {
     public static void main(String[] args) throws SyntaxErrorException, EvalException {
         PlanTokenizer tokenizer = new PlanTokenizer();
         tokenizer.updateSource("2^6");
-        ExprParser psr = new ExprParser(tokenizer);
-        Expression plan = psr.parse();
-        System.out.println(plan.eval(new HashMap<>()));
+        PlanParser psr = new PlanParser(tokenizer);
+        Expression expr = psr.parseExprForTest();
+        System.out.println(expr.eval(new HashMap<>()));
     }
 }
