@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="City ต่างๆ">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_2_2566_10_12_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_2_2566_10_12__Changes_.xml" beforeDir="false" />
+    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="Create class Player">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Configuration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Match.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Territory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Territory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Region.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Region.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/object/CityCenter.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/object/CityCrew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/object/CityCrew.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/object/Land.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/object/Land.java" afterDir="false" />
@@ -74,24 +68,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Users/Asus/Downloads/DevGame",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Asus/Downloads/DevGame&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -183,6 +177,7 @@
       <workItem from="1677170815597" duration="440000" />
       <workItem from="1677171292721" duration="198000" />
       <workItem from="1677564241331" duration="7000" />
+      <workItem from="1677564499732" duration="3422000" />
     </task>
     <task id="LOCAL-00001" summary="move main">
       <created>1676359380746</created>
@@ -422,7 +417,21 @@
       <option name="project" value="LOCAL" />
       <updated>1676978678831</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Create class Match">
+      <created>1677567720697</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1677567720697</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Create class Player">
+      <created>1677567892911</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1677567892911</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -455,8 +464,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="add all operators to Tokenizer" />
-    <MESSAGE value="Expression Parser completed" />
     <MESSAGE value="move Directional.java" />
     <MESSAGE value="Init UnknownTokenException.java" />
     <MESSAGE value="move all GameObject to new package" />
@@ -480,6 +487,8 @@
     <MESSAGE value="check at least one statement in plan" />
     <MESSAGE value="rename folder" />
     <MESSAGE value="City ต่างๆ" />
-    <option name="LAST_COMMIT_MESSAGE" value="City ต่างๆ" />
+    <MESSAGE value="Create class Match" />
+    <MESSAGE value="Create class Player" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create class Player" />
   </component>
 </project>

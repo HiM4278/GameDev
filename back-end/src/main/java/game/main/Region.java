@@ -22,4 +22,16 @@ public class Region {
     public Region getNeighbor(Direction d){
         return neighbor.get(d);
     }
+    public int getX(){
+        return x;
+    }
+    public int getY(){
+        return y;
+    }
+    public Realty getRealty(){
+        return realty;
+    }
+    public Unit getUnit(){
+        return unit;
+    }
 }
