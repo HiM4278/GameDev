@@ -3,6 +3,7 @@ package game.object;
 import game.main.Player;
 import game.main.Region;
 
+
 public class Land implements Realty{
     private Region position;
     private boolean isCityCenter;
@@ -14,6 +15,7 @@ public class Land implements Realty{
         this.deposit = maxDeposit;
         this.Owner = owner;
         this.position = region;
+        this.isCityCenter = false;
     }
 
 
@@ -29,7 +31,7 @@ public class Land implements Realty{
     }
 
     @Override
-    public boolean collect(int money) {
+    public boolean increase(long money) {
         if (deposit < money){
             return false;
         } else {
@@ -37,23 +39,29 @@ public class Land implements Realty{
            deposit = d;
             if(d < 0){
                 deposit = 0;
+                Owner = null; // if Region's deposit == 0, The region will have no owner.
             }
             return true;
         }
     }
 
     @Override
-    public boolean invest(int budget) {
+    public void decrease(long budget) {
         double d = deposit + budget;
+        deposit = d;
         if (d > maxDep){
             deposit = maxDep;
         }
-        return false;
     }
     public Player getOwner(){
         return Owner;
     }
     public void setThisToCenter(){
-
+        this.isCityCenter = true;
     }
+    public void updateDeposit(double interest){
+        deposit += deposit*interest/100;
+    }
+
+
 }
