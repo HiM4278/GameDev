@@ -8,6 +8,9 @@ import java.util.LinkedList;
 
 public class Player {
     private String name;
+    private Configuration configuration;
+
+
     private ConstructionPlan plan;
 
     private CityCrew crew;

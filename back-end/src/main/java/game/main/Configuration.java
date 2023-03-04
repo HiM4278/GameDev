@@ -11,6 +11,7 @@ public class Configuration {
 
     public Configuration(Path p) throws IOException {
         map = readFromFile(p);
+        this.setup();
     }
     private HashMap<String,Integer> readFromFile(Path path) throws IOException {
         HashMap<String, Integer> map = new HashMap<>();
@@ -28,7 +29,7 @@ public class Configuration {
         scanner.close();
         return map;
     }
-    public void setup() throws IOException {
+    private void setup() throws IOException {
         this.M = map.get("m");
         this.N = map.get("n");
         this.initBudget = map.get("init_budget");
