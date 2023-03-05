@@ -5,23 +5,52 @@ import extra.LoopCounter;
 import java.util.ArrayList;
 
 public class Match {
-    private int Turn;
-    public int numPlayer;
+    private int MaxPlayer;
+    private String name;
+    private String password;
     private Player host;
     private ArrayList<Player> player;
     private Territory territory;
     private Configuration configuration;
-    private LoopCounter currPlayID;
-    public Match(int maxPlayer){
-
+    private boolean isPlaying;
+    private LoopCounter curPlayerIndex;
+    public Match(Configuration configuration,String name,String password, Player host,int maxPlayer){
+        this.configuration = configuration;
+        this.name = name;
+        this.password = password;
+        this.host = host;
+        this.MaxPlayer = maxPlayer;
+        this.territory = new Territory((int)configuration.getM(),(int)configuration.getN());
     }
-    private void appendPlayer(){
-
+    private boolean addPlayer(Player p){
+        if(player.size() < MaxPlayer){
+            player.add(p);
+            return true;
+        } else {
+            return false;
+        }
     }
     public void start(){
 
     }
-    public void nextPlayer(){
-
+    public void nextPlayer(Player player){
+        if(isPlaying){
+            player.endTurn();
+            curPlayerIndex.increase();
+        }
+    }
+    public String getName(){
+        return this.name;
+    }
+    public boolean isEnd(){
+        boolean check = false;
+        for (Player p : player ){
+            if (p.hasLost(p)){
+                check = true;
+            } else {
+                check = false;
+            }
+        }
+        return check;
     }
 }
