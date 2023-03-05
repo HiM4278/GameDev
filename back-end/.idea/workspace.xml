@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="Create class Player">
+    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="Edit Realty interface from boolean -&gt; void">
+      <change afterPath="$PROJECT_DIR$/src/main/java/extra/GameTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_2_2566_15_07_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_2_2566_15_07__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Region.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Region.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Match.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/object/CityCenter.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/object/CityCrew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/object/CityCrew.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/object/Land.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/object/Land.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +182,11 @@
       <workItem from="1677170815597" duration="440000" />
       <workItem from="1677171292721" duration="198000" />
       <workItem from="1677564241331" duration="7000" />
-      <workItem from="1677564499732" duration="3422000" />
+      <workItem from="1677564499732" duration="10969000" />
+      <workItem from="1677672358540" duration="709000" />
+      <workItem from="1677773577807" duration="1433000" />
+      <workItem from="1677849918562" duration="3468000" />
+      <workItem from="1678004362786" duration="946000" />
     </task>
     <task id="LOCAL-00001" summary="move main">
       <created>1676359380746</created>
@@ -431,7 +440,42 @@
       <option name="project" value="LOCAL" />
       <updated>1677567892911</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="CityCrew 1st Version">
+      <created>1677567949006</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1677567949006</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Land 1st Version">
+      <created>1677568002854</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1677568002854</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Region is mostly implemented">
+      <created>1677568073628</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1677568073628</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Land is finish">
+      <created>1677672418385</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1677672418385</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Edit Realty interface from boolean -&gt; void">
+      <created>1677672470844</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1677672470844</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -464,11 +508,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="move Directional.java" />
-    <MESSAGE value="Init UnknownTokenException.java" />
-    <MESSAGE value="move all GameObject to new package" />
-    <MESSAGE value="move Counter.java to extra package" />
-    <MESSAGE value="fix operator token bug" />
     <MESSAGE value="add feature (count line) in Tokenizer" />
     <MESSAGE value="Init all Statements" />
     <MESSAGE value="init all Commands" />
@@ -489,6 +528,11 @@
     <MESSAGE value="City ต่างๆ" />
     <MESSAGE value="Create class Match" />
     <MESSAGE value="Create class Player" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create class Player" />
+    <MESSAGE value="CityCrew 1st Version" />
+    <MESSAGE value="Land 1st Version" />
+    <MESSAGE value="Region is mostly implemented" />
+    <MESSAGE value="Land is finish" />
+    <MESSAGE value="Edit Realty interface from boolean -&gt; void" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit Realty interface from boolean -&gt; void" />
   </component>
 </project>
