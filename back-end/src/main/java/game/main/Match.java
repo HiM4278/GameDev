@@ -22,7 +22,7 @@ public class Match {
         this.MaxPlayer = maxPlayer;
         this.territory = new Territory((int)configuration.getM(),(int)configuration.getN());
     }
-    private boolean addPlayer(Player p){
+    public boolean addPlayer(Player p){
         if(player.size() < MaxPlayer){
             player.add(p);
             return true;

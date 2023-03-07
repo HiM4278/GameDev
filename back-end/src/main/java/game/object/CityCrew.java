@@ -73,4 +73,7 @@ public class CityCrew implements Unit{
     private void checkBudget(){
         this.Budget = max(Budget,0);
     }
+    public void SetBasePosition(){
+        position = base.getPosition();
+    }
 }

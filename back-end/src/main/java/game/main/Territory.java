@@ -2,8 +2,14 @@ package game.main;
 
 import extra.Direction;
 
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+
 public class Territory {
+    private Set<Region> UsedRegion = new HashSet<>();
     private Region[][] region;
+    private Random random = new Random();
     private int m,n;
 
 
@@ -58,5 +64,17 @@ public class Territory {
                 }
             }
         }
+    }
+    public Region RandomRegion(){
+        int x,y;
+        Region r;
+        do {
+            x = random.nextInt(m)+1;
+            y = random.nextInt(n)+1;
+            r = region[x][y];
+        }while (UsedRegion.contains(r));
+        UsedRegion.add(r);
+        return r;
+
     }
 }
