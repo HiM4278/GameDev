@@ -62,6 +62,7 @@ public class Land implements Realty{
     public void updateDeposit(double interest){
         deposit += deposit*interest/100;
     }
+    public boolean isCityCenters () { return this.isCityCenter; }
 
 
 }

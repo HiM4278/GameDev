@@ -1,0 +1,241 @@
+Index: src/main/java/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import evaluator.node.expression.Expression;\r\nimport evaluator.parser.PlanParser;\r\nimport evaluator.tokenizer.PlanTokenizer;\r\nimport exeption.EvalException;\r\nimport exeption.SyntaxErrorException;\r\n\r\nimport java.util.HashMap;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) throws SyntaxErrorException, EvalException {\r\n        PlanTokenizer tokenizer = new PlanTokenizer();\r\n        tokenizer.updateSource(\"2^6\");\r\n        PlanParser psr = new PlanParser(tokenizer);\r\n        Expression expr = psr.parseExprForTest();\r\n        System.out.println(expr.eval(new HashMap<>()));\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Main.java b/src/main/java/Main.java
+--- a/src/main/java/Main.java	(revision 167d7a99577e4e7fed8e124ddf877e08c3b9be47)
++++ b/src/main/java/Main.java	(date 1678006415827)
+@@ -13,5 +13,7 @@
+         PlanParser psr = new PlanParser(tokenizer);
+         Expression expr = psr.parseExprForTest();
+         System.out.println(expr.eval(new HashMap<>()));
++
++
+     }
+ }
+\ No newline at end of file
+Index: src/test/java/evaluator/game/object/LandTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/evaluator/game/object/LandTest.java b/src/test/java/evaluator/game/object/LandTest.java
+new file mode 100644
+--- /dev/null	(date 1678174298714)
++++ b/src/test/java/evaluator/game/object/LandTest.java	(date 1678174298714)
+@@ -0,0 +1,61 @@
++package evaluator.game.object;
++
++import game.main.Configuration;
++import game.main.Player;
++import game.main.Region;
++import game.object.Land;
++import org.junit.jupiter.api.Disabled;
++import org.junit.jupiter.api.Test;
++
++import java.io.IOException;
++import java.nio.file.Path;
++import java.nio.file.Paths;
++
++import static org.junit.jupiter.api.Assertions.assertEquals;
++
++public class LandTest {
++//    Path p1 = Paths.get("Z:\\OOP\\Project_UPBEAT\\back-end\\src\\main\\java\\game\\main\\Configuration.txt");
++    Configuration config = new Configuration(Path.of("Z:\\OOP\\Project_UPBEAT\\back-end\\src\\main\\java\\game\\main\\Configuration.txt"));
++
++
++    public LandTest() throws IOException {
++    }
++
++    @Test
++    public void readConfigTest () {
++        assertEquals(10000, config.getInitBudget());
++        assertEquals(1000000, config.getMax_dep());
++        assertEquals(5, config.getInterest_pct());
++        assertEquals(100, config.getRev_cost());
++        assertEquals(20, config.getM());
++        assertEquals(15, config.getN());
++        assertEquals(1000, config.getInitCenterDeposit());
++        assertEquals(300, config.getTimeForFirstPlan());
++        assertEquals(1800, config.getTimeForRevision());
++    }
++
++//    @Disabled
++    @Test
++    public void DepositTest () {
++        Region region = new Region(1,1);
++//        Player player = new Player("Anda", region);
++        Land land = new Land( 2000, null, region);
++
++//        long Deposit = land.getDeposit();
++//        Player owner = land.getOwner();
++
++        assertEquals(2000, land.getDeposit());
++    }
++
++    @Disabled
++    @Test
++    public void updateDeposit () {
++        double rate = 2.5;
++        Region region = new Region(1,1);
++        Player player = new Player("Anda", region);
++        Land land = new Land( 2000, player, region);
++
++        land.updateDeposit(rate);
++        long newDeposit = land.getDeposit();
++    }
++}
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    id 'java'\r\n}\r\n\r\ngroup 'org.example'\r\nversion '1.0-SNAPSHOT'\r\n\r\nrepositories {\r\n    mavenCentral()\r\n}\r\n\r\ndependencies {\r\n    implementation 'org.testng:testng:7.1.0'\r\n    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'\r\n    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'\r\n}\r\n\r\ntest {\r\n    useJUnitPlatform()\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle b/build.gradle
+--- a/build.gradle	(revision 167d7a99577e4e7fed8e124ddf877e08c3b9be47)
++++ b/build.gradle	(date 1678045461402)
+@@ -12,6 +12,8 @@
+ dependencies {
+     implementation 'org.testng:testng:7.1.0'
+     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
++    testImplementation 'org.testng:testng:7.1.0'
++    testImplementation 'org.testng:testng:7.1.0'
+     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+ }
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"ae3d9051-5c2f-4624-b7c2-15ddceb5c461\" name=\"Changes\" comment=\"Edit Realty interface from boolean -&gt; void\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/extra/GameTimer.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_2_2566_15_07_[Changes]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_2_2566_15_07__Changes_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/build.gradle\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/build.gradle\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/game/main/Game.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/game/main/Game.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/game/main/Match.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/game/main/Match.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/game/main/Player.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/game/main/Player.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/game/object/CityCenter.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/game/object/CityCrew.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/game/object/CityCrew.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"ExternalProjectsManager\">\r\n    <system id=\"GRADLE\">\r\n      <state>\r\n        <task path=\"$PROJECT_DIR$\">\r\n          <activation />\r\n        </task>\r\n        <projects_view />\r\n      </state>\r\n    </system>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"JUnit5 Test Class\" />\r\n        <option value=\"Enum\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"0baae514-84ef-4a46-913c-fc787e77f902\" />\r\n        <option name=\"url\" value=\"https://github.com/HiM4278/GameDev.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2LIuKXIQiSPxH7BIGnrgfBfEY9w\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,\r\n    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Asus/Downloads/DevGame&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateTestDialog.Recents.Supers\">\r\n      <recent name=\"\" />\r\n    </key>\r\n    <key name=\"CreateTestDialog.RecentsKey\">\r\n      <recent name=\"evaluator.parser\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Main\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"LowGradeCivilization.main\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"PlanTokenizerTest\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":test\" />\r\n            <option value=\"--tests\" />\r\n            <option value=\"&quot;PlanTokenizerTest&quot;\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"PlanTokenizerTest.ExpressionInfoTest\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":test\" />\r\n            <option value=\"--tests\" />\r\n            <option value=\"&quot;PlanTokenizerTest.ExpressionInfoTest&quot;\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Gradle.PlanTokenizerTest.ExpressionInfoTest\" />\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"Gradle.PlanTokenizerTest\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"ae3d9051-5c2f-4624-b7c2-15ddceb5c461\" name=\"Changes\" comment=\"\" />\r\n      <created>1675570856629</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1675570856629</updated>\r\n      <workItem from=\"1675570857871\" duration=\"388000\" />\r\n      <workItem from=\"1676359335037\" duration=\"369000\" />\r\n      <workItem from=\"1676973152858\" duration=\"6385000\" />\r\n      <workItem from=\"1677150420904\" duration=\"3727000\" />\r\n      <workItem from=\"1677167872865\" duration=\"411000\" />\r\n      <workItem from=\"1677169129378\" duration=\"301000\" />\r\n      <workItem from=\"1677170158358\" duration=\"93000\" />\r\n      <workItem from=\"1677170815597\" duration=\"440000\" />\r\n      <workItem from=\"1677171292721\" duration=\"198000\" />\r\n      <workItem from=\"1677564241331\" duration=\"7000\" />\r\n      <workItem from=\"1677564499732\" duration=\"10969000\" />\r\n      <workItem from=\"1677672358540\" duration=\"709000\" />\r\n      <workItem from=\"1677773577807\" duration=\"1433000\" />\r\n      <workItem from=\"1677849918562\" duration=\"3468000\" />\r\n      <workItem from=\"1678004362786\" duration=\"946000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"move main\">\r\n      <created>1676359380746</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676359380746</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"add Node\">\r\n      <created>1676360334083</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676360334083</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Update Statement\">\r\n      <created>1676366844809</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676366844809</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Update gitignore\">\r\n      <created>1676366955587</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676366955587</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Update gitignore\">\r\n      <created>1676367314288</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676367314288</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Add IfStatement.java and WhileStatement.java\">\r\n      <created>1676369603064</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676369603064</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"create package expression\">\r\n      <created>1676431283781</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676431283781</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"add updateSource() to Tokenizer\">\r\n      <created>1676438762413</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676438762413</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"add all operators to Tokenizer\">\r\n      <created>1676439191831</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676439191831</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Expression Parser completed\">\r\n      <created>1676439887981</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676439887981</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"Expression Parser completed\">\r\n      <created>1676440065658</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676440065658</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"move Directional.java\">\r\n      <created>1676440181469</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676440181469</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Init UnknownTokenException.java\">\r\n      <created>1676440219195</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676440219195</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"move all GameObject to new package\">\r\n      <created>1676440345276</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676440345276</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"move Counter.java to extra package\">\r\n      <created>1676442150238</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676442150238</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"fix operator token bug\">\r\n      <created>1676453343418</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676453343418</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"add feature (count line) in Tokenizer\">\r\n      <created>1676453996515</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676453996515</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"Init all Statements\">\r\n      <created>1676454105889</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676454105889</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"init all Commands\">\r\n      <created>1676454220019</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676454220019</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00020\" summary=\"edit prettyPrint() for all Expressions\">\r\n      <created>1676454372688</created>\r\n      <option name=\"number\" value=\"00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676454372688</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00021\" summary=\"parser completed\">\r\n      <created>1676454437953</created>\r\n      <option name=\"number\" value=\"00021\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676454437953</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00022\" summary=\"add DoneCommand\">\r\n      <created>1676454467646</created>\r\n      <option name=\"number\" value=\"00022\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676454467647</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00023\" summary=\"create new Direction.java\">\r\n      <created>1676454522975</created>\r\n      <option name=\"number\" value=\"00023\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676454522975</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00024\" summary=\"Init ConstructionPlan.java\">\r\n      <created>1676454553035</created>\r\n      <option name=\"number\" value=\"00024\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676454553035</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00025\" summary=\"remove all test in ExpressionParserTest.java\">\r\n      <created>1676454632786</created>\r\n      <option name=\"number\" value=\"00025\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00025\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676454632786</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00026\" summary=\"import LoopCounter in Game.java\">\r\n      <created>1676454684285</created>\r\n      <option name=\"number\" value=\"00026\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00026\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676454684285</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00027\" summary=\"Plan.prettyPrint completed\">\r\n      <created>1676454740211</created>\r\n      <option name=\"number\" value=\"00027\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00027\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676454740211</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00028\" summary=\"add line in SyntaxError information\">\r\n      <created>1676455240769</created>\r\n      <option name=\"number\" value=\"00028\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00028\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676455240769</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00029\" summary=\"handle reserved word\">\r\n      <created>1676459888978</created>\r\n      <option name=\"number\" value=\"00029\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00029\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676459888978</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00030\" summary=\"handdle full line comment\">\r\n      <created>1676460177075</created>\r\n      <option name=\"number\" value=\"00030\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00030\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676460177075</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00031\" summary=\"prettyPrint completed\">\r\n      <created>1676463786759</created>\r\n      <option name=\"number\" value=\"00031\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00031\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676463786759</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00032\" summary=\"check at least one statement in plan\">\r\n      <created>1676948295849</created>\r\n      <option name=\"number\" value=\"00032\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00032\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676948295849</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00033\" summary=\"rename folder\">\r\n      <created>1676966832535</created>\r\n      <option name=\"number\" value=\"00033\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00033\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676966832535</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00034\" summary=\"City ต่างๆ\">\r\n      <created>1676978678831</created>\r\n      <option name=\"number\" value=\"00034\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00034\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676978678831</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00035\" summary=\"Create class Match\">\r\n      <created>1677567720697</created>\r\n      <option name=\"number\" value=\"00035\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00035\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677567720697</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00036\" summary=\"Create class Player\">\r\n      <created>1677567892911</created>\r\n      <option name=\"number\" value=\"00036\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00036\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677567892911</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00037\" summary=\"CityCrew 1st Version\">\r\n      <created>1677567949006</created>\r\n      <option name=\"number\" value=\"00037\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00037\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677567949006</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00038\" summary=\"Land 1st Version\">\r\n      <created>1677568002854</created>\r\n      <option name=\"number\" value=\"00038\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00038\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677568002854</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00039\" summary=\"Region is mostly implemented\">\r\n      <created>1677568073628</created>\r\n      <option name=\"number\" value=\"00039\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00039\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677568073628</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00040\" summary=\"Land is finish\">\r\n      <created>1677672418385</created>\r\n      <option name=\"number\" value=\"00040\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00040\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677672418385</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00041\" summary=\"Edit Realty interface from boolean -&gt; void\">\r\n      <created>1677672470844</created>\r\n      <option name=\"number\" value=\"00041\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00041\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677672470844</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"42\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"main\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <ignored-roots>\r\n      <path value=\"$PROJECT_DIR$\" />\r\n    </ignored-roots>\r\n    <MESSAGE value=\"add feature (count line) in Tokenizer\" />\r\n    <MESSAGE value=\"Init all Statements\" />\r\n    <MESSAGE value=\"init all Commands\" />\r\n    <MESSAGE value=\"edit prettyPrint() for all Expressions\" />\r\n    <MESSAGE value=\"parser completed\" />\r\n    <MESSAGE value=\"add DoneCommand\" />\r\n    <MESSAGE value=\"create new Direction.java\" />\r\n    <MESSAGE value=\"Init ConstructionPlan.java\" />\r\n    <MESSAGE value=\"remove all test in ExpressionParserTest.java\" />\r\n    <MESSAGE value=\"import LoopCounter in Game.java\" />\r\n    <MESSAGE value=\"Plan.prettyPrint completed\" />\r\n    <MESSAGE value=\"add line in SyntaxError information\" />\r\n    <MESSAGE value=\"handle reserved word\" />\r\n    <MESSAGE value=\"handdle full line comment\" />\r\n    <MESSAGE value=\"prettyPrint completed\" />\r\n    <MESSAGE value=\"check at least one statement in plan\" />\r\n    <MESSAGE value=\"rename folder\" />\r\n    <MESSAGE value=\"City ต่างๆ\" />\r\n    <MESSAGE value=\"Create class Match\" />\r\n    <MESSAGE value=\"Create class Player\" />\r\n    <MESSAGE value=\"CityCrew 1st Version\" />\r\n    <MESSAGE value=\"Land 1st Version\" />\r\n    <MESSAGE value=\"Region is mostly implemented\" />\r\n    <MESSAGE value=\"Land is finish\" />\r\n    <MESSAGE value=\"Edit Realty interface from boolean -&gt; void\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Edit Realty interface from boolean -&gt; void\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 167d7a99577e4e7fed8e124ddf877e08c3b9be47)
++++ b/.idea/workspace.xml	(date 1678174138377)
+@@ -5,16 +5,10 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="Edit Realty interface from boolean -&gt; void">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/extra/GameTimer.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_2_2566_15_07_[Changes]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_2_2566_15_07__Changes_.xml" beforeDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/test/java/evaluator/game/object/LandTest.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Game.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Match.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Player.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/game/object/CityCenter.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/game/object/CityCrew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/object/CityCrew.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -32,7 +26,12 @@
+         <task path="$PROJECT_DIR$">
+           <activation />
+         </task>
+-        <projects_view />
++        <projects_view>
++          <tree_state>
++            <expand />
++            <select />
++          </tree_state>
++        </projects_view>
+       </state>
+     </system>
+   </component>
+@@ -81,7 +80,7 @@
+     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Asus/Downloads/DevGame&quot;,
++    &quot;last_opened_file_path&quot;: &quot;Z:/OOP/Project_UPBEAT/back-end&quot;,
+     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+@@ -102,7 +101,7 @@
+       <recent name="" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Application.Main">
++  <component name="RunManager" selected="Gradle.LandTest.DepositTest">
+     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="Main" />
+       <module name="LowGradeCivilization.main" />
+@@ -110,6 +109,52 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
++    <configuration name="LandTest.DepositTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
++      <ExternalSystemSettings>
++        <option name="executionName" />
++        <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="externalSystemIdString" value="GRADLE" />
++        <option name="scriptParameters" value="" />
++        <option name="taskDescriptions">
++          <list />
++        </option>
++        <option name="taskNames">
++          <list>
++            <option value=":test" />
++            <option value="--tests" />
++            <option value="&quot;evaluator.game.object.LandTest.DepositTest&quot;" />
++          </list>
++        </option>
++        <option name="vmOptions" />
++      </ExternalSystemSettings>
++      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
++      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
++      <DebugAllEnabled>false</DebugAllEnabled>
++      <method v="2" />
++    </configuration>
++    <configuration name="LandTest.readConfigTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
++      <ExternalSystemSettings>
++        <option name="executionName" />
++        <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="externalSystemIdString" value="GRADLE" />
++        <option name="scriptParameters" value="" />
++        <option name="taskDescriptions">
++          <list />
++        </option>
++        <option name="taskNames">
++          <list>
++            <option value=":test" />
++            <option value="--tests" />
++            <option value="&quot;evaluator.game.object.LandTest.readConfigTest&quot;" />
++          </list>
++        </option>
++        <option name="vmOptions" />
++      </ExternalSystemSettings>
++      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
++      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
++      <DebugAllEnabled>false</DebugAllEnabled>
++      <method v="2" />
++    </configuration>
+     <configuration name="PlanTokenizerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+@@ -158,6 +203,8 @@
+     </configuration>
+     <recent_temporary>
+       <list>
++        <item itemvalue="Gradle.LandTest.DepositTest" />
++        <item itemvalue="Gradle.LandTest.readConfigTest" />
+         <item itemvalue="Gradle.PlanTokenizerTest.ExpressionInfoTest" />
+         <item itemvalue="Application.Main" />
+         <item itemvalue="Gradle.PlanTokenizerTest" />
+@@ -187,6 +234,8 @@
+       <workItem from="1677773577807" duration="1433000" />
+       <workItem from="1677849918562" duration="3468000" />
+       <workItem from="1678004362786" duration="946000" />
++      <workItem from="1678006137593" duration="5497000" />
++      <workItem from="1678174119077" duration="19000" />
+     </task>
+     <task id="LOCAL-00001" summary="move main">
+       <created>1676359380746</created>

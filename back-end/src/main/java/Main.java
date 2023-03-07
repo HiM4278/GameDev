@@ -13,5 +13,7 @@ public class Main {
         PlanParser psr = new PlanParser(tokenizer);
         Expression expr = psr.parseExprForTest();
         System.out.println(expr.eval(new HashMap<>()));
+
+
     }
 }
