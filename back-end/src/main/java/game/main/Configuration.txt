@@ -16,7 +16,7 @@ plan_rev_sec=0
 
 rev_cost=100
 
-max_dep=1000000
+max_dep=100000
 
 interest_pct=5
 

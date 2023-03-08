@@ -26,8 +26,8 @@ public class Player {
     private Timestamp endTimeForInitPlan;
     private Land CityCenter;
     private CityCrew crew;
-    private LinkedList<Land> land;
-    private ArrayList<List<Action>> actions;
+    private List<Land> land = new ArrayList<>();
+    private ArrayList<List<Action>> actions = new ArrayList<>();
     private GameTimer revisionTime,endTimeForPlan;
 
     public Player(String name,Territory territory) throws IOException {
@@ -39,6 +39,7 @@ public class Player {
         this.CityCenter = CityCenter;
 
         this.id = UUID.randomUUID();
+
         this.crew = new CityCrew((int)configuration.getInitBudget(),CityCenter,CityCenter.getPosition());
         this.revisionTime = new GameTimer(configuration.getTimeForRevision());
     }
@@ -63,13 +64,19 @@ public class Player {
         crew.SetBasePosition();
     }
     public void CreateLand(Region region){
-        land.add(new Land(configuration.getMax_dep(),this,region));
+        this.land.add(new Land(configuration.getMax_dep(),this,region));
     }
     public Land getCityCenter(){
         return CityCenter;
     }
     public String getState(){
         return state;
+    }
+    public List<Land> getAllLand(){
+        return land;
+    }
+    public Configuration getConfiguration(){
+        return configuration;
     }
 
 }

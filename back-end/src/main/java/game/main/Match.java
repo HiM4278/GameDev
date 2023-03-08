@@ -2,6 +2,7 @@ package game.main;
 
 import extra.LoopCounter;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Match {
@@ -9,7 +10,7 @@ public class Match {
     private String name;
     private String password;
     private Player host;
-    private ArrayList<Player> player;
+    private ArrayList<Player> player = new ArrayList<>();
     private Territory territory;
     private Configuration configuration;
     private boolean isPlaying;
@@ -22,7 +23,8 @@ public class Match {
         this.MaxPlayer = maxPlayer;
         this.territory = new Territory((int)configuration.getM(),(int)configuration.getN());
     }
-    public boolean addPlayer(Player p){
+    public boolean addPlayer(String NamePlay) throws IOException {
+        Player p = new Player(NamePlay,territory);
         if(player.size() < MaxPlayer){
             player.add(p);
             return true;
@@ -52,5 +54,8 @@ public class Match {
             }
         }
         return check;
+    }
+    public Territory getTerritory(){
+        return territory;
     }
 }

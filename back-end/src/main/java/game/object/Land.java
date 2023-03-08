@@ -15,7 +15,11 @@ public class Land implements Realty{
         this.deposit = maxDeposit;
         this.Owner = owner;
         this.position = region;
-        this.isCityCenter = false;
+        if (owner != null){
+            this.isCityCenter = true;
+        } else {
+            this.isCityCenter = false;
+        }
     }
 
 

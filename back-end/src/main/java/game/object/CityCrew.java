@@ -13,6 +13,11 @@ public class CityCrew implements Unit{
         this.Budget = Budget;
         this.position = position;
         this.base = base;
+        this.SetRealtyAndUnit();
+    }
+    public void SetRealtyAndUnit(){
+        position.setRealty(base);
+        position.setUnit(this);
     }
     @Override
     public Region getPosition() {
@@ -25,8 +30,7 @@ public class CityCrew implements Unit{
         checkBudget();
         if (Budget < 1 ) return false;
         else {
-            position.getUnit().move(d);
-            return true;
+            return updatePosition(position.getNeighbor(d));
         }
     }
     public long getBudget(){
@@ -73,6 +77,15 @@ public class CityCrew implements Unit{
     private void checkBudget(){
         this.Budget = max(Budget,0);
     }
+
+    private boolean updatePosition(Region newPos){
+        if(newPos.getUnit() == null){
+            this.position = newPos;
+            newPos.setUnit(this);
+            return true;
+        } return false;
+    }
+
     public void SetBasePosition(){
         position = base.getPosition();
     }

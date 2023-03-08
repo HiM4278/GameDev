@@ -2,29 +2,26 @@ package game.main;
 
 import extra.Direction;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 public class Territory {
     private Set<Region> UsedRegion = new HashSet<>();
-    private Region[][] region;
     private Random random = new Random();
     private int m,n;
-
+    private Region[][] regions;
 
 
     public Territory(int m,int n){
         this.m = m;
         this.n = n;
-        region = new Region[m][n];
+        regions = new Region[m+2][n+2];
+        createAllRegion();
     }
 
     public void printRegion(){
-        for(int i = 0; i < m; i++) {
-            if(i%2 == 0) System.out.print("      ");
-            for(int j = 0; j < n; j++) {
-                System.out.print("[    ]      ");
+        for(int i = 1; i <= m; i++) {
+            for(int j = 1; j <= n; j++) {
+                System.out.print(regions[i][j] +" ");
             }
             System.out.println();
         }
@@ -70,16 +67,20 @@ public class Territory {
             }
         }
     }
+
     public Region RandomRegion(){
         int x,y;
         Region r;
         do {
             x = random.nextInt(m)+1;
             y = random.nextInt(n)+1;
-            r = region[x][y];
+            r = regions[x][y];
         }while (UsedRegion.contains(r));
         UsedRegion.add(r);
         return r;
 
+    }
+    public Region getRegions(int x ,int y){
+        return regions[x][y];
     }
 }
