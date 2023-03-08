@@ -30,38 +30,43 @@ public class Territory {
         }
     }
 
-    public void createAllRegion(){
+    private void createAllRegion(){
+        for (int i = 1; i <= m; i++){
+            for (int j = 1; j <= n; j++) {
+                regions[i][j] = new Region(i, j);
+            }
+        }
+
         for (int i = 1; i <= m; i++){
             for (int j = 1; j <= n; j++){
-                region[i][j] = new Region(i,j);
-                region[i][j].setNeighbor(Direction.UP,region[i-1][j]);
-                region[i][j].setNeighbor(Direction.DOWN,region[i+1][j]);
-                region[i][j].setNeighbor(Direction.UPLEFT,region[i-1][j-1]);
-                region[i][j].setNeighbor(Direction.UPRIGHT,region[i-1][j+1]);
-                region[i][j].setNeighbor(Direction.DOWNLEFT,region[i][j-1]);
-                region[i][j].setNeighbor(Direction.DOWNRIGHT,region[i][j+1]);
-                if(j == 1){
-                    region[i][j].setNeighbor(Direction.UPLEFT,null);
-                    region[i][j].setNeighbor(Direction.DOWNLEFT,null);
-                }
-                if(i == 1){
-                    if (j%2 == 0){
-                        region[i][j].setNeighbor(Direction.UPLEFT,null);
-                        region[i][j].setNeighbor(Direction.UPRIGHT,null);
-                    }
-                    region[i][j].setNeighbor(Direction.UP,null);
-                }
-                if(j == n){
-                    region[i][j].setNeighbor(Direction.UPRIGHT,null);
-                    region[i][j].setNeighbor(Direction.DOWNRIGHT,null);
-                }
-                if(i == m){
-                    if(j%2 == 1){
-                        region[i][j].setNeighbor(Direction.DOWNLEFT,null);
-                        region[i][j].setNeighbor(Direction.DOWNRIGHT,null);
-                    }
-                    region[i][j].setNeighbor(Direction.DOWN,null);
-                }
+                regions[i][j].setNeighbor(Direction.UP,regions[i-1][j]);
+                regions[i][j].setNeighbor(Direction.UPLEFT,regions[i-1][j-1]);
+                regions[i][j].setNeighbor(Direction.UPRIGHT,regions[i-1][j+1]);
+                regions[i][j].setNeighbor(Direction.DOWN,regions[i+1][j]);
+                regions[i][j].setNeighbor(Direction.DOWNLEFT,regions[i][j-1]);
+                regions[i][j].setNeighbor(Direction.DOWNRIGHT,regions[i][j+1]);
+//                if(j == 1){
+//                    regions[i][j].setNeighbor(Direction.UPLEFT,null);
+//                    regions[i][j].setNeighbor(Direction.DOWNLEFT,null);
+//                }
+//                if(i == 1){
+//                    if (j%2 == 0){
+//                        regions[i][j].setNeighbor(Direction.UPLEFT,null);
+//                        regions[i][j].setNeighbor(Direction.UPRIGHT,null);
+//                    }
+//                    regions[i][j].setNeighbor(Direction.UP,null);
+//                }
+//                if(j == n){
+//                    regions[i][j].setNeighbor(Direction.UPRIGHT,null);
+//                    regions[i][j].setNeighbor(Direction.DOWNRIGHT,null);
+//                }
+//                if(i == m){
+//                    if(j%2 == 1){
+//                        regions[i][j].setNeighbor(Direction.DOWNLEFT,null);
+//                        regions[i][j].setNeighbor(Direction.DOWNRIGHT,null);
+//                    }
+//                    regions[i][j].setNeighbor(Direction.DOWN,null);
+//                }
             }
         }
     }

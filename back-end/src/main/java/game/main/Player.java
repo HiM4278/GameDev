@@ -30,10 +30,14 @@ public class Player {
     private ArrayList<List<Action>> actions;
     private GameTimer revisionTime,endTimeForPlan;
 
-    public Player(String name) throws IOException {
+    public Player(String name,Territory territory) throws IOException {
         this.name = name;
-        this.CityCenter = new Land(configuration.getInitCenterDeposit(),this,territory.RandomRegion());
-        this.CityCenter.setThisToCenter();
+        this.territory = territory;
+
+        CityCenter = new Land(configuration.getInitCenterDeposit(),this,territory.RandomRegion());
+        CityCenter.setThisToCenter();
+        this.CityCenter = CityCenter;
+
         this.id = UUID.randomUUID();
         this.crew = new CityCrew((int)configuration.getInitBudget(),CityCenter,CityCenter.getPosition());
         this.revisionTime = new GameTimer(configuration.getTimeForRevision());
