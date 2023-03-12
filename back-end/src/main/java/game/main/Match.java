@@ -24,7 +24,7 @@ public class Match {
         this.territory = new Territory((int)configuration.getM(),(int)configuration.getN());
     }
     public boolean addPlayer(String NamePlay) throws IOException {
-        Player p = new Player(NamePlay,territory);
+        Player p = new Player(NamePlay,this.territory);
         if(player.size() < MaxPlayer){
             player.add(p);
             return true;
@@ -33,7 +33,7 @@ public class Match {
         }
     }
     public void start(){
-
+        
     }
     public void nextPlayer(Player player){
         if(isPlaying){
@@ -47,7 +47,7 @@ public class Match {
     public boolean isEnd(){
         boolean check = false;
         for (Player p : player ){
-            if (p.hasLost(p)){
+            if (p.hasLost()){
                 check = true;
             } else {
                 check = false;

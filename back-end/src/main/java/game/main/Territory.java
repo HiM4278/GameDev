@@ -42,28 +42,12 @@ public class Territory {
                 regions[i][j].setNeighbor(Direction.DOWN,regions[i+1][j]);
                 regions[i][j].setNeighbor(Direction.DOWNLEFT,regions[i][j-1]);
                 regions[i][j].setNeighbor(Direction.DOWNRIGHT,regions[i][j+1]);
-//                if(j == 1){
-//                    regions[i][j].setNeighbor(Direction.UPLEFT,null);
-//                    regions[i][j].setNeighbor(Direction.DOWNLEFT,null);
-//                }
-//                if(i == 1){
-//                    if (j%2 == 0){
-//                        regions[i][j].setNeighbor(Direction.UPLEFT,null);
-//                        regions[i][j].setNeighbor(Direction.UPRIGHT,null);
-//                    }
-//                    regions[i][j].setNeighbor(Direction.UP,null);
-//                }
-//                if(j == n){
-//                    regions[i][j].setNeighbor(Direction.UPRIGHT,null);
-//                    regions[i][j].setNeighbor(Direction.DOWNRIGHT,null);
-//                }
-//                if(i == m){
-//                    if(j%2 == 1){
-//                        regions[i][j].setNeighbor(Direction.DOWNLEFT,null);
-//                        regions[i][j].setNeighbor(Direction.DOWNRIGHT,null);
-//                    }
-//                    regions[i][j].setNeighbor(Direction.DOWN,null);
-//                }
+                if(j%2 != 0) {
+                    regions[i][j].setNeighbor(Direction.UPRIGHT,regions[i][j+1]);
+                    regions[i][j].setNeighbor(Direction.UPLEFT,regions[i][j-1]);
+                    regions[i][j].setNeighbor(Direction.DOWNRIGHT,regions[i+1][j+1]);
+                    regions[i][j].setNeighbor(Direction.DOWNLEFT,regions[i+1][j-1]);
+                }
             }
         }
     }

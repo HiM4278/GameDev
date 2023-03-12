@@ -2,6 +2,6 @@ package game.object;
 
 public interface Realty extends GameObject{
     int getDeposit();
-    boolean increase(long money);
-    void decrease(long budget);
+    boolean decrease(long money);
+    void increase(long budget);
 }

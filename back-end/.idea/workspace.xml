@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="Edit Realty interface from boolean -&gt; void">
-      <change afterPath="$PROJECT_DIR$/src/test/java/evaluator/game/object/LandTest.java" afterDir="false" />
+    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="Update relocate">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Match.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/object/CityCrew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/object/CityCrew.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/object/Land.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/object/Land.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/object/Realty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/object/Realty.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +29,17 @@
         <task path="$PROJECT_DIR$">
           <activation />
         </task>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="LowGradeCivilization" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
@@ -77,7 +88,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Asus/Downloads/DevGame&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Asus/Downloads/Lab20/261200-Lab20-Back-end-Demo&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -98,15 +109,8 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.LandTest.methods_Test">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="LowGradeCivilization.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LandTest.DepositTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.CityCrewTest.settingTest">
+    <configuration name="CityCrewTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -119,7 +123,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;evaluator.game.object.LandTest.DepositTest&quot;" />
+            <option value="&quot;evaluator.game.object.CityCrewTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -129,7 +133,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="LandTest.methods_Test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CityCrewTest.cityCrewMethods_Test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -142,7 +146,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;evaluator.game.object.LandTest.methods_Test&quot;" />
+            <option value="&quot;evaluator.game.object.CityCrewTest.cityCrewMethods_Test&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -152,7 +156,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PlanTokenizerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CityCrewTest.moveTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -165,7 +169,30 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;PlanTokenizerTest&quot;" />
+            <option value="&quot;evaluator.game.object.CityCrewTest.moveTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="CityCrewTest.settingTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;evaluator.game.object.CityCrewTest.settingTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -200,11 +227,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.LandTest.methods_Test" />
-        <item itemvalue="Gradle.LandTest.DepositTest" />
+        <item itemvalue="Gradle.CityCrewTest.settingTest" />
+        <item itemvalue="Gradle.CityCrewTest.moveTest" />
+        <item itemvalue="Gradle.CityCrewTest.cityCrewMethods_Test" />
+        <item itemvalue="Gradle.CityCrewTest" />
         <item itemvalue="Gradle.PlanTokenizerTest.ExpressionInfoTest" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Gradle.PlanTokenizerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -230,7 +257,12 @@
       <workItem from="1677672358540" duration="709000" />
       <workItem from="1677773577807" duration="1433000" />
       <workItem from="1677849918562" duration="3468000" />
-      <workItem from="1678004362786" duration="946000" />
+      <workItem from="1678004362786" duration="3548000" />
+      <workItem from="1678029375079" duration="2680000" />
+      <workItem from="1678173303424" duration="1019000" />
+      <workItem from="1678281474532" duration="48000" />
+      <workItem from="1678558759013" duration="3846000" />
+      <workItem from="1678603165324" duration="1450000" />
     </task>
     <task id="LOCAL-00001" summary="move main">
       <created>1676359380746</created>
@@ -519,7 +551,63 @@
       <option name="project" value="LOCAL" />
       <updated>1677672470844</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="add GameTimer">
+      <created>1678005347864</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1678005347864</updated>
+    </task>
+    <task id="LOCAL-00043" summary="CityCrew is finish">
+      <created>1678005374408</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1678005374408</updated>
+    </task>
+    <task id="LOCAL-00044" summary="GameClass is finish">
+      <created>1678005394083</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1678005394083</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Match is mostly finish">
+      <created>1678005452906</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1678005452906</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Player is mostly finish">
+      <created>1678005471082</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1678005471082</updated>
+    </task>
+    <task id="LOCAL-00047" summary="workspace file">
+      <created>1678005506076</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1678005506076</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Latest version">
+      <created>1678603209191</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1678603209191</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Update relocate">
+      <created>1678603587470</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1678603587470</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -552,14 +640,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="add feature (count line) in Tokenizer" />
-    <MESSAGE value="Init all Statements" />
-    <MESSAGE value="init all Commands" />
-    <MESSAGE value="edit prettyPrint() for all Expressions" />
-    <MESSAGE value="parser completed" />
-    <MESSAGE value="add DoneCommand" />
-    <MESSAGE value="create new Direction.java" />
-    <MESSAGE value="Init ConstructionPlan.java" />
     <MESSAGE value="remove all test in ExpressionParserTest.java" />
     <MESSAGE value="import LoopCounter in Game.java" />
     <MESSAGE value="Plan.prettyPrint completed" />
@@ -577,6 +657,14 @@
     <MESSAGE value="Region is mostly implemented" />
     <MESSAGE value="Land is finish" />
     <MESSAGE value="Edit Realty interface from boolean -&gt; void" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit Realty interface from boolean -&gt; void" />
+    <MESSAGE value="add GameTimer" />
+    <MESSAGE value="CityCrew is finish" />
+    <MESSAGE value="GameClass is finish" />
+    <MESSAGE value="Match is mostly finish" />
+    <MESSAGE value="Player is mostly finish" />
+    <MESSAGE value="workspace file" />
+    <MESSAGE value="Latest version" />
+    <MESSAGE value="Update relocate" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update relocate" />
   </component>
 </project>

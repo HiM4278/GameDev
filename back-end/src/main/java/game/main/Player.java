@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -17,46 +18,41 @@ import java.util.UUID;
 
 public class Player {
     private String name;
-    private Configuration configuration = new Configuration(Path.of("Z:\\OOP\\Project_UPBEAT\\back-end\\src\\main\\java\\game\\main\\Configuration.txt"));
-    private Territory territory = new Territory((int)configuration.getM(),(int)configuration.getN());
+    private Configuration configuration = new Configuration(Paths.get("C:\\Users\\Asus\\Downloads\\DevGame\\back-end\\src\\main\\java\\game\\main\\Configuration.txt"));
+    private Territory territory;
     private String state;
     private UUID id;
-    private int turn;
+    private int turn = 0;
     private ConstructionPlan plan;
-    private Timestamp endTimeForInitPlan;
     private Land CityCenter;
     private CityCrew crew;
-    private List<Land> land = new ArrayList<>();
+    private LinkedList<Land> land = new LinkedList<>();
     private ArrayList<List<Action>> actions = new ArrayList<>();
-    private GameTimer revisionTime,endTimeForPlan;
+    private GameTimer revisionTime,TimeForInitPlan;
 
-    public Player(String name,Territory territory) throws IOException {
+    public Player(String name, Territory territory) throws IOException {
         this.name = name;
         this.territory = territory;
-
-        CityCenter = new Land(configuration.getInitCenterDeposit(),this,territory.RandomRegion());
-        CityCenter.setThisToCenter();
-        this.CityCenter = CityCenter;
-
+        this.CityCenter = new Land(configuration.getInitCenterDeposit(),this,territory.RandomRegion());
+        this.CityCenter.setThisToCenter();
         this.id = UUID.randomUUID();
-
         this.crew = new CityCrew((int)configuration.getInitBudget(),CityCenter,CityCenter.getPosition());
         this.revisionTime = new GameTimer(configuration.getTimeForRevision());
+        this.TimeForInitPlan = new GameTimer(configuration.getTimeForFirstPlan());
     }
-    public boolean hasLost(Player player){
-        if (player.getCityCenter().getDeposit() == 0){
+    public boolean hasLost(){
+        if (this.getCityCenter().getDeposit() == 0){
             return true;
         } else {
             return false;
         }
     }
     public void play(){
-        CityCenter = new Land(configuration.getMax_dep(),this,territory.RandomRegion());
         state = "Plan";
-        revisionTime.start();
+        TimeForInitPlan.start();
+        this.turn++;
     }
     public boolean SubmitPlan(String src){
-//        if(plan.)
         return false;
     }
     public void endTurn(){
@@ -64,7 +60,7 @@ public class Player {
         crew.SetBasePosition();
     }
     public void CreateLand(Region region){
-        this.land.add(new Land(configuration.getMax_dep(),this,region));
+        land.add(new Land(configuration.getMax_dep(),this,region));
     }
     public Land getCityCenter(){
         return CityCenter;
@@ -72,7 +68,7 @@ public class Player {
     public String getState(){
         return state;
     }
-    public List<Land> getAllLand(){
+    public LinkedList<Land> getAllLand(){
         return land;
     }
     public Configuration getConfiguration(){

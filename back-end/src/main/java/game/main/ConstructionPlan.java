@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class ConstructionPlan {
     private Player owner;
     private String strPlan;
-    private Plan plan;
+    private PlanParser plan;
     private HashMap<String, Integer> identifiers;
 
     public ConstructionPlan(Player owner){
@@ -18,6 +18,7 @@ public class ConstructionPlan {
 
     public void updatePlan(String src){
         strPlan = src;
+        parsePlan();
     }
 
     public void run(){
@@ -26,7 +27,7 @@ public class ConstructionPlan {
 
     private void parsePlan(){
 //        try {
-//            plan = planParser.parse(strPlan);
+//            plan = plan.parse(strPlan);
 //        } catch (SyntaxErrorException e){
 //            System.out.println(e);
 //        }

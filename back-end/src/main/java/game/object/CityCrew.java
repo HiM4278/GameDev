@@ -36,12 +36,16 @@ public class CityCrew implements Unit{
     public long getBudget(){
         return Budget;
     }
-    public boolean relocate(){
+    public boolean relocate(Region destination){
         Budget -= 1;
         checkBudget();
-        int val = 5 * position.getX() + 10;
-        if(Budget >= val ) return false;
-        return true;
+        int val = 5 * position.findShortestPath(destination).size() + 10;
+        if(Budget < val ) return false;
+        else {
+            updatePosition(destination);
+            return true;
+        }
+
     }
     public boolean shoot(Direction direction,long value){
         Budget -= 1;
@@ -60,13 +64,13 @@ public class CityCrew implements Unit{
         Budget -= 1;
         checkBudget();
         if (Budget < value){}
-        else{ position.getRealty().decrease(value); }
+        else{ position.getRealty().increase(value); }
 
     }
     public boolean collect(long value){
         Budget -= 1;
         checkBudget();
-        if (position.getRealty().increase(value)){
+        if (position.getRealty().decrease(value)){
             Budget += value;
             return true;
         } else {
