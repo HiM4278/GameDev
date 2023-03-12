@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="workspace file">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2566_14_33__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2566_14_33__Changes_.xml" afterDir="false" />
+    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="Latest version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/ConstructionPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/ConstructionPlan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Match.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Region.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Region.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Territory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/main/Territory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/object/CityCrew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/object/CityCrew.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/object/Land.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/object/Land.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/evaluator/game/object/CityCrewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/evaluator/game/object/CityCrewTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,7 +258,7 @@
       <workItem from="1678173303424" duration="1019000" />
       <workItem from="1678281474532" duration="48000" />
       <workItem from="1678558759013" duration="3846000" />
-      <workItem from="1678603165324" duration="8000" />
+      <workItem from="1678603165324" duration="395000" />
     </task>
     <task id="LOCAL-00001" summary="move main">
       <created>1676359380746</created>
@@ -596,7 +589,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678005506076</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Latest version">
+      <created>1678603209191</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1678603209191</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -629,7 +629,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="create new Direction.java" />
     <MESSAGE value="Init ConstructionPlan.java" />
     <MESSAGE value="remove all test in ExpressionParserTest.java" />
     <MESSAGE value="import LoopCounter in Game.java" />
@@ -654,6 +653,7 @@
     <MESSAGE value="Match is mostly finish" />
     <MESSAGE value="Player is mostly finish" />
     <MESSAGE value="workspace file" />
-    <option name="LAST_COMMIT_MESSAGE" value="workspace file" />
+    <MESSAGE value="Latest version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Latest version" />
   </component>
 </project>

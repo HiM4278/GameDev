@@ -40,8 +40,12 @@ public class CityCrew implements Unit{
         Budget -= 1;
         checkBudget();
         int val = 5 * position.findShortestPath(destination).size() + 10;
-        if(Budget >= val ) return false;
-        return true;
+        if(Budget < val ) return false;
+        else {
+            updatePosition(destination);
+            return true;
+        }
+
     }
     public boolean shoot(Direction direction,long value){
         Budget -= 1;
