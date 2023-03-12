@@ -8,11 +8,12 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CityCrewTest {
-    Configuration config = new Configuration(Path.of("Z:\\OOP\\Project_UPBEAT\\back-end\\src\\main\\java\\game\\main\\Configuration.txt"));
+    Configuration config = new Configuration(Paths.get("C:\\Users\\Asus\\Downloads\\DevGame\\back-end\\src\\main\\java\\game\\main\\Configuration.txt"));
 
     public CityCrewTest() throws IOException {
     }
@@ -55,7 +56,7 @@ public class CityCrewTest {
     public void settingTest () {
         Territory tt = new Territory(10, 10);
         Region region = tt.RandomRegion();
-        Region region2 = tt.getRegions(1, 1);
+        Region region2 = tt.getRegions(2, 4);
         Land land = new Land(config.getMax_dep(),null,region);
         int budget = (int)config.getInitBudget();
         CityCrew crew = new CityCrew(budget, land, region);
@@ -69,13 +70,12 @@ public class CityCrewTest {
 //        tt.printRegion();
 //        System.out.println(crew.getPosition().getRealty());
 //        System.out.println(crew.getPosition().getUnit());
-//        System.out.println(region2.getX() + ", " + region2.getY());
-//        System.out.println(region2.getNeighbor(Direction.UPRIGHT).getX() + ", " + region2.getNeighbor(Direction.UPRIGHT).getY());
-//        System.out.println(region2.getNeighbor(Direction.UPLEFT).getX() + ", " + region2.getNeighbor(Direction.UPLEFT).getY());
-//        System.out.println(region2.getNeighbor(Direction.DOWN) );
-//        System.out.println(region2.getNeighbor(Direction.UP).getX() + ", " + region2.getNeighbor(Direction.UP).getY());
-//        System.out.println(region2.getNeighbor(Direction.DOWN).getX() + ", " + region2.getNeighbor(Direction.DOWN).getY());
-//        System.out.println(region2.getNeighbor(Direction.DOWNLEFT).getX() + ", " + region2.getNeighbor(Direction.DOWNLEFT).getY());
-//        System.out.println(region2.getNeighbor(Direction.DOWNRIGHT).getX() + ", " + region2.getNeighbor(Direction.DOWNRIGHT).getY());
+        System.out.println(region2.getX() + ", " + region2.getY());
+        System.out.println(region2.getNeighbor(Direction.UPRIGHT).getX() + ", " + region2.getNeighbor(Direction.UPRIGHT).getY());
+        System.out.println(region2.getNeighbor(Direction.UPLEFT).getX() + ", " + region2.getNeighbor(Direction.UPLEFT).getY());
+        System.out.println(region2.getNeighbor(Direction.UP).getX() + ", " + region2.getNeighbor(Direction.UP).getY());
+        System.out.println(region2.getNeighbor(Direction.DOWN).getX() + ", " + region2.getNeighbor(Direction.DOWN).getY());
+        System.out.println(region2.getNeighbor(Direction.DOWNLEFT).getX() + ", " + region2.getNeighbor(Direction.DOWNLEFT).getY());
+        System.out.println(region2.getNeighbor(Direction.DOWNRIGHT).getX() + ", " + region2.getNeighbor(Direction.DOWNRIGHT).getY());
     }
 }

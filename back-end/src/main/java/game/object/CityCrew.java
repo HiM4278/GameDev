@@ -36,10 +36,10 @@ public class CityCrew implements Unit{
     public long getBudget(){
         return Budget;
     }
-    public boolean relocate(){
+    public boolean relocate(Region destination){
         Budget -= 1;
         checkBudget();
-        int val = 5 * position.getX() + 10;
+        int val = 5 * position.findShortestPath(destination).size() + 10;
         if(Budget >= val ) return false;
         return true;
     }

@@ -12,7 +12,7 @@ public class Land implements Realty{
     private double deposit;
     public Land(long maxDeposit,Player owner,Region region){
         this.maxDep = maxDeposit;
-        this.deposit = maxDeposit;
+        this.deposit = 0;
         this.Owner = owner;
         this.position = region;
         if (owner != null){
