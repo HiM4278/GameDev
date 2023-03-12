@@ -1,5 +1,6 @@
 import { Button, Modal } from "react-bootstrap";
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function landing() {
   const [showNewGame, setShowNewGame] = useState(false);
@@ -21,12 +22,14 @@ export default function landing() {
     setShowJoinGame(true);
   };
 
+  const router = useRouter();
+
   return (
     <>
       <div
         className="index-container bg"
         style={{
-          backgroundImage: `url("bg.png")`,
+          backgroundImage: `url("BG16_9.png")`,
         }}
       >
         <div></div>
@@ -49,32 +52,34 @@ export default function landing() {
         centered
         dialogClassName="modal-70w"
       >
-        <Modal.Header closeButton>New game</Modal.Header>
-        <Modal.Body>
+        <Modal.Header closeButton style={{ backgroundColor: "#853605" }}>
+          New game
+        </Modal.Header>
+        <Modal.Body style={{ background: "#f3b46c" }}>
           <form>
             <div class="form-group row">
-              <label for="inputEmail3" class="col-sm-3 col-form-label">
+              <label for="inputUsername3" class="col-sm-3 col-form-label">
                 Player name
               </label>
               <div class="col-sm-8">
                 <input
-                  type="email"
+                  type="text"
                   class="form-control"
-                  id="inputEmail3"
-                  placeholder="Email"
+                  id="inputUsername3"
+                  placeholder="Username..."
                 />
               </div>
             </div>
             <div class="form-group row">
-              <label for="inputEmail3" class="col-sm-3 col-form-label">
+              <label for="inputRoomName3" class="col-sm-3 col-form-label">
                 Room name
               </label>
               <div class="col-sm-8">
                 <input
-                  type="email"
+                  type="text"
                   class="form-control"
-                  id="inputEmail3"
-                  placeholder="Email"
+                  id="inputRoomName3"
+                  placeholder="Room name..."
                 />
               </div>
             </div>
@@ -87,7 +92,7 @@ export default function landing() {
                   type="password"
                   class="form-control"
                   id="inputPassword3"
-                  placeholder="Password"
+                  placeholder="6-8 Characters"
                 />
               </div>
             </div>
@@ -148,13 +153,16 @@ export default function landing() {
               </div>
             </fieldset>
             <div class="form-group row">
-              <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary">
-                  Create
-                </button>
-              </div>
+              <div class="col-sm-10"></div>
             </div>
           </form>
+          <button
+            onClick={() => router.push("/game")}
+            class="btn"
+            style={{ background: "#ffd284", border: "2px solid #fa9305" }}
+          >
+            Create
+          </button>
         </Modal.Body>
       </Modal>
       <Modal
@@ -165,32 +173,34 @@ export default function landing() {
         centered
         dialogClassName="modal-70w"
       >
-        <Modal.Header closeButton>Join game</Modal.Header>
-        <Modal.Body>
+        <Modal.Header closeButton style={{ background: "#853605" }}>
+          Join game
+        </Modal.Header>
+        <Modal.Body style={{ background: "#f3b46c" }}>
           <form>
             <div class="form-group row">
-              <label for="inputEmail3" class="col-sm-3 col-form-label">
+              <label for="inputUsername3" class="col-sm-3 col-form-label">
                 Player name
               </label>
               <div class="col-sm-8">
                 <input
-                  type="email"
+                  type="text"
                   class="form-control"
-                  id="inputEmail3"
-                  placeholder="Email"
+                  id="inputUsername3"
+                  placeholder="Username..."
                 />
               </div>
             </div>
             <div class="form-group row">
-              <label for="inputEmail3" class="col-sm-3 col-form-label">
+              <label for="inputRoomName3" class="col-sm-3 col-form-label">
                 Room name
               </label>
               <div class="col-sm-8">
                 <input
-                  type="email"
+                  type="text"
                   class="form-control"
-                  id="inputEmail3"
-                  placeholder="Email"
+                  id="inputRoomName3"
+                  placeholder="Room Name..."
                 />
               </div>
             </div>
@@ -203,13 +213,17 @@ export default function landing() {
                   type="password"
                   class="form-control"
                   id="inputPassword3"
-                  placeholder="Password"
+                  placeholder="Password..."
                 />
               </div>
             </div>
             <div class="form-group row">
               <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary">
+                <button
+                  type="submit"
+                  class="btn"
+                  style={{ background: "#ffd284", border: "2px solid #fa9305" }}
+                >
                   Join
                 </button>
               </div>

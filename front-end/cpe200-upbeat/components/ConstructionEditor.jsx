@@ -121,15 +121,24 @@ export default function ConstructionEditor() {
   }, []);
 
   return (
-    <div className="editor-container">
-      <Editor
-        height="100vh"
-        width={`100%`}
-        language={"upbeat"}
-        value={""}
-        theme={"tomorrow-night"}
-        defaultValue="// some comment"
-      />
+    <div className="plan-sidebar">
+      <div className="editor-header">
+        My Construction Plan
+        <div className="editor-btn-run">
+          <img src="Run_Button.png" width={50}></img>
+          <div className="editor.timer">30:00s</div>
+        </div>
+      </div>
+      <div className="editor-container">
+        <Editor
+          height="100vh"
+          width={`100%`}
+          language={"upbeat"}
+          value={""}
+          theme={"tomorrow-night"}
+          defaultValue="// some comment"
+        />
+      </div>
     </div>
   );
 }
