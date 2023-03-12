@@ -17,6 +17,7 @@ public class Land implements Realty{
         this.position = region;
         if (owner != null){
             this.isCityCenter = true;
+            this.deposit = maxDeposit;
         } else {
             this.isCityCenter = false;
         }
@@ -35,7 +36,7 @@ public class Land implements Realty{
     }
 
     @Override
-    public boolean increase(long money) {
+    public boolean decrease(long money) {
         if (deposit < money){
             return false;
         } else {
@@ -50,7 +51,7 @@ public class Land implements Realty{
     }
 
     @Override
-    public void decrease(long budget) {
+    public void increase(long budget) {
         double d = deposit + budget;
         deposit = d;
         if (d > maxDep){

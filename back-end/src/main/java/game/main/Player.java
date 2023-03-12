@@ -24,12 +24,11 @@ public class Player {
     private UUID id;
     private int turn = 0;
     private ConstructionPlan plan;
-    private Timestamp endTimeForInitPlan;
     private Land CityCenter;
     private CityCrew crew;
     private LinkedList<Land> land = new LinkedList<>();
-    private ArrayList<List<Action>> actions;
-    private GameTimer revisionTime,endTimeForPlan;
+    private ArrayList<List<Action>> actions = new ArrayList<>();
+    private GameTimer revisionTime,TimeForInitPlan;
 
     public Player(String name, Territory territory) throws IOException {
         this.name = name;
@@ -39,6 +38,7 @@ public class Player {
         this.id = UUID.randomUUID();
         this.crew = new CityCrew((int)configuration.getInitBudget(),CityCenter,CityCenter.getPosition());
         this.revisionTime = new GameTimer(configuration.getTimeForRevision());
+        this.TimeForInitPlan = new GameTimer(configuration.getTimeForFirstPlan());
     }
     public boolean hasLost(){
         if (this.getCityCenter().getDeposit() == 0){
@@ -48,10 +48,9 @@ public class Player {
         }
     }
     public void play(){
-        CityCenter = new Land(configuration.getMax_dep(),this,territory.RandomRegion());
         state = "Plan";
-        revisionTime.start();
-        turn++;
+        TimeForInitPlan.start();
+        this.turn++;
     }
     public boolean SubmitPlan(String src){
         return false;

@@ -64,13 +64,13 @@ public class CityCrew implements Unit{
         Budget -= 1;
         checkBudget();
         if (Budget < value){}
-        else{ position.getRealty().decrease(value); }
+        else{ position.getRealty().increase(value); }
 
     }
     public boolean collect(long value){
         Budget -= 1;
         checkBudget();
-        if (position.getRealty().increase(value)){
+        if (position.getRealty().decrease(value)){
             Budget += value;
             return true;
         } else {
