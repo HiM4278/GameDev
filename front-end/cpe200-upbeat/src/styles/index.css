@@ -1,0 +1,45 @@
+.index-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.index-container.bg div {
+  height: 50%;
+}
+
+.menu-group {
+  display: flex;
+  justify-content: center;
+}
+
+.menu-btn-group {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+
+.menu-btn {
+  background: #c9a95e;
+  border: 5px solid #a77843;
+  color: #a05605;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 36px;
+  font-family: "Tilt Neon";
+  font-weight: bolder;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.modal-70w {
+  width: 70vw;
+}
+
+.bg {
+  /* Center and scale the image nicely */
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

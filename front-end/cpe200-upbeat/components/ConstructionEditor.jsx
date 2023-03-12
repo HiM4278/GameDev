@@ -121,9 +121,9 @@ export default function ConstructionEditor() {
   }, []);
 
   return (
-    <div>
+    <div className="editor-container">
       <Editor
-        height="85vh"
+        height="100vh"
         width={`100%`}
         language={"upbeat"}
         value={""}

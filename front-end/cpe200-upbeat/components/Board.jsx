@@ -3,7 +3,7 @@ import { Circle, Layer, Rect, Stage, Image } from "react-konva";
 import Region from "../Classes/Region";
 import { createTerritory } from "../Lib/createTerritory";
 
-function Board() {
+function Board(props) {
   const [firstRender, setFirstRender] = useState(true);
   const [territory, setTerritory] = useState([]);
   const [images, setImages] = useState([]);
@@ -69,8 +69,8 @@ function Board() {
   return (
     <Stage
       ref={stageRef}
-      width={window.innerWidth}
-      height={window.innerHeight}
+      width={props.container.current.offsetWidth}
+      height={props.container.current.offsetHeight}
       draggable={true}
       onWheel={zoom}
     >
