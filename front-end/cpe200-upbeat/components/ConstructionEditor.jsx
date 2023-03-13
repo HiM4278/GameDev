@@ -125,8 +125,10 @@ export default function ConstructionEditor() {
       <div className="editor-header">
         My Construction Plan
         <div className="editor-btn-run">
+          <div className="editor.timer" style={{ marginRight: "15px" }}>
+            30:00s
+          </div>
           <img src="Run_Button.png" width={50}></img>
-          <div className="editor.timer">30:00s</div>
         </div>
       </div>
       <div className="editor-container">
@@ -135,8 +137,9 @@ export default function ConstructionEditor() {
           width={`100%`}
           language={"upbeat"}
           value={""}
+          s
           theme={"tomorrow-night"}
-          defaultValue="// some comment"
+          defaultValue="# Construct here"
         />
       </div>
     </div>

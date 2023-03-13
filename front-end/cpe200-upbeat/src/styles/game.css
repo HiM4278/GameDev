@@ -26,12 +26,15 @@
 
 .editor-header {
   padding: 24px 16px;
-  background-color: chocolate;
+  background-color: #a77843;
   font-weight: bold;
   color: #ffc900;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .editor-btn-run {
-  width: 50px;
-  height: auto;
+  display: flex;
+  align-items: center;
 }
