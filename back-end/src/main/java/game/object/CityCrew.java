@@ -1,24 +1,23 @@
 package game.object;
 
 import extra.Direction;
+import game.main.Game;
+import game.main.Player;
 import game.main.Region;
 
 import static java.lang.Math.max;
 
 public class CityCrew implements Unit{
     private Region position;
-    private int Budget;
-    private Land base;
-    public CityCrew(int Budget,Land base,Region position){
-        this.Budget = Budget;
-        this.position = position;
-        this.base = base;
-        this.SetRealtyAndUnit();
+    private long Budget;
+    private Player player;
+
+    public CityCrew(Player player){
+        this.Budget = Game.configuration.getInitBudget();
+        this.player = player;
+        this.moveToCityCenter();
     }
-    public void SetRealtyAndUnit(){
-        position.setRealty(base);
-        position.setUnit(this);
-    }
+
     @Override
     public Region getPosition() {
         return position;
@@ -33,54 +32,6 @@ public class CityCrew implements Unit{
             return updatePosition(position.getNeighbor(d));
         }
     }
-    public long getBudget(){
-        return Budget;
-    }
-    public boolean relocate(Region destination){
-        Budget -= 1;
-        checkBudget();
-        int val = 5 * position.findShortestPath(destination).size() + 10;
-        if(Budget < val ) return false;
-        else {
-            updatePosition(destination);
-            return true;
-        }
-
-    }
-    public boolean shoot(Direction direction,long value){
-        Budget -= 1;
-        checkBudget();
-        if(Budget < value) return false;
-        else {
-            if (position.getNeighbor(direction) != null){
-                Region r = position.getNeighbor(direction);
-                Budget -= value;
-                r.getRealty().increase(value);
-            }
-            return true;
-        }
-    }
-    public void invest(long value){
-        Budget -= 1;
-        checkBudget();
-        if (Budget < value){}
-        else{ position.getRealty().increase(value); }
-
-    }
-    public boolean collect(long value){
-        Budget -= 1;
-        checkBudget();
-        if (position.getRealty().decrease(value)){
-            Budget += value;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private void checkBudget(){
-        this.Budget = max(Budget,0);
-    }
 
     private boolean updatePosition(Region newPos){
         if(newPos.getUnit() == null){
@@ -90,7 +41,61 @@ public class CityCrew implements Unit{
         } return false;
     }
 
-    public void SetBasePosition(){
-        position = base.getPosition();
+    public void moveToCityCenter(){
+        position = player.getCityCenter().getPosition();
+    }
+
+    public long getBudget(){
+        return Budget;
+    }
+
+    public boolean relocate(Region destination){
+        Budget -= 1;
+        checkBudget();
+        int val = 5 * position.findShortestPath(destination).size() + 10;
+        if(Budget < val ) return false;
+        else {
+            player.relocate(destination);
+            return true;
+        }
+    }
+
+    public boolean shoot(Direction direction,long value){
+        Budget -= 1;
+        checkBudget();
+        if(Budget < value) return false;
+        else {
+            if (position.getNeighbor(direction) != null){
+                Region r = position.getNeighbor(direction);
+                Budget -= value;
+                r.getLand().increase(value);
+            }
+            return true;
+        }
+    }
+
+    public void invest(long value){
+        Budget -= 1;
+        checkBudget();
+        if (Budget < value) return;
+        if(position.getLand() == null && position.isAdjacent(player)){
+            player.createLand(position);
+        }
+        position.getLand().increase(value);
+    }
+
+    public boolean collect(long value){
+        Budget -= 1;
+        checkBudget();
+        if (position.getLand().decrease(value)){
+            Budget += value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private void checkBudget(){
+        this.Budget = max(Budget,0);
     }
 }

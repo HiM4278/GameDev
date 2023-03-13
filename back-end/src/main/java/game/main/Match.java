@@ -2,51 +2,60 @@ package game.main;
 
 import extra.LoopCounter;
 
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Match {
-    private int MaxPlayer;
-    private String name;
+    private final int maxPlayer;
+    private final String roomName;
     private String password;
     private Player host;
-    private ArrayList<Player> player = new ArrayList<>();
-    private Territory territory;
-    private Configuration configuration;
+    private final ArrayList<Player> players = new ArrayList<>();
+    private final Territory territory;
     private boolean isPlaying;
-    private LoopCounter curPlayerIndex;
-    public Match(Configuration configuration,String name,String password, Player host,int maxPlayer){
-        this.configuration = configuration;
-        this.name = name;
+    private LoopCounter currPlayerIndex;
+
+    public Match(String roomName,String password, Player host,int maxPlayer){
+        this.roomName = roomName;
         this.password = password;
         this.host = host;
-        this.MaxPlayer = maxPlayer;
-        this.territory = new Territory((int)configuration.getM(),(int)configuration.getN());
+        this.maxPlayer = maxPlayer;
+        this.territory = new Territory((int)Game.configuration.getM(), (int)Game.configuration.getN());
     }
-    public boolean addPlayer(String NamePlay) throws IOException {
-        Player p = new Player(NamePlay,this.territory);
-        if(player.size() < MaxPlayer){
-            player.add(p);
-            return true;
-        } else {
-            return false;
-        }
+
+    public boolean addPlayer(String playerName, String password) {
+        if(this.password.equals(password)) {
+            if(players.size() < maxPlayer) {
+                Player p = new Player(playerName);
+                players.add(p);
+                return true;
+            } else {
+                return false;
+            }
+        }return false;
     }
+
     public void start(){
-        
+        for(Player player : players) {
+            player.initCityCenter(territory.RandomRegion());
+        }
+        isPlaying = true;
     }
+
     public void nextPlayer(Player player){
         if(isPlaying){
             player.endTurn();
-            curPlayerIndex.increase();
+            currPlayerIndex.increase();
         }
     }
-    public String getName(){
-        return this.name;
+
+    public String getRoomName(){
+        return this.roomName;
     }
+
     public boolean isEnd(){
         boolean check = false;
-        for (Player p : player ){
+        for (Player p : players){
             if (p.hasLost()){
                 check = true;
             } else {
@@ -55,6 +64,7 @@ public class Match {
         }
         return check;
     }
+
     public Territory getTerritory(){
         return territory;
     }

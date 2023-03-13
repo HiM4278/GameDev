@@ -1,30 +1,27 @@
 package game.main;
-import java.io.IOException;
-import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class Game {
     private List<Match> matches = new ArrayList<>();
-    private Configuration configuration;
+    public static final Configuration configuration = Configuration.instance(Paths.get("Configuration.txt"));
 
-    public boolean CreateMatch(Configuration configuration , String name, String password,Player host,int MaxPlayer){
+    public boolean CreateMatch(String hostName, String roomName, String password, int maxPlayer){
+        Player host  = new Player(hostName);
 
         for (Match m : matches){
-            if(m.getName() == name) {
+            if(m.getRoomName() == roomName) {
                 return false;
             }
         }
-        matches.add(new Match(configuration,name,password,host,MaxPlayer));
+        matches.add(new Match(roomName,password,host,maxPlayer));
         return true;
     }
+
     public void updateMatches(){
-        for (Match m : matches){
-            if (m.isEnd() == true){
-                matches.remove(m);
-            }
-        }
+        matches.removeIf(Match::isEnd);
     }
 
 }

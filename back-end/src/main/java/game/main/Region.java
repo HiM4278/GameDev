@@ -1,6 +1,7 @@
 package game.main;
 
 import extra.Direction;
+import game.object.Land;
 import game.object.Realty;
 import game.object.Unit;
 
@@ -9,18 +10,18 @@ import java.util.*;
 public class Region {
     private int x;
     private int y;
-    private Realty realty;
+    private Land land;
     private Unit unit;
-    private Map<Direction,Region> neighbor = new HashMap<>();
+    private final Map<Direction,Region> neighbors = new HashMap<>();
     public Region(int x,int y){
         this.x = x;
         this.y = y;
     }
     public void setNeighbor(Direction d , Region r) {
-        this.neighbor.put(d,r);
+        this.neighbors.put(d,r);
     }
     public Region getNeighbor(Direction d){
-        return this.neighbor.get(d);
+        return this.neighbors.get(d);
     }
     public int getX(){
         return x;
@@ -28,14 +29,21 @@ public class Region {
     public int getY(){
         return y;
     }
-    public void setRealty(Realty r){
-        this.realty = r;
+    public void setLand(Land r){
+        this.land = r;
     }
     public void setUnit(Unit u){
         this.unit = u;
     }
-    public Realty getRealty(){
-        return realty;
+    public boolean isAdjacent(Player player){
+        for(Region neighbor : neighbors.values().toArray(new Region[0])){
+            if(neighbor.getLand() != null && neighbor.getLand().getOwner() == player) return true;
+        }
+        return false;
+    }
+
+    public Land getLand(){
+        return land;
     }
     public Unit getUnit(){
         return unit;

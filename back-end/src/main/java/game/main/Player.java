@@ -7,40 +7,33 @@ import game.object.CityCrew;
 import game.object.Land;
 
 import javax.swing.*;
-import java.awt.*;
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 
+import static game.main.Game.configuration;
+
 public class Player {
-    private String name;
-    private Configuration configuration = new Configuration(Paths.get("C:\\Users\\Asus\\Downloads\\DevGame\\back-end\\src\\main\\java\\game\\main\\Configuration.txt"));
-    private Territory territory;
+    private final String playerName;
     private String state;
-    private UUID id;
+    private final UUID id;
     private int turn = 0;
-    private ConstructionPlan plan;
-    private Land CityCenter;
+    private final ConstructionPlan plan;
+    private Land cityCenter;
     private CityCrew crew;
-    private LinkedList<Land> land = new LinkedList<>();
+    private LinkedList<Land> lands = new LinkedList<>();
     private ArrayList<List<Action>> actions = new ArrayList<>();
     private GameTimer revisionTime,TimeForInitPlan;
 
-    public Player(String name, Territory territory) throws IOException {
-        this.name = name;
-        this.territory = territory;
-        this.CityCenter = new Land(configuration.getInitCenterDeposit(),this,territory.RandomRegion());
-        this.CityCenter.setThisToCenter();
+    public Player(String playerName) {
+        this.playerName = playerName;
         this.id = UUID.randomUUID();
-        this.crew = new CityCrew((int)configuration.getInitBudget(),CityCenter,CityCenter.getPosition());
+        this.plan = new ConstructionPlan(this);
         this.revisionTime = new GameTimer(configuration.getTimeForRevision());
         this.TimeForInitPlan = new GameTimer(configuration.getTimeForFirstPlan());
     }
+
     public boolean hasLost(){
         if (this.getCityCenter().getDeposit() == 0){
             return true;
@@ -48,11 +41,13 @@ public class Player {
             return false;
         }
     }
+
     public void play(){
         state = "Plan";
         TimeForInitPlan.start();
         this.turn++;
     }
+
     public boolean SubmitPlan(String src) throws SyntaxErrorException {
         try {
             plan.updatePlan(src);
@@ -63,24 +58,67 @@ public class Player {
         }
         return false;
     }
+
     public void endTurn(){
         state = "Idle";
-        crew.SetBasePosition();
+        crew.moveToCityCenter();
     }
-    public void CreateLand(Region region){
-        land.add(new Land(configuration.getMax_dep(),this,region));
+
+    private Land createLand(Region region, boolean isCityCenter){
+        if(region.getLand() == null) {
+            Land land;
+            if(isCityCenter){
+                land = new Land(this, region);
+            }else {
+                land = new Land(this, region, true);
+            }
+            lands.add(land);
+            region.setLand(land);
+            return land;
+        }
+        return null;
     }
+
+    public Land createLand(Region region){
+        return createLand(region, false);
+    }
+
+    public void relocate(Region region){
+        if(region.getLand() != null && region.getLand().getOwner() == this) {
+            region.getLand().setToCenter();
+            this.cityCenter.setToNormalLand();
+            this.cityCenter = region.getLand();
+        }
+    }
+
+    public void initCityCenter(Region region){
+        if(this.cityCenter == null && region.getLand() == null){
+            this.cityCenter = createLand(region,true);
+            this.initCityCrew();
+        }
+    }
+
     public Land getCityCenter(){
-        return CityCenter;
+        return cityCenter;
     }
+
+    public void soldLand(Land land){
+        land.getPosition().setLand(null);
+        lands.remove(land);
+    }
+
+    private void initCityCrew(){
+        if(this.crew == null) {
+            this.crew = new CityCrew(this);
+        }
+    }
+
     public String getState(){
         return state;
     }
+
     public LinkedList<Land> getAllLand(){
-        return land;
-    }
-    public Configuration getConfiguration(){
-        return configuration;
+        return lands;
     }
 
 }
