@@ -10,18 +10,14 @@ public class Game {
     private Configuration configuration;
 
     public boolean CreateMatch(Configuration configuration , String name, String password,Player host,int MaxPlayer){
-        boolean check = false;
+
         for (Match m : matches){
             if(m.getName() == name) {
-                check = false;
-            } else {
-                check = true;
+                return false;
             }
         }
-        if (check){
-            matches.add(new Match(configuration,name,password,host,MaxPlayer));
-        }
-        return check;
+        matches.add(new Match(configuration,name,password,host,MaxPlayer));
+        return true;
     }
     public void updateMatches(){
         for (Match m : matches){

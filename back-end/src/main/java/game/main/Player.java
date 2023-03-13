@@ -1,6 +1,7 @@
 package game.main;
 
 
+import exeption.SyntaxErrorException;
 import extra.GameTimer;
 import game.object.CityCrew;
 import game.object.Land;
@@ -52,7 +53,14 @@ public class Player {
         TimeForInitPlan.start();
         this.turn++;
     }
-    public boolean SubmitPlan(String src){
+    public boolean SubmitPlan(String src) throws SyntaxErrorException {
+        try {
+            plan.updatePlan(src);
+            plan.run();
+            return true;
+        } catch (SyntaxErrorException e){
+            e.printStackTrace();
+        }
         return false;
     }
     public void endTurn(){
