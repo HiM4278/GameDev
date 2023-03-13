@@ -29,7 +29,7 @@ export default function landing() {
       <div
         className="index-container bg"
         style={{
-          backgroundImage: `url("BG16_9.png")`,
+          backgroundImage: `url("bg2.PNG")`,
         }}
       >
         <div></div>
