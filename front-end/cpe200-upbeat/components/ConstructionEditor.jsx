@@ -1,7 +1,16 @@
-import React, { useEffect, useRef } from "react";
+import React, {useEffect, useRef, useState} from "react";
 import Editor, { loader } from "@monaco-editor/react";
+import {ArrowLeft, ArrowRight} from "tabler-icons-react";
 
 export default function ConstructionEditor() {
+  const [view, setView] = useState(false);
+  const onClickHander = () => {
+    if (view === true) {
+      setView(false);
+    } else {
+      setView(true);
+    }
+  };
   const effectRan = useRef(false);
   var keywords = [
     "collect",
@@ -121,27 +130,34 @@ export default function ConstructionEditor() {
   }, []);
 
   return (
-    <div className="plan-sidebar">
-      <div className="editor-header">
-        My Construction Plan
-        <div className="editor-btn-run">
-          <div className="editor.timer" style={{ marginRight: "15px" }}>
-            30:00s
+      <div className="plan-sidebar" style={{width : view ? '40%' : 0 }}>
+        <div>
+          <div className="button" style={{left : view ? '40%' : 0}}>
+            <button onClick={()=>onClickHander()} > {view ? <ArrowLeft/>: <ArrowRight/>} </button>
           </div>
-          <img src="Run_Button.png" width={50}></img>
+          { view ? <div>
+            <div className="editor-header" >
+              My Construction Plan
+              <div className="editor-btn-run">
+                <div className="editor.timer" style={{ marginRight: "15px" }}>
+                  30:00s
+                </div>
+                <img src="Run_Button.png" width={50}></img>
+              </div>
+            </div>
+            <div className="editor-container">
+              <Editor
+                  height="100vh"
+                  width="100%"
+                  language={"upbeat"}
+                  value={""}
+                  s
+                  theme={"tomorrow-night"}
+                  defaultValue="# Construct here"
+              />
+            </div>
+          </div> : false }
         </div>
       </div>
-      <div className="editor-container">
-        <Editor
-          height="100vh"
-          width={`100%`}
-          language={"upbeat"}
-          value={""}
-          s
-          theme={"tomorrow-night"}
-          defaultValue="# Construct here"
-        />
-      </div>
-    </div>
   );
 }

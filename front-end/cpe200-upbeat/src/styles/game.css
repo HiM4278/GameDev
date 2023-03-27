@@ -16,6 +16,15 @@
   width: 40%;
 }
 
+.button {
+  justify-content: center;
+  position: absolute;
+  left: 0%;
+  top: 50%;
+  height: 5%;
+  z-index: 2;
+  display: flex;
+}
 .board-container {
   width: 60%;
 }
