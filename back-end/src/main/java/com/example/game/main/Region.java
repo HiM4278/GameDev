@@ -12,10 +12,14 @@ public class Region {
     private int y;
     private Land land;
     private Unit unit;
+    private int tileID;
     private final Map<Direction,Region> neighbors = new HashMap<>();
+    private static ArrayList<Double> prob = new ArrayList<>(Arrays.asList(1/2.0, 1/4.0, 1/8.0, 1/8.0));
+
     public Region(int x,int y){
         this.x = x;
         this.y = y;
+        this.tileID = randomTile();
     }
     public void setNeighbor(Direction d , Region r) {
         this.neighbors.put(d,r);
@@ -28,6 +32,9 @@ public class Region {
     }
     public int getY(){
         return y;
+    }
+    public int getTileID() {
+        return tileID;
     }
     public void setLand(Land r){
         this.land = r;
@@ -83,5 +90,15 @@ public class Region {
         return path;
     }
 
-
+    public static int randomTile(){
+        double rand = Math.random();
+        double sum = 0;
+        for(int i = 0; i < prob.size(); i++) {
+            if(rand < sum){
+                return i;
+            }
+            sum += prob.get(i);
+        }
+        return prob.size();
+    }
 }

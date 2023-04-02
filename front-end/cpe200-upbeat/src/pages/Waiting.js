@@ -26,6 +26,7 @@ export default function Waiting() {
             `/topic/match/${localStorage.getItem("matchID")}`,
             (message) => {
               const body = JSON.parse(message.body);
+              console.log(body);
               setState(body);
             }
           );
@@ -33,6 +34,7 @@ export default function Waiting() {
             `/app/match/${localStorage.getItem("matchID")}`,
             (message) => {
               const body = JSON.parse(message.body);
+              console.log(body);
               setState(body);
             }
           );

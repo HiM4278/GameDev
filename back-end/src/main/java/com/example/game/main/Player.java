@@ -8,10 +8,9 @@ import com.example.game.object.Land;
 import lombok.Getter;
 
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.awt.*;
+import java.util.*;
 import java.util.List;
-import java.util.UUID;
 
 import static com.example.game.main.Game.configuration;
 
@@ -20,6 +19,7 @@ public class Player {
     private final String playerName;
     private String state;
     private final UUID id;
+    private String color;
     private int turn = 0;
     private final ConstructionPlan plan;
     private Land cityCenter;
@@ -31,6 +31,7 @@ public class Player {
     public Player(String playerName) {
         this.playerName = playerName;
         this.id = UUID.randomUUID();
+        this.color = randomColor();
         this.plan = new ConstructionPlan(this);
         this.revisionTime = new GameTimer(configuration.getTimeForRevision());
         this.TimeForInitPlan = new GameTimer(configuration.getTimeForFirstPlan());
@@ -121,6 +122,31 @@ public class Player {
 
     public LinkedList<Land> getAllLand(){
         return lands;
+    }
+
+    private String randomColor() {
+        // Create a random number generator
+        Random random = new Random();
+
+        // Generate random values for the red, green, and blue components
+        int red = random.nextInt(256);
+        int green = random.nextInt(256);
+        int blue = random.nextInt(256);
+
+        // Create a Color object with the random RGB values
+        Color randomColor = new Color(red, green, blue);
+
+        return toHexString(randomColor);
+    }
+
+    // Convert a Color object to a hexadecimal color code string
+    private String toHexString(Color color) {
+        String hex = Integer.toHexString(color.getRGB() & 0xffffff);
+        if (hex.length() < 6) {
+            hex = "0" + hex;
+        }
+        hex = "#" + hex;
+        return hex;
     }
 
 }

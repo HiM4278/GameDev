@@ -10,6 +10,7 @@ const Board = dynamic(() => import("../../components/Board"), {
 
 export default function Home() {
   const [client, setClient] = useState(null);
+  const [territory, setTerritory] = useState(null);
 
   useEffect(() => {
     if (!client) {
@@ -20,6 +21,7 @@ export default function Home() {
             `/topic/game/map/${localStorage.getItem("matchID")}`,
             (message) => {
               const body = JSON.parse(message.body);
+              setTerritory(body);
               console.log(body);
             }
           );
@@ -27,6 +29,7 @@ export default function Home() {
             `/app/game/map/${localStorage.getItem("matchID")}`,
             (message) => {
               const body = JSON.parse(message.body);
+              setTerritory(body);
               console.log(body);
             }
           );
@@ -42,7 +45,7 @@ export default function Home() {
     <div className="game-container" ref={containerRef}>
       <ConstructionEditor></ConstructionEditor>
       <div className="board-container">
-        <Board container={containerRef}></Board>
+        <Board container={containerRef} territory={territory}></Board>
       </div>
     </div>
   );

@@ -12,6 +12,8 @@ public class RegionMessage {
     private boolean isCityCenter;
     private boolean isVisible;
     private UUID ownerID;
+    private String color;
+    private int tileID;
     private boolean isEmpty;
     private int deposit;
 
@@ -20,13 +22,16 @@ public class RegionMessage {
             this.isCityCenter = region.getLand().isCityCenters();
             this.ownerID = region.getLand().getOwner().getId();
             this.isEmpty = false;
+            this.color = region.getLand().getOwner().getColor();
             this.deposit = region.getLand().getDeposit();
         }else {
             this.isCityCenter = false;
             this.ownerID = UUID.randomUUID();
             this.deposit = 0;
+            this.color = "";
             this.isEmpty = true;
         }
+        this.tileID = region.getTileID();
         this.isVisible = true;
     }
 }

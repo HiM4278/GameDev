@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="redesign the way to create match and player">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/Test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/Classes/Region.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/Classes/Region.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/main/Region.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/Region.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/message/RegionMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/message/RegionMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/Lib/createTerritory.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/Lib/createTerritory.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/Board.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/Board.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/ConstructionEditor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/ConstructionEditor.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/Waiting.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/Waiting.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/game.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,13 +260,6 @@
       <workItem from="1678558759013" duration="3846000" />
       <workItem from="1678603165324" duration="1450000" />
       <workItem from="1678682574244" duration="1198000" />
-    </task>
-    <task id="LOCAL-00002" summary="add Node">
-      <created>1676360334083</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1676360334083</updated>
     </task>
     <task id="LOCAL-00003" summary="Update Statement">
       <created>1676366844809</created>
@@ -606,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678722362760</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Init topic territory">
+      <created>1680460473282</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1680460473283</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +637,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="import LoopCounter in Game.java" />
     <MESSAGE value="Plan.prettyPrint completed" />
     <MESSAGE value="add line in SyntaxError information" />
     <MESSAGE value="handle reserved word" />
@@ -664,6 +661,7 @@
     <MESSAGE value="Latest version" />
     <MESSAGE value="Update relocate" />
     <MESSAGE value="redesign the way to create match and player" />
-    <option name="LAST_COMMIT_MESSAGE" value="redesign the way to create match and player" />
+    <MESSAGE value="Init topic territory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Init topic territory" />
   </component>
 </project>
