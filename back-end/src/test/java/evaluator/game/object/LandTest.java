@@ -1,10 +1,10 @@
-package evaluator.game.object;
+package com.example.evaluator.game.object;
 
-import game.main.Configuration;
-import game.main.Player;
-import game.main.Region;
-import game.main.Territory;
-import game.object.Land;
+import com.example.game.main.Configuration;
+import com.example.game.main.Player;
+import com.example.game.main.Region;
+import com.example.game.main.Territory;
+import com.example.game.object.Land;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -18,8 +18,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LandTest {
-//    Path p1 = Paths.get("Z:\\OOP\\Project_UPBEAT\\back-end\\src\\main\\java\\game\\main\\Configuration.txt");
-    Configuration config = new Configuration(Path.of("Z:\\OOP\\Project_UPBEAT\\back-end\\src\\main\\java\\game\\main\\Configuration.txt"));
+//    Path p1 = Paths.get("Z:\\OOP\\Project_UPBEAT\\back-end\\src\\main\\java\\com.example.game\\main\\Configuration.txt");
+    Configuration config = new Configuration(Path.of("Z:\\OOP\\Project_UPBEAT\\back-end\\src\\main\\java\\com.example.game\\main\\Configuration.txt"));
 
 
     public LandTest() throws IOException {

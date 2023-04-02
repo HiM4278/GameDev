@@ -1,9 +1,9 @@
-package evaluator.game.object;
+package com.example.evaluator.game.object;
 
-import extra.Direction;
-import game.main.*;
-import game.object.CityCrew;
-import game.object.Land;
+import com.example.extra.Direction;
+import com.example.game.main.*;
+import com.example.game.object.CityCrew;
+import com.example.game.object.Land;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CityCrewTest {
-    Configuration config = new Configuration(Paths.get("C:\\Users\\Asus\\Downloads\\DevGame\\back-end\\src\\main\\java\\game\\main\\Configuration.txt"));
+    Configuration config = new Configuration(Paths.get("C:\\Users\\Asus\\Downloads\\DevGame\\back-end\\src\\main\\java\\com.example.game\\main\\Configuration.txt"));
 
     public CityCrewTest() throws IOException {
     }
