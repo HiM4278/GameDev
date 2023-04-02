@@ -63,7 +63,7 @@ export default function Waiting() {
             {/* <padding style={{ textAlign: "center" }}>Total player: </padding> */}
             {numPlayer}
           </div>
-          <div className="wait">
+          <div style={{ position: "absolute", top: "70%", left: "44%" }}>
             {host ? (
               <button
                 className="wait-btn"
