@@ -12,7 +12,11 @@ public class Configuration {
 
     private Configuration(Path p) {
         map = readFromFile(p);
-        this.setup();
+        if(map != null){
+            this.setup();
+        }else {
+            setDefault();
+        }
     }
 
     public static Configuration instance(Path path){
@@ -53,6 +57,18 @@ public class Configuration {
         this.rev_cost = map.get("rev_cost");
         this.timeForFirstPlan = (map.get("init_plan_min")*60) + map.get("init_plan_sec");
         this.timeForRevision = (map.get("plan_rev_min")*60) + map.get("plan_rev_sec");
+    }
+
+    private void setDefault() {
+        this.M = 10;
+        this.N = 10;
+        this.initBudget = 10000;
+        this.initCenterDeposit = 1000;
+        this.max_dep = 100000;
+        this.interest_pct = 5;
+        this.rev_cost = 100;
+        this.timeForFirstPlan = 5*60;
+        this.timeForRevision = 30*60;
     }
 
     public long getM() {
