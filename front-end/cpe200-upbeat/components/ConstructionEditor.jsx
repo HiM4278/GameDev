@@ -3,9 +3,10 @@ import Editor, { loader } from "@monaco-editor/react";
 // import { ArrowLeft, ArrowRight } from "tabler-icons-react";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
+import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
 
 export default function ConstructionEditor() {
-  const [view, setView] = useState(false);
+  const [view, setView] = useState(true);
   const onClickHander = () => {
     if (view === true) {
       setView(false);
@@ -139,8 +140,9 @@ export default function ConstructionEditor() {
             onClick={() => onClickHander()}
             style={{
               borderRadius: "20px",
+              border: "3.5px solid",
               backgroundColor: "#FFCDB2",
-              width: "40px",
+              width: "50px",
               height: "125px",
             }}
           >
@@ -149,7 +151,7 @@ export default function ConstructionEditor() {
               <ArrowLeftIcon
                 style={{
                   height: "50px",
-                  width: "40px",
+                  width: "50px",
                   color: "red",
                 }}
               />
@@ -157,7 +159,7 @@ export default function ConstructionEditor() {
               <ArrowRightIcon
                 style={{
                   height: "50px",
-                  width: "40px",
+                  width: "50px",
                   color: "red",
                 }}
               />
@@ -172,7 +174,9 @@ export default function ConstructionEditor() {
                 <div className="editor.timer" style={{ marginRight: "15px" }}>
                   30:00s
                 </div>
-                <img src="Run_Button.png" width={50}></img>
+                <PlayCircleFilledWhiteIcon
+                  style={{ color: "#4DA167", width: "70px", height: "70px" }}
+                />
               </div>
             </div>
             <div className="editor-container">

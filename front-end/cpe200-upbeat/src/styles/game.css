@@ -6,7 +6,6 @@
   display: flex;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
   background-color: azure;
 }
 
@@ -37,7 +36,7 @@
 
 .editor-header {
   padding: 24px 16px;
-  background-color: #a77843;
+  background-color: #de6b48;
   font-weight: bold;
   color: #ffc900;
   display: flex;
