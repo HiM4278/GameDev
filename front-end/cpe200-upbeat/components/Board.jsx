@@ -35,17 +35,11 @@ function Board(props) {
       setFirstRender(false);
       const stage = stageRef.current;
       stage.absolutePosition({ x: 0, y: 0 });
+      const territory = createTerritory(25, 25);
+      setTerritory(territory.regions);
+      loadImages(territory.imgPaths);
     }
   }, []);
-
-  useEffect(() => {
-    const m = props.territory.m;
-    const n = props.territory.n;
-    const regions = props.territory.regions;
-    const territory = createTerritory(m, n, regions);
-    setTerritory(territory.regions);
-    loadImages(territory.imgPaths);
-  }, [props]);
 
   const zoom = (e) => {
     var scaleBy = 1.1;
@@ -96,9 +90,7 @@ function Board(props) {
             key={i}
             x={region.x - 50}
             y={region.y - 100}
-            image={
-              region.isCitycenter ? images.at(4) : images.at(region.imageID)
-            }
+            image={images.at(region.imageID) }
             onClick={() => {
               console.log(images);
             }}
@@ -108,35 +100,24 @@ function Board(props) {
 
         {territory.map((region, i) => {
           return (
-            <>
-              {region.playerID != "" && (
-                <Circle
-                  key={i}
-                  x={region.x}
-                  y={region.y}
-                  radius={10}
-                  fill={region.color}
-                  strokeWidth={1} // border width
-                  stroke="white" // border color
+              <>
+            <Circle key={i}
+                    x={region.x}
+                    y={region.y}
+                    radius={10}
+                    fill= {region.color}
+            />
+                <Circle key={i}
+                        x={region.x}
+                        y={region.y}
+                        radius={35}
+                        fill="black"
+                        opacity={0}
+                        onMouseOver={() => handleCircleMouseOver(i, setTerritory, territory)}
+                        onMouseOut={() => handleCircleMouseOut(i, setTerritory, territory)}
                 />
-              )}
-              <Circle
-                key={i}
-                x={region.x}
-                y={region.y}
-                radius={35}
-                fill="black"
-                opacity={0}
-                onMouseOver={() =>
-                  handleCircleMouseOver(i, setTerritory, territory)
-                }
-                onMouseOut={() =>
-                  handleCircleMouseOut(i, setTerritory, territory)
-                }
-              />
-            </>
-          );
-        })}
+              </>
+        )})}
       </Layer>
     </Stage>
   );
