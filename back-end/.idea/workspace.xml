@@ -4,16 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="redesign the way to create match and player">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/Test.js" afterDir="false" />
+    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="set default configuration">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/message/RegionMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/message/TerritoryMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/Classes/Region.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/Classes/Region.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/Lib/createTerritory.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/Lib/createTerritory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Configuration.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Configuration.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/main/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/Match.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/main/Region.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/Region.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/main/Territory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/Territory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/object/Land.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/object/Land.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/Board.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/Board.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/ConstructionEditor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/ConstructionEditor.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/Region.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/Waiting.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/Waiting.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/game.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -1,12 +1,14 @@
 package com.example.game.main;
 
 import com.example.extra.Direction;
+import lombok.Getter;
 
 import java.util.*;
 
 public class Territory {
     private Set<Region> UsedRegion = new HashSet<>();
     private Random random = new Random();
+    @Getter
     private int m,n;
     private Region[][] regions;
 

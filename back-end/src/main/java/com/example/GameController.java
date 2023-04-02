@@ -6,9 +6,11 @@ import com.example.game.main.Player;
 import com.example.message.CreateMatchMessage;
 import com.example.message.JoinMatchMessage;
 import com.example.message.MatchMessage;
+import com.example.message.TerritoryMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.annotation.SubscribeMapping;
 import org.springframework.web.bind.annotation.*;
@@ -63,9 +65,16 @@ public class GameController {
         }
     }
 
-    @MessageMapping("/match/{id}")
-    public String ds() {
-        return "greeting";
+    @MessageMapping("/match/{matchID}/start")
+    @SendTo("/topic/match/{matchID}")
+    public MatchMessage startMatch(@DestinationVariable UUID matchID) {
+        Match match = game.findMatch(matchID);
+        if(match != null) {
+            match.start();
+            return new MatchMessage(match);
+        }else {
+            return null;
+        }
     }
 
     @SubscribeMapping("/match/{matchID}")
@@ -73,6 +82,17 @@ public class GameController {
         Match match = game.findMatch(matchID);
         if(match != null) {
             return new MatchMessage(match);
+        }else {
+            return null;
+        }
+    }
+
+    @SubscribeMapping("/game/map/{matchID}")
+    public TerritoryMessage sendInitialMap(@DestinationVariable UUID matchID) {
+        Match match = game.findMatch(matchID);
+        if(match != null) {
+            System.out.println(match.getTerritory());
+            return new TerritoryMessage(match.getTerritory());
         }else {
             return null;
         }

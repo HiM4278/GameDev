@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { url } from "../../Lib/constant";
 import { Client } from "@stomp/stompjs";
 import { useRouter } from "next/router";
+import { isPlaying } from "../../Lib/auth";
 
 export default function Waiting() {
   const [host, setHost] = useState(true);
@@ -11,6 +12,10 @@ export default function Waiting() {
   const [client, setClient] = useState(null);
 
   const router = useRouter();
+
+  useEffect(() => {
+    isPlaying(router);
+  }, []);
 
   useEffect(() => {
     if (!client) {
@@ -38,25 +43,39 @@ export default function Waiting() {
     }
   }, []);
 
+  const start = () => {
+    if (client) {
+      if (client.connected) {
+        client.publish({
+          destination: `/app/match/${localStorage.getItem("matchID")}/start`,
+          body: JSON.stringify({}),
+        });
+      }
+    }
+  };
+
   const setState = (data) => {
     setHost(data.hostID);
     setNum(data.numPlayer);
+    if (data.playing) {
+      router.push("/game");
+    }
   };
 
   return (
     <div>
       <div className="numPlay">{numPlayer}</div>
       <div className="wait">
-        {host ? (
+        {localStorage.getItem("playerID") == host ? (
           <button
             className="wait-btn"
             disabled={numPlayer < 2}
-            onClick={() => router.push("/game")}
+            onClick={() => start()}
           >
             Start
           </button>
         ) : (
-          false
+          <></>
         )}
       </div>
     </div>

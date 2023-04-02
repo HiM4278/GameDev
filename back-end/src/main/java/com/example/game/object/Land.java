@@ -17,6 +17,7 @@ public class Land implements Realty{
         this.deposit = 0;
         this.owner = owner;
         this.position = region;
+        this.isCityCenter = false;
     }
 
     public Land(Player owner, Region region, boolean isCityCenter){

@@ -26,15 +26,9 @@ public class Game {
 
     public boolean checkMatch(UUID playerID, UUID matchID){
         for (Match m : matches){
-            System.out.println(matchID);
-            System.out.println(m.getId());
-            System.out.println("-------------");
             if(m.getId().equals(matchID)) {
                 System.out.println(m.getPlayers());
                 for (Player p : m.getPlayers()){
-                    System.out.println(playerID);
-                    System.out.println(p.getId());
-                    System.out.println("-------------");
                     if(p.getId().equals(playerID)) {
                         return true;
                     }

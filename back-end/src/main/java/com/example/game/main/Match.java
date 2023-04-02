@@ -31,6 +31,7 @@ public class Match {
 
     public UUID addPlayer(String playerName, String password) {
         System.out.println(this.password);
+        System.out.println(this.maxPlayer);
         if(this.password.equals(password)) {
             if(players.size() < maxPlayer) {
                 Player p = new Player(playerName);

@@ -1,6 +1,6 @@
-m=20
+m=2
 
-n=15
+n=2
 
 init_plan_min=5
 

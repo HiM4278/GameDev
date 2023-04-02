@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Circle, Layer, Rect, Stage, Image } from "react-konva";
-import Region from "../Classes/Region";
 import { createTerritory } from "../Lib/createTerritory";
-import {zeroPad} from "react-countdown";
 
 function Board(props) {
   const [firstRender, setFirstRender] = useState(true);
@@ -22,12 +20,11 @@ function Board(props) {
     setImages(new_images);
   };
 
-
   useEffect(() => {
     if (firstRender) {
       setFirstRender(false);
       const stage = stageRef.current;
-      stage.absolutePosition({ x: 0, y: -150 });
+      stage.absolutePosition({ x: 0, y: 0 });
       const territory = createTerritory(25, 25);
       setTerritory(territory.regions);
       loadImages(territory.imgPaths);
@@ -83,7 +80,7 @@ function Board(props) {
             key={i}
             x={region.x}
             y={region.y}
-            image={images.at(Math.floor(Math.random() * images.length)) }
+            image={images.at(Math.floor(Math.random() * images.length))}
             onClick={() => {
               console.log(images);
             }}
@@ -98,12 +95,15 @@ function Board(props) {
 
         {territory.map((region, i) => {
           return (
-            <Circle key={i}
-                    x={region.x + 45}
-                    y={region.y + 95}
-                    radius={5}
-                    fill= {region.color}/>
-        )})}
+            <Circle
+              key={i}
+              x={region.x + 45}
+              y={region.y + 95}
+              radius={5}
+              fill={region.color}
+            />
+          );
+        })}
       </Layer>
     </Stage>
   );

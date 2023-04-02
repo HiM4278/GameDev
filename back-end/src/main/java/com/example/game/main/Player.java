@@ -70,9 +70,9 @@ public class Player {
         if(region.getLand() == null) {
             Land land;
             if(isCityCenter){
-                land = new Land(this, region);
-            }else {
                 land = new Land(this, region, true);
+            }else {
+                land = new Land(this, region);
             }
             lands.add(land);
             region.setLand(land);

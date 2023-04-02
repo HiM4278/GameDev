@@ -4,6 +4,7 @@ import uuid from "react-uuid";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { url } from "../../Lib/constant";
+import { isPlaying } from "../../Lib/auth";
 
 export default function landing() {
   const [showNewGame, setShowNewGame] = useState(false);
@@ -16,7 +17,7 @@ export default function landing() {
   const [maxPlayer, setMaxPlayer] = useState(2);
 
   useEffect(() => {
-    isPlaying();
+    isPlaying(router);
   }, []);
 
   const clearForm = () => {
@@ -89,28 +90,6 @@ export default function landing() {
       router.push("/Waiting");
     }
     return;
-  };
-
-  const check = async (playerID, matchID) => {
-    const res = await axios.get(
-      `http://${url}/match/check?playerID=${playerID}&matchID=${matchID}`
-    );
-    if (res.data.ok) {
-      router.push("/Waiting");
-    } else {
-      localStorage.removeItem("playerID");
-      localStorage.removeItem("matchID");
-    }
-    return;
-  };
-
-  const isPlaying = () => {
-    if (localStorage.getItem("playerID") && localStorage.getItem("matchID")) {
-      check(localStorage.getItem("playerID"), localStorage.getItem("matchID"));
-    } else {
-      localStorage.removeItem("playerID");
-      localStorage.removeItem("matchID");
-    }
   };
 
   return (
@@ -227,7 +206,7 @@ export default function landing() {
                       name="gridRadios"
                       id="gridRadios1"
                       value="option1"
-                      onChange={(e) => setMaxPlayer(parseInt(e.target.value))}
+                      onChange={(e) => setMaxPlayer(2)}
                       checked
                     />
                     <label class="form-check-label" for="gridRadios1">
@@ -241,7 +220,7 @@ export default function landing() {
                       name="gridRadios"
                       id="gridRadios2"
                       value="option2"
-                      onChange={(e) => setMaxPlayer(parseInt(e.target.value))}
+                      onChange={(e) => setMaxPlayer(3)}
                     />
                     <label class="form-check-label" for="gridRadios2">
                       3
@@ -254,7 +233,7 @@ export default function landing() {
                       name="gridRadios"
                       id="gridRadios3"
                       value="option3"
-                      onChange={(e) => setMaxPlayer(parseInt(e.target.value))}
+                      onChange={(e) => setMaxPlayer(4)}
                     />
                     <label class="form-check-label" for="gridRadios3">
                       4
@@ -267,7 +246,7 @@ export default function landing() {
                       name="gridRadios"
                       id="gridRadios3"
                       value="option3"
-                      onChange={(e) => setMaxPlayer(parseInt(e.target.value))}
+                      onChange={(e) => setMaxPlayer(5)}
                     />
                     <label class="form-check-label" for="gridRadios3">
                       5

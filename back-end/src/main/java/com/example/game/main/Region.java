@@ -3,6 +3,7 @@ package com.example.game.main;
 import com.example.extra.Direction;
 import com.example.game.object.Land;
 import com.example.game.object.Unit;
+import lombok.Getter;
 
 import java.util.*;
 
