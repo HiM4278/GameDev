@@ -2,6 +2,7 @@ package com.example.evaluator.node.statement;
 
 import com.example.evaluator.node.expression.Expression;
 import com.example.exeption.EvalException;
+import com.example.game.main.Player;
 
 import java.util.HashMap;
 
@@ -25,8 +26,16 @@ public class AssignStatement implements Statement{
     }
 
     @Override
-    public boolean execute(HashMap<String, Integer> identifiers) throws EvalException {
-        identifiers.put(identifier, value.eval(identifiers));
+    public boolean execute(HashMap<String, Long> identifiers, Player player) throws EvalException {
+        if(!isConstVar(identifier)) identifiers.put(identifier, value.eval(identifiers));
+        return false;
+    }
+
+    private boolean isConstVar(String s){
+        String[] constVar = {"rows", "cols", "currow", "curcol", "budget", "deposit", "int", "maxdeposit"};
+        for(String word: constVar) {
+            if(s.equals(word)) return true;
+        }
         return false;
     }
 }

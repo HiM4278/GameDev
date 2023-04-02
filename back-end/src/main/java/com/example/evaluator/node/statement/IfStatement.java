@@ -2,6 +2,7 @@ package com.example.evaluator.node.statement;
 
 import com.example.evaluator.node.expression.Expression;
 import com.example.exeption.EvalException;
+import com.example.game.main.Player;
 
 import java.util.HashMap;
 
@@ -39,11 +40,11 @@ public class IfStatement implements Statement{
     }
 
     @Override
-    public boolean execute(HashMap<String, Integer> identifiers) throws EvalException {
+    public boolean execute(HashMap<String, Long> identifiers, Player player) throws EvalException {
         if(condition.eval(identifiers) > 0){
-            return statementIfTrue.execute(identifiers);
+            return statementIfTrue.execute(identifiers, player);
         }else {
-            return statementIfFalse.execute(identifiers);
+            return statementIfFalse.execute(identifiers, player);
         }
     }
 }

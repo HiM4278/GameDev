@@ -13,7 +13,7 @@ public class Info implements Expression {
         this.direction = direction;
     }
     @Override
-    public int eval(Map<String, Integer> identifier) throws EvalException {
+    public long eval(Map<String, Long> identifier) throws EvalException {
         return 0;
     }
 

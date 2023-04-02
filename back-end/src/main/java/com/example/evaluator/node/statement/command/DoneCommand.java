@@ -2,6 +2,7 @@ package com.example.evaluator.node.statement.command;
 
 import com.example.evaluator.node.statement.Statement;
 import com.example.exeption.EvalException;
+import com.example.game.main.Player;
 
 import java.util.HashMap;
 
@@ -15,7 +16,7 @@ public class DoneCommand implements Statement {
     }
 
     @Override
-    public boolean execute(HashMap<String, Integer> identifiers) throws EvalException {
+    public boolean execute(HashMap<String, Long> identifiers, Player player) throws EvalException {
         return true;
     }
 }

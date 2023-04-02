@@ -4,15 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="redesign the way to create match and player">
+    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="generate map completed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/Plan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/Plan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/expression/BinaryArithExpr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/expression/BinaryArithExpr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/expression/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/expression/Expression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/expression/Identifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/expression/Identifier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/expression/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/expression/Info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/expression/IntLit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/expression/IntLit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/AssignStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/AssignStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/BlockStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/BlockStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/IfStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/IfStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/Statement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/Statement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/WhileStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/WhileStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/AttackCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/AttackCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/DoneCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/DoneCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/MoveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/MoveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/RegionCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/RegionCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/RelocateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/RelocateCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/main/ConstructionPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/ConstructionPlan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/main/Region.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/Region.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/message/RegionMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/message/RegionMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/Lib/createTerritory.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/Lib/createTerritory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/Board.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/Board.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/Waiting.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/Waiting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/evaluator/parser/ExpressionEvalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/evaluator/parser/ExpressionEvalTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,13 +273,6 @@
       <workItem from="1678558759013" duration="3846000" />
       <workItem from="1678603165324" duration="1450000" />
       <workItem from="1678682574244" duration="1198000" />
-    </task>
-    <task id="LOCAL-00003" summary="Update Statement">
-      <created>1676366844809</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1676366844809</updated>
     </task>
     <task id="LOCAL-00004" summary="Update gitignore">
       <created>1676366955587</created>
@@ -604,7 +610,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680460473283</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="generate map completed">
+      <created>1680466991980</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1680466991980</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -637,7 +650,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Plan.prettyPrint completed" />
     <MESSAGE value="add line in SyntaxError information" />
     <MESSAGE value="handle reserved word" />
     <MESSAGE value="handdle full line comment" />
@@ -662,6 +674,7 @@
     <MESSAGE value="Update relocate" />
     <MESSAGE value="redesign the way to create match and player" />
     <MESSAGE value="Init topic territory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init topic territory" />
+    <MESSAGE value="generate map completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="generate map completed" />
   </component>
 </project>

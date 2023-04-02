@@ -4,6 +4,7 @@ import com.example.evaluator.node.expression.Expression;
 import com.example.evaluator.node.statement.Statement;
 import com.example.exeption.EvalException;
 import com.example.extra.Direction;
+import com.example.game.main.Player;
 
 import java.util.HashMap;
 
@@ -17,7 +18,8 @@ public class AttackCommand implements Statement {
     }
 
     @Override
-    public boolean execute(HashMap<String, Integer> identifiers) throws EvalException {
+    public boolean execute(HashMap<String, Long> identifiers, Player player) throws EvalException {
+        player.getCrew().shoot(direction,volume.eval(identifiers));
         return false;
     }
 

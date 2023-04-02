@@ -10,7 +10,7 @@ public class Identifier implements Expression{
         this.name = name;
     }
     @Override
-    public int eval(Map<String, Integer> identifier) throws EvalException {
+    public long eval(Map<String, Long> identifier) throws EvalException {
         if(identifier.containsKey(name)) return identifier.get(name);
         throw new EvalException("undefined variable: " + name);
     }

@@ -1,7 +1,11 @@
 package com.example.evaluator.node;
 
 import com.example.evaluator.node.statement.Statement;
+import com.example.exeption.EvalException;
 import com.example.exeption.SyntaxErrorException;
+import com.example.game.main.Player;
+
+import java.util.HashMap;
 import java.util.List;
 
 public class Plan implements Node {
@@ -20,6 +24,14 @@ public class Plan implements Node {
         for(Statement statement: statements) {
             statement.prettyPrint(s, depth);
             s.append("\n");
+        }
+    }
+
+    public void execute(HashMap<String, Long> identifiers, Player player) throws EvalException {
+        for(Statement statement: statements) {
+            if(statement.execute(identifiers, player)){
+                break;
+            }
         }
     }
 }

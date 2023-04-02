@@ -28,6 +28,8 @@ public class Player {
     private ArrayList<List<Action>> actions = new ArrayList<>();
     private GameTimer revisionTime,TimeForInitPlan;
 
+    private boolean initPlanAlready;
+
     public Player(String playerName) {
         this.playerName = playerName;
         this.id = UUID.randomUUID();
@@ -54,12 +56,16 @@ public class Player {
     public boolean SubmitPlan(String src) throws SyntaxErrorException {
         try {
             plan.updatePlan(src);
-            plan.run();
+            plan.parse();
             return true;
         } catch (SyntaxErrorException e){
             e.printStackTrace();
         }
         return false;
+    }
+
+    public void RunPlan(String src) throws SyntaxErrorException {
+
     }
 
     public void endTurn(){

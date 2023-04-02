@@ -13,9 +13,9 @@ public class BinaryArithExpr implements Expression{
         this.right = right;
     }
     @Override
-    public int eval(Map<String, Integer> identifier) throws EvalException {
-        int lv = left.eval(identifier);
-        int rv = right.eval(identifier);
+    public long eval(Map<String, Long> identifier) throws EvalException {
+        long lv = left.eval(identifier);
+        long rv = right.eval(identifier);
         if (op.equals("+")) return lv + rv;
         if (op.equals("-")) return lv - rv;
         if (op.equals("*")) return lv * rv;

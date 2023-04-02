@@ -10,7 +10,7 @@ public class IntLit implements Expression {
         this.value = value;
     }
     @Override
-    public int eval(Map<String, Integer> identifier) throws EvalException {
+    public long eval(Map<String, Long> identifier) throws EvalException {
         return value;
     }
 

@@ -1,6 +1,7 @@
 package com.example.evaluator.node.statement;
 
 import com.example.exeption.EvalException;
+import com.example.game.main.Player;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -32,10 +33,10 @@ public class BlockStatement implements Statement{
     }
 
     @Override
-    public boolean execute(HashMap<String, Integer> identifiers) throws EvalException {
+    public boolean execute(HashMap<String, Long> identifiers, Player player) throws EvalException {
         boolean isEnd = false;
         for(Statement statement: statements) {
-            isEnd = statement.execute(identifiers);
+            isEnd = statement.execute(identifiers, player);
             if(isEnd) break;
         }
         return isEnd;

@@ -1,4 +1,6 @@
 package com.example.game.main;
+import com.example.evaluator.parser.PlanParser;
+import com.example.evaluator.tokenizer.PlanTokenizer;
 import lombok.Getter;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +14,8 @@ public class Game {
     @Getter
     private List<Match> matches = new ArrayList<>();
     public static final Configuration configuration = Configuration.instance(Paths.get("Configuration.txt"));
+    public static final PlanTokenizer tokenizer = new PlanTokenizer();
+    public static PlanParser planParser = new PlanParser(tokenizer);
 
     public UUID CreateMatch(Player host, String roomName, String password, int maxPlayer){
         for (Match m : matches){
