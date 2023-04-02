@@ -44,20 +44,39 @@ export default function Waiting() {
   };
 
   return (
-    <div>
-      <div className="numPlay">{numPlayer}</div>
-      <div className="wait">
-        {host ? (
-          <button
-            className="wait-btn"
-            disabled={numPlayer < 2}
-            onClick={() => router.push("/game")}
+    <div
+      className="index-container bg"
+      style={{
+        backgroundImage: `url("bgWaiting.png")`,
+      }}
+    >
+      <div className="menu-group">
+        <div className="menu-btn-group">
+          <div
+            className="numPlay"
+            style={{
+              color: "#eadfce",
+              display: "flex",
+              flexDirection: "column",
+            }}
           >
-            Start
-          </button>
-        ) : (
-          false
-        )}
+            {/* <padding style={{ textAlign: "center" }}>Total player: </padding> */}
+            {numPlayer}
+          </div>
+          <div className="wait">
+            {host ? (
+              <button
+                className="wait-btn"
+                disabled={numPlayer < 2}
+                onClick={() => router.push("/game")}
+              >
+                Start
+              </button>
+            ) : (
+              false
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

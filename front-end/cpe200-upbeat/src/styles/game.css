@@ -54,14 +54,14 @@
   left: 45%;
 }
 
-.numPlay{
+.numPlay {
   display: flex;
   position: absolute;
   top: 35%;
   left: 46%;
   border-radius: 10px;
   padding: 12px 18px;
-  font-size: 144px;
+  font-size: 122px;
   font-family: "Tilt Neon";
   font-weight: bolder;
 }
