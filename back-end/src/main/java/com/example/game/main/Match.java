@@ -29,16 +29,17 @@ public class Match {
         this.territory = new Territory((int)Game.configuration.getM(), (int)Game.configuration.getN());
     }
 
-    public boolean addPlayer(String playerName, String password) {
+    public UUID addPlayer(String playerName, String password) {
+        System.out.println(this.password);
         if(this.password.equals(password)) {
             if(players.size() < maxPlayer) {
                 Player p = new Player(playerName);
                 players.add(p);
-                return true;
+                return p.getId();
             } else {
-                return false;
+                return null;
             }
-        }return false;
+        }return null;
     }
 
     public void start(){

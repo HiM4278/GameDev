@@ -1,17 +1,48 @@
-import { useState } from "react";
-import { router } from "next/client";
+import { useEffect, useState } from "react";
+import { url } from "../../Lib/constant";
+import { Client } from "@stomp/stompjs";
+import { useRouter } from "next/router";
 
 export default function Waiting() {
   const [host, setHost] = useState(true);
   const [isChecked, setIsChecked] = useState(false);
   const [numPlayer, setNum] = useState(0);
-  const handleCheckboxChange = () => {
-    if (numPlayer < 2) {
-      setIsChecked(true);
-    } else {
-      setIsChecked(false);
+
+  const [client, setClient] = useState(null);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!client) {
+      const client = new Client({
+        brokerURL: `ws://${url}/upbeat-websocket`,
+        onConnect: () => {
+          client.subscribe(
+            `/topic/match/${localStorage.getItem("matchID")}`,
+            (message) => {
+              const body = JSON.parse(message.body);
+              setState(body);
+            }
+          );
+          client.subscribe(
+            `/app/match/${localStorage.getItem("matchID")}`,
+            (message) => {
+              const body = JSON.parse(message.body);
+              setState(body);
+            }
+          );
+        },
+      });
+      client.activate();
+      setClient(client);
     }
+  }, []);
+
+  const setState = (data) => {
+    setHost(data.hostID);
+    setNum(data.numPlayer);
   };
+
   return (
     <div>
       <div className="numPlay">{numPlayer}</div>
@@ -19,7 +50,7 @@ export default function Waiting() {
         {host ? (
           <button
             className="wait-btn"
-            disabled={isChecked}
+            disabled={numPlayer < 2}
             onClick={() => router.push("/game")}
           >
             Start
