@@ -34,6 +34,38 @@
   width: 100%;
 }
 
+.wait-btn {
+  background: #c9a95e;
+  border: 5px solid #a77843;
+  color: #a05605;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 36px;
+  font-family: "Tilt Neon";
+  font-weight: bolder;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.wait {
+  display: flex;
+  position: absolute;
+  top: 70%;
+  left: 45%;
+}
+
+.numPlay{
+  display: flex;
+  position: absolute;
+  top: 35%;
+  left: 46%;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 144px;
+  font-family: "Tilt Neon";
+  font-weight: bolder;
+}
+
 .editor-header {
   padding: 24px 16px;
   background-color: #de6b48;
