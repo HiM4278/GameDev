@@ -5,6 +5,8 @@ import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
 import Countdown, {zeroPad} from "react-countdown";
+import ErrorBox from "./ErrorBox";
+
 
 export default function ConstructionEditor() {
   const [view, setView] = useState(true);
@@ -186,6 +188,9 @@ export default function ConstructionEditor() {
                 />
               </div>
             </div>
+            <div>
+              <ErrorBox errorMessage={"errorMessage"} />
+            </div>
             <div className="editor-container">
               <Editor
                 height="100vh"
@@ -197,6 +202,7 @@ export default function ConstructionEditor() {
                 defaultValue="# Construct here"
               />
             </div>
+
           </div>
         ) : (
           false

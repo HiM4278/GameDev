@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="redesign the way to create match and player">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/Test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/Classes/Region.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/Classes/Region.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/Lib/createTerritory.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/Lib/createTerritory.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/Board.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/Board.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/ConstructionEditor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/ConstructionEditor.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,27 +76,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/CMU/_Y2T2/261200 Object-Oriented Programming/CPE200_Lab20/src/main/java/com/example/demo/CanvasController.java&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "D:/CMU/_Y2T2/261200 Object-Oriented Programming/CPE200_Lab20/src/main/java/com/example/demo/CanvasController.java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
