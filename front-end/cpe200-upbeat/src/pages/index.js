@@ -17,9 +17,7 @@ export default function landing() {
   const [maxPlayer, setMaxPlayer] = useState(2);
 
   useEffect(() => {
-    if (!localStorage.getItem("id")) {
-      localStorage.setItem("id", uuid());
-    }
+    isPlaying();
   }, []);
 
   const handleCloseNewGame = () => {
@@ -60,6 +58,25 @@ export default function landing() {
       localStorage.setItem("matchID", res.data.matchID);
     }
     return;
+  };
+
+  const check = async (playerID, matchID) => {
+    const res = await axios.get(
+      `http://localhost:8080/match/check?playerID=${playerID}&matchID=${matchID}`
+    );
+    if (res.data.ok) {
+      router.push("/game");
+    }
+    return;
+  };
+
+  const isPlaying = () => {
+    if (localStorage.getItem("playerID") && localStorage.getItem("matchID")) {
+      check(localStorage.getItem("playerID"), localStorage.getItem("matchID"));
+    } else {
+      localStorage.removeItem("playerID");
+      localStorage.removeItem("matchID");
+    }
   };
 
   return (
@@ -212,7 +229,7 @@ export default function landing() {
           </form>
           <div style={{ position: "absolute", bottom: 15 }}>
             <button
-              onClick={() => router.push("/game")}
+              onClick={() => create()}
               class="btn"
               style={{ background: "#ffd284", border: "2px solid #fa9305" }}
             >

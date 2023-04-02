@@ -20,11 +20,21 @@ public class GameController {
 
     @CrossOrigin(origins = "*")
     @PostMapping(value = "/match/create")
-    public String greeting(@RequestBody MatchMessage match) {
+    public String createMatch(@RequestBody MatchMessage match) {
         Player host = new Player(match.getHost());
         UUID matchID = game.CreateMatch(host, match.getRoomName(), match.getPassword(), match.getMaxPlayer());
         if(matchID != null){
             return "{\"ok\":true, \"playerID\":\""+host.getId()+"\""+",\"matchID\":\""+matchID+"\"}";
+        }else {
+            return "{\"ok\":false}";
+        }
+    }
+
+    @CrossOrigin(origins = "*")
+    @RequestMapping(value = "/match/check", method = RequestMethod.GET)
+    public String checkMatch(@RequestParam UUID playerID, @RequestParam UUID matchID) {
+        if(game.checkMatch(playerID, matchID)){
+            return "{\"ok\":true}";
         }else {
             return "{\"ok\":false}";
         }
