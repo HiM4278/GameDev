@@ -4,9 +4,15 @@ import Editor, { loader } from "@monaco-editor/react";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
+import Countdown, {zeroPad} from "react-countdown";
 
 export default function ConstructionEditor() {
   const [view, setView] = useState(true);
+  const renderer = ({minutes, seconds}) => (
+      <span>
+        {zeroPad(minutes)}:{zeroPad(seconds)}
+    </span>
+  );
   const onClickHander = () => {
     if (view === true) {
       setView(false);
@@ -171,9 +177,10 @@ export default function ConstructionEditor() {
             <div className="editor-header">
               My Construction Plan
               <div className="editor-btn-run">
-                <div className="editor.timer" style={{ marginRight: "15px" }}>
-                  30:00s
-                </div>
+                <Countdown
+                    date={Date.now() + 1800000}
+                    renderer={renderer}
+                />
                 <PlayCircleFilledWhiteIcon
                   style={{ color: "#4DA167", width: "70px", height: "70px" }}
                 />

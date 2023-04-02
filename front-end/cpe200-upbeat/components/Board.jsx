@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Circle, Layer, Rect, Stage, Image } from "react-konva";
 import Region from "../Classes/Region";
 import { createTerritory } from "../Lib/createTerritory";
+import {zeroPad} from "react-countdown";
 
 function Board(props) {
   const [firstRender, setFirstRender] = useState(true);
@@ -9,6 +10,7 @@ function Board(props) {
   const [images, setImages] = useState([]);
   const stageRef = useRef(null);
   const layerRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
 
   const loadImages = (imgPaths) => {
     const new_images = [...images];
@@ -19,6 +21,7 @@ function Board(props) {
     });
     setImages(new_images);
   };
+
 
   useEffect(() => {
     if (firstRender) {
@@ -55,7 +58,7 @@ function Board(props) {
     }
 
     var newScale = direction > 0 ? oldScale * scaleBy : oldScale / scaleBy;
-    if (newScale < 2 && newScale > 0.8) {
+    if (newScale < 2 && newScale > 0.5) {
       stage.scale({ x: newScale, y: newScale });
 
       var newPos = {
@@ -80,12 +83,27 @@ function Board(props) {
             key={i}
             x={region.x}
             y={region.y}
-            image={images.at(Math.floor(Math.random() * images.length))}
+            image={images.at(Math.floor(Math.random() * images.length)) }
             onClick={() => {
               console.log(images);
             }}
+            onMouseOver={(event) => {
+              event.target.opacity(0.5);
+            }}
+            onMouseOut={(event) => {
+              event.target.opacity(1);
+            }}
           />
         ))}
+
+        {territory.map((region, i) => {
+          return (
+            <Circle key={i}
+                    x={region.x + 45}
+                    y={region.y + 95}
+                    radius={5}
+                    fill= {region.color}/>
+        )})}
       </Layer>
     </Stage>
   );
