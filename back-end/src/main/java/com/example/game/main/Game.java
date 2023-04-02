@@ -44,6 +44,24 @@ public class Game {
         return false;
     }
 
+    public Match findMatch(UUID matchID){
+        for (Match m : matches){
+            if(m.getId().equals(matchID)) {
+                return m;
+            }
+        }
+        return null;
+    }
+
+    public Match findMatch(String matchName){
+        for (Match m : matches){
+            if(m.getRoomName().equals(matchName)) {
+                return m;
+            }
+        }
+        return null;
+    }
+
     public void updateMatches(){
         matches.removeIf(Match::isEnd);
     }

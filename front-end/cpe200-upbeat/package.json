@@ -19,6 +19,7 @@
     "@next/font": "13.1.6",
     "@react-three/drei": "^9.56.28",
     "@react-three/fiber": "^8.11.5",
+    "@stomp/stompjs": "^7.0.0",
     "@types/node": "18.14.0",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",

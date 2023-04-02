@@ -3,24 +3,28 @@ import React, { useEffect, useState } from "react";
 import uuid from "react-uuid";
 import { useRouter } from "next/router";
 import axios from "axios";
+import { url } from "../../Lib/constant";
 
 export default function landing() {
   const [showNewGame, setShowNewGame] = useState(false);
   const [showJoinGame, setShowJoinGame] = useState(false);
 
-  const [playerID, setPlayerID] = useState(uuid());
-
   // Create Match Form
-  const [playerName, setPlayerName] = useState("Ball");
-  const [roomName, setRoomName] = useState("room1");
-  const [password, setPassword] = useState("1234");
+  const [playerName, setPlayerName] = useState("");
+  const [roomName, setRoomName] = useState("");
+  const [password, setPassword] = useState("");
   const [maxPlayer, setMaxPlayer] = useState(2);
 
   useEffect(() => {
-    if (!localStorage.getItem("id")) {
-      localStorage.setItem("id", uuid());
-    }
+    isPlaying();
   }, []);
+
+  const clearForm = () => {
+    setPlayerName("");
+    setRoomName("");
+    setPassword("");
+    setMaxPlayer(2);
+  };
 
   const handleCloseNewGame = () => {
     setShowNewGame(false);
@@ -28,6 +32,7 @@ export default function landing() {
 
   const handleShowNewGame = () => {
     setShowNewGame(true);
+    clearForm();
   };
 
   const handleCloseJoinGame = () => {
@@ -36,13 +41,14 @@ export default function landing() {
 
   const handleShowJoinGame = () => {
     setShowJoinGame(true);
+    clearForm();
   };
 
   const router = useRouter();
 
   const create = async () => {
     const res = await axios.post(
-      "http://localhost:8080/match/create",
+      `http://${url}/match/create`,
       {
         maxPlayer: maxPlayer,
         roomName: roomName,
@@ -58,8 +64,53 @@ export default function landing() {
     if (res.data.ok) {
       localStorage.setItem("playerID", res.data.playerID);
       localStorage.setItem("matchID", res.data.matchID);
+      router.push("/Waiting");
     }
     return;
+  };
+
+  const join = async () => {
+    const res = await axios.put(
+      `http://${url}/match/join`,
+      {
+        roomName: roomName,
+        password: password,
+        playerName: playerName,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    if (res.data.ok) {
+      localStorage.setItem("playerID", res.data.playerID);
+      localStorage.setItem("matchID", res.data.matchID);
+      router.push("/Waiting");
+    }
+    return;
+  };
+
+  const check = async (playerID, matchID) => {
+    const res = await axios.get(
+      `http://${url}/match/check?playerID=${playerID}&matchID=${matchID}`
+    );
+    if (res.data.ok) {
+      router.push("/Waiting");
+    } else {
+      localStorage.removeItem("playerID");
+      localStorage.removeItem("matchID");
+    }
+    return;
+  };
+
+  const isPlaying = () => {
+    if (localStorage.getItem("playerID") && localStorage.getItem("matchID")) {
+      check(localStorage.getItem("playerID"), localStorage.getItem("matchID"));
+    } else {
+      localStorage.removeItem("playerID");
+      localStorage.removeItem("matchID");
+    }
   };
 
   return (
@@ -93,20 +144,28 @@ export default function landing() {
         <Modal.Header
           closeButton
           style={{
-            backgroundColor: "#853605",
+            backgroundColor: "#915e25",
             width: "600px",
+            fontSize: "20px",
+            color: "white",
             fontWeight: "bold",
+            fontFamily: "Tilt Neon",
+            fontWeight: "bolder",
+            textTransform: "uppercase",
           }}
         >
           New game
         </Modal.Header>
         <Modal.Body
-          style={{ background: "#f3b46c", width: "600px", height: "400px" }}
+          style={{ background: "#c9a95e", width: "600px", height: "400px" }}
         >
           <form>
-            <div class="form-group row">
+            <div
+              class="form-group row"
+              style={{ alignItems: "center", justifyContent: "center" }}
+            >
               <label for="inputUsername3" class="col-sm-3 col-form-label">
-                Player name
+                Player name:
               </label>
               <div class="col-sm-8">
                 <input
@@ -118,9 +177,12 @@ export default function landing() {
                 />
               </div>
             </div>
-            <div class="form-group row">
+            <div
+              class="form-group row"
+              style={{ alignItems: "center", justifyContent: "center" }}
+            >
               <label for="inputRoomName3" class="col-sm-3 col-form-label">
-                Room name
+                Room name:
               </label>
               <div class="col-sm-8">
                 <input
@@ -132,9 +194,12 @@ export default function landing() {
                 />
               </div>
             </div>
-            <div class="form-group row">
+            <div
+              class="form-group row"
+              style={{ alignItems: "center", justifyContent: "center" }}
+            >
               <label for="inputPassword3" class="col-sm-3 col-form-label">
-                Password
+                Password:
               </label>
               <div class="col-sm-8">
                 <input
@@ -147,8 +212,13 @@ export default function landing() {
               </div>
             </div>
             <fieldset class="form-group">
-              <div class="row">
-                <legend class="col-form-label col-sm-3 pt-0">Max player</legend>
+              <div
+                class="row"
+                style={{ alignItems: "center", justifyContent: "center" }}
+              >
+                <legend class="col-form-label col-sm-3 pt-0">
+                  Max player:
+                </legend>
                 <div class="col-sm-8">
                   <div class="form-check form-check-inline">
                     <input
@@ -212,9 +282,19 @@ export default function landing() {
           </form>
           <div style={{ position: "absolute", bottom: 15 }}>
             <button
-              onClick={() => router.push("/Waiting")}
+              onClick={() => create()}
               class="btn"
-              style={{ background: "#ffd284", border: "2px solid #fa9305" }}
+              style={{
+                background: "#ffd284",
+                border: "3.5px solid #a2580c",
+                width: "100px",
+                height: "50px",
+                fontSize: "20px",
+                color: "#a05605",
+                fontFamily: "Tilt Neon",
+                fontWeight: "bolder",
+                textTransform: "uppercase",
+              }}
             >
               Create
             </button>
@@ -231,16 +311,28 @@ export default function landing() {
       >
         <Modal.Header
           closeButton
-          style={{ background: "#853605", width: "600px", fontWeight: "bold" }}
+          style={{
+            background: "#915e25",
+            width: "600px",
+            fontSize: "20px",
+            color: "white",
+            fontWeight: "bold",
+            fontFamily: "Tilt Neon",
+            fontWeight: "bolder",
+            textTransform: "uppercase",
+          }}
         >
           Join game
         </Modal.Header>
         <Modal.Body
-          style={{ background: "#f3b46c", width: "600px", height: "400px" }}
+          style={{ background: "#c9a95e", width: "600px", height: "400px" }}
         >
           <div>
             <form>
-              <div class="form-group row">
+              <div
+                class="form-group row"
+                style={{ alignItems: "center", justifyContent: "center" }}
+              >
                 <label for="inputUsername3" class="col-sm-3 col-form-label">
                   Player name:
                 </label>
@@ -250,10 +342,14 @@ export default function landing() {
                     class="form-control"
                     id="inputUsername3"
                     placeholder="Username..."
+                    onChange={(e) => setPlayerName(e.target.value)}
                   />
                 </div>
               </div>
-              <div class="form-group row">
+              <div
+                class="form-group row"
+                style={{ alignItems: "center", justifyContent: "center" }}
+              >
                 <label for="inputRoomName3" class="col-sm-3 col-form-label">
                   Room name:
                 </label>
@@ -263,10 +359,14 @@ export default function landing() {
                     class="form-control"
                     id="inputRoomName3"
                     placeholder="Room Name..."
+                    onChange={(e) => setRoomName(e.target.value)}
                   />
                 </div>
               </div>
-              <div class="form-group row">
+              <div
+                class="form-group row"
+                style={{ alignItems: "center", justifyContent: "center" }}
+              >
                 <label for="inputPassword3" class="col-sm-3 col-form-label">
                   Password:
                 </label>
@@ -276,6 +376,7 @@ export default function landing() {
                     class="form-control"
                     id="inputPassword3"
                     placeholder="Password..."
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
               </div>
@@ -287,8 +388,16 @@ export default function landing() {
               class="btn"
               style={{
                 background: "#ffd284",
-                border: "2px solid #fa9305",
+                border: "3.5px solid #a2580c",
+                width: "100px",
+                height: "50px",
+                fontSize: "20px",
+                color: "#a05605",
+                fontFamily: "Tilt Neon",
+                fontWeight: "bolder",
+                textTransform: "uppercase",
               }}
+              onClick={() => join()}
             >
               Join
             </button>
