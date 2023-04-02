@@ -105,6 +105,7 @@ export default function landing() {
                   class="form-control"
                   id="inputUsername3"
                   placeholder="Username..."
+                  onChange={(e) => setPlayerName(e.target.value)}
                 />
               </div>
             </div>
@@ -118,6 +119,7 @@ export default function landing() {
                   class="form-control"
                   id="inputRoomName3"
                   placeholder="Room name..."
+                  onChange={(e) => setRoomName(e.target.value)}
                 />
               </div>
             </div>
@@ -131,6 +133,7 @@ export default function landing() {
                   class="form-control"
                   id="inputPassword3"
                   placeholder="6-8 Characters"
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </div>
@@ -145,6 +148,7 @@ export default function landing() {
                       name="gridRadios"
                       id="gridRadios1"
                       value="option1"
+                      onChange={(e) => setMaxPlayer(parseInt(e.target.value))}
                       checked
                     />
                     <label class="form-check-label" for="gridRadios1">
@@ -158,6 +162,7 @@ export default function landing() {
                       name="gridRadios"
                       id="gridRadios2"
                       value="option2"
+                      onChange={(e) => setMaxPlayer(parseInt(e.target.value))}
                     />
                     <label class="form-check-label" for="gridRadios2">
                       3
@@ -170,6 +175,7 @@ export default function landing() {
                       name="gridRadios"
                       id="gridRadios3"
                       value="option3"
+                      onChange={(e) => setMaxPlayer(parseInt(e.target.value))}
                     />
                     <label class="form-check-label" for="gridRadios3">
                       4
@@ -182,6 +188,7 @@ export default function landing() {
                       name="gridRadios"
                       id="gridRadios3"
                       value="option3"
+                      onChange={(e) => setMaxPlayer(parseInt(e.target.value))}
                     />
                     <label class="form-check-label" for="gridRadios3">
                       5
@@ -195,7 +202,7 @@ export default function landing() {
             </div>
           </form>
           <button
-            onClick={() => create()}
+            onClick={() => router.push("/game")}
             class="btn"
             style={{ background: "#ffd284", border: "2px solid #fa9305" }}
           >
