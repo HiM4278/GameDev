@@ -5,9 +5,16 @@ import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
 import Countdown, {zeroPad} from "react-countdown";
+import {render} from "react-dom";
 
 export default function ConstructionEditor() {
   const [view, setView] = useState(true);
+  const [code, setCode] = useState("");
+
+  function handleChange(newValue) {
+    setCode(newValue);
+  }
+
   const renderer = ({minutes, seconds}) => (
       <span>
         {zeroPad(minutes)}:{zeroPad(seconds)}
@@ -191,10 +198,11 @@ export default function ConstructionEditor() {
                 height="100vh"
                 width="100%"
                 language={"upbeat"}
-                value={""}
+                value={code}
                 s
                 theme={"tomorrow-night"}
                 defaultValue="# Construct here"
+                onChange={handleChange}
               />
             </div>
           </div>

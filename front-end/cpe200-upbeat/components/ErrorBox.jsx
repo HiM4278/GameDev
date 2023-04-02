@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ErrorBox(props : any) {
+function ErrorBox(props) {
     return (
         <div className="error-box">
             <p className="error-message">{props.errorMessage}</p>
