@@ -1,9 +1,9 @@
-package evaluator.game.main;
+package com.example.evaluator.game.main;
 
-import game.main.Player;
-import game.main.Region;
-import game.main.Territory;
-import game.object.Land;
+import com.example.game.main.Player;
+import com.example.game.main.Region;
+import com.example.game.main.Territory;
+import com.example.game.object.Land;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

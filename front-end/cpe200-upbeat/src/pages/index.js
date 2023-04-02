@@ -1,10 +1,26 @@
 import { Button, Modal } from "react-bootstrap";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import uuid from "react-uuid";
 import { useRouter } from "next/router";
+import axios from "axios";
 
 export default function landing() {
   const [showNewGame, setShowNewGame] = useState(false);
   const [showJoinGame, setShowJoinGame] = useState(false);
+
+  const [playerID, setPlayerID] = useState(uuid());
+
+  // Create Match Form
+  const [playerName, setPlayerName] = useState("Ball");
+  const [roomName, setRoomName] = useState("room1");
+  const [password, setPassword] = useState("1234");
+  const [maxPlayer, setMaxPlayer] = useState(2);
+
+  useEffect(() => {
+    if (!localStorage.getItem("id")) {
+      localStorage.setItem("id", uuid());
+    }
+  }, []);
 
   const handleCloseNewGame = () => {
     setShowNewGame(false);
@@ -23,6 +39,28 @@ export default function landing() {
   };
 
   const router = useRouter();
+
+  const create = async () => {
+    const res = await axios.post(
+      "http://localhost:8080/match/create",
+      {
+        maxPlayer: maxPlayer,
+        roomName: roomName,
+        password: password,
+        host: playerName,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    if (res.data.ok) {
+      localStorage.setItem("playerID", res.data.playerID);
+      localStorage.setItem("matchID", res.data.matchID);
+    }
+    return;
+  };
 
   return (
     <>
@@ -157,7 +195,7 @@ export default function landing() {
             </div>
           </form>
           <button
-            onClick={() => router.push("/game")}
+            onClick={() => create()}
             class="btn"
             style={{ background: "#ffd284", border: "2px solid #fa9305" }}
           >

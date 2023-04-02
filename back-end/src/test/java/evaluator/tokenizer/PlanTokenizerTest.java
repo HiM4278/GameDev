@@ -1,6 +1,6 @@
-package evaluator.tokenizer;
+package com.example.evaluator.tokenizer;
 
-import exeption.SyntaxErrorException;
+import com.example.exeption.SyntaxErrorException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

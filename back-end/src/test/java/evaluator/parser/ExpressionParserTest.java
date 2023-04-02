@@ -1,9 +1,9 @@
-package evaluator.parser;
+package com.example.evaluator.parser;
 
-import evaluator.node.Plan;
-import evaluator.tokenizer.PlanTokenizer;
-import evaluator.tokenizer.Tokenizer;
-import exeption.SyntaxErrorException;
+import com.example.evaluator.node.Plan;
+import com.example.evaluator.tokenizer.PlanTokenizer;
+import com.example.evaluator.tokenizer.Tokenizer;
+import com.example.exeption.SyntaxErrorException;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
