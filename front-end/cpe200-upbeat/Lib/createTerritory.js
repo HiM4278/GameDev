@@ -29,6 +29,8 @@ export const createTerritory = (m, n) => {
             "",
               1,
               "#FB2C00"
+              ,false,
+              Math.floor((Math.random()*territory.imgPaths.length))
           )
         );
       }
@@ -43,7 +45,8 @@ export const createTerritory = (m, n) => {
             horizontalDistance * col,
             verticalDistance * row + offset - 18 * 3,
             "",2, "#003DFB"
-
+              ,false,
+              Math.floor((Math.random()*territory.imgPaths.length))
           )
         );
       }

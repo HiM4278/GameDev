@@ -63,20 +63,39 @@ export default function Waiting() {
   };
 
   return (
-    <div>
-      <div className="numPlay">{numPlayer}</div>
-      <div className="wait">
-        {localStorage.getItem("playerID") == host ? (
-          <button
-            className="wait-btn"
-            disabled={numPlayer < 2}
-            onClick={() => start()}
+    <div
+      className="index-container bg"
+      style={{
+        backgroundImage: `url("bgWaiting.png")`,
+      }}
+    >
+      <div className="menu-group">
+        <div className="menu-btn-group">
+          <div
+            className="numPlay"
+            style={{
+              color: "#eadfce",
+              display: "flex",
+              flexDirection: "column",
+            }}
           >
-            Start
-          </button>
-        ) : (
-          <></>
-        )}
+            {/* <padding style={{ textAlign: "center" }}>Total player: </padding> */}
+            {numPlayer}
+          </div>
+          <div style={{ position: "absolute", top: "70%", left: "44%" }}>
+            {host ? (
+              <button
+                className="wait-btn"
+                disabled={numPlayer < 2}
+                onClick={() => start()}
+              >
+                Start
+              </button>
+            ) : (
+              false
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
