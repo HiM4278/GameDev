@@ -93,20 +93,28 @@ export default function landing() {
         <Modal.Header
           closeButton
           style={{
-            backgroundColor: "#853605",
+            backgroundColor: "#915e25",
             width: "600px",
+            fontSize: "20px",
+            color: "white",
             fontWeight: "bold",
+            fontFamily: "Tilt Neon",
+            fontWeight: "bolder",
+            textTransform: "uppercase",
           }}
         >
           New game
         </Modal.Header>
         <Modal.Body
-          style={{ background: "#f3b46c", width: "600px", height: "400px" }}
+          style={{ background: "#c9a95e", width: "600px", height: "400px" }}
         >
           <form>
-            <div class="form-group row">
+            <div
+              class="form-group row"
+              style={{ alignItems: "center", justifyContent: "center" }}
+            >
               <label for="inputUsername3" class="col-sm-3 col-form-label">
-                Player name
+                Player name:
               </label>
               <div class="col-sm-8">
                 <input
@@ -118,9 +126,12 @@ export default function landing() {
                 />
               </div>
             </div>
-            <div class="form-group row">
+            <div
+              class="form-group row"
+              style={{ alignItems: "center", justifyContent: "center" }}
+            >
               <label for="inputRoomName3" class="col-sm-3 col-form-label">
-                Room name
+                Room name:
               </label>
               <div class="col-sm-8">
                 <input
@@ -132,9 +143,12 @@ export default function landing() {
                 />
               </div>
             </div>
-            <div class="form-group row">
+            <div
+              class="form-group row"
+              style={{ alignItems: "center", justifyContent: "center" }}
+            >
               <label for="inputPassword3" class="col-sm-3 col-form-label">
-                Password
+                Password:
               </label>
               <div class="col-sm-8">
                 <input
@@ -147,8 +161,13 @@ export default function landing() {
               </div>
             </div>
             <fieldset class="form-group">
-              <div class="row">
-                <legend class="col-form-label col-sm-3 pt-0">Max player</legend>
+              <div
+                class="row"
+                style={{ alignItems: "center", justifyContent: "center" }}
+              >
+                <legend class="col-form-label col-sm-3 pt-0">
+                  Max player:
+                </legend>
                 <div class="col-sm-8">
                   <div class="form-check form-check-inline">
                     <input
@@ -214,7 +233,17 @@ export default function landing() {
             <button
               onClick={() => router.push("/game")}
               class="btn"
-              style={{ background: "#ffd284", border: "2px solid #fa9305" }}
+              style={{
+                background: "#ffd284",
+                border: "3.5px solid #a2580c",
+                width: "100px",
+                height: "50px",
+                fontSize: "20px",
+                color: "#a05605",
+                fontFamily: "Tilt Neon",
+                fontWeight: "bolder",
+                textTransform: "uppercase",
+              }}
             >
               Create
             </button>
@@ -231,16 +260,28 @@ export default function landing() {
       >
         <Modal.Header
           closeButton
-          style={{ background: "#853605", width: "600px", fontWeight: "bold" }}
+          style={{
+            background: "#915e25",
+            width: "600px",
+            fontSize: "20px",
+            color: "white",
+            fontWeight: "bold",
+            fontFamily: "Tilt Neon",
+            fontWeight: "bolder",
+            textTransform: "uppercase",
+          }}
         >
           Join game
         </Modal.Header>
         <Modal.Body
-          style={{ background: "#f3b46c", width: "600px", height: "400px" }}
+          style={{ background: "#c9a95e", width: "600px", height: "400px" }}
         >
           <div>
             <form>
-              <div class="form-group row">
+              <div
+                class="form-group row"
+                style={{ alignItems: "center", justifyContent: "center" }}
+              >
                 <label for="inputUsername3" class="col-sm-3 col-form-label">
                   Player name:
                 </label>
@@ -253,7 +294,10 @@ export default function landing() {
                   />
                 </div>
               </div>
-              <div class="form-group row">
+              <div
+                class="form-group row"
+                style={{ alignItems: "center", justifyContent: "center" }}
+              >
                 <label for="inputRoomName3" class="col-sm-3 col-form-label">
                   Room name:
                 </label>
@@ -266,7 +310,10 @@ export default function landing() {
                   />
                 </div>
               </div>
-              <div class="form-group row">
+              <div
+                class="form-group row"
+                style={{ alignItems: "center", justifyContent: "center" }}
+              >
                 <label for="inputPassword3" class="col-sm-3 col-form-label">
                   Password:
                 </label>
@@ -287,7 +334,14 @@ export default function landing() {
               class="btn"
               style={{
                 background: "#ffd284",
-                border: "2px solid #fa9305",
+                border: "3.5px solid #a2580c",
+                width: "100px",
+                height: "50px",
+                fontSize: "20px",
+                color: "#a05605",
+                fontFamily: "Tilt Neon",
+                fontWeight: "bolder",
+                textTransform: "uppercase",
               }}
             >
               Join
