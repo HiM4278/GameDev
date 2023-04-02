@@ -4,21 +4,15 @@ import Editor, { loader } from "@monaco-editor/react";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
-import Countdown, { zeroPad } from "react-countdown";
+import Countdown, {zeroPad} from "react-countdown";
 
 export default function ConstructionEditor() {
   const [view, setView] = useState(true);
-
-  // Set state for containing client construction plan code
-  const [code, setCode] = useState("");
-
-  // Timer
-  const renderer = ({ minutes, seconds }) => (
-    <span>
-      {zeroPad(minutes)}:{zeroPad(seconds)}
+  const renderer = ({minutes, seconds}) => (
+      <span>
+        {zeroPad(minutes)}:{zeroPad(seconds)}
     </span>
   );
-
   const onClickHander = () => {
     if (view === true) {
       setView(false);
@@ -26,13 +20,7 @@ export default function ConstructionEditor() {
       setView(true);
     }
   };
-
-  useEffect(() => {
-    console.log(code);
-  }, [code]);
-
   const effectRan = useRef(false);
-
   var keywords = [
     "collect",
     "done",
@@ -49,10 +37,6 @@ export default function ConstructionEditor() {
   ];
 
   let operators = ["=", "+", "-", "*", "/", "^", "%"];
-
-  function handleEditorChange(value, event) {
-    setCode(value);
-  }
 
   useEffect(() => {
     if (effectRan.current === false) {
@@ -193,7 +177,10 @@ export default function ConstructionEditor() {
             <div className="editor-header">
               My Construction Plan
               <div className="editor-btn-run">
-                <Countdown date={Date.now() + 1800000} renderer={renderer} />
+                <Countdown
+                    date={Date.now() + 1800000}
+                    renderer={renderer}
+                />
                 <PlayCircleFilledWhiteIcon
                   style={{ color: "#4DA167", width: "70px", height: "70px" }}
                 />
@@ -204,8 +191,8 @@ export default function ConstructionEditor() {
                 height="100vh"
                 width="100%"
                 language={"upbeat"}
-                value={code}
-                onChange={handleEditorChange}
+                value={""}
+                s
                 theme={"tomorrow-night"}
                 defaultValue="# Construct here"
               />

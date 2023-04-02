@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Circle, Layer, Rect, Stage, Image } from "react-konva";
-import Region from "../Classes/Region";
+import { Circle, Layer, Stage, Image } from "react-konva";
 import { createTerritory } from "../Lib/createTerritory";
-import {zeroPad} from "react-countdown";
 
 function Board(props) {
   const [firstRender, setFirstRender] = useState(true);
@@ -10,7 +8,17 @@ function Board(props) {
   const [images, setImages] = useState([]);
   const stageRef = useRef(null);
   const layerRef = useRef(null);
-  const [isHovered, setIsHovered] = useState(false);
+  function handleCircleMouseOver(i, setTerritory, territory) {
+    const newTerritory = [...territory];
+    newTerritory[i].opacity = 0.5; // update opacity of Image component
+    setTerritory(newTerritory); // update state to trigger re-render
+  }
+
+  function handleCircleMouseOut(i, setTerritory, territory) {
+    const newTerritory = [...territory];
+    newTerritory[i].opacity = 1; // reset opacity of Image component
+    setTerritory(newTerritory); // update state to trigger re-render
+  }
 
   const loadImages = (imgPaths) => {
     const new_images = [...images];
@@ -21,7 +29,6 @@ function Board(props) {
     });
     setImages(new_images);
   };
-
 
   useEffect(() => {
     if (firstRender) {
@@ -81,28 +88,35 @@ function Board(props) {
         {territory.map((region, i) => (
           <Image
             key={i}
-            x={region.x}
-            y={region.y}
-            image={images.at(Math.floor(Math.random() * images.length)) }
+            x={region.x - 50}
+            y={region.y - 100}
+            image={images.at(region.imageID) }
             onClick={() => {
               console.log(images);
             }}
-            onMouseOver={(event) => {
-              event.target.opacity(0.5);
-            }}
-            onMouseOut={(event) => {
-              event.target.opacity(1);
-            }}
+            opacity={region.opacity}
           />
         ))}
 
         {territory.map((region, i) => {
           return (
+              <>
             <Circle key={i}
-                    x={region.x + 45}
-                    y={region.y + 95}
-                    radius={5}
-                    fill= {region.color}/>
+                    x={region.x}
+                    y={region.y}
+                    radius={10}
+                    fill= {region.color}
+            />
+                <Circle key={i}
+                        x={region.x}
+                        y={region.y}
+                        radius={35}
+                        fill="black"
+                        opacity={0}
+                        onMouseOver={() => handleCircleMouseOver(i, setTerritory, territory)}
+                        onMouseOut={() => handleCircleMouseOut(i, setTerritory, territory)}
+                />
+              </>
         )})}
       </Layer>
     </Stage>
