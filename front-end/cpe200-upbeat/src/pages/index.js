@@ -3,24 +3,28 @@ import React, { useEffect, useState } from "react";
 import uuid from "react-uuid";
 import { useRouter } from "next/router";
 import axios from "axios";
+import { url } from "../../Lib/constant";
 
 export default function landing() {
   const [showNewGame, setShowNewGame] = useState(false);
   const [showJoinGame, setShowJoinGame] = useState(false);
 
-  const [playerID, setPlayerID] = useState(uuid());
-
   // Create Match Form
-  const [playerName, setPlayerName] = useState("Ball");
-  const [roomName, setRoomName] = useState("room1");
-  const [password, setPassword] = useState("1234");
+  const [playerName, setPlayerName] = useState("");
+  const [roomName, setRoomName] = useState("");
+  const [password, setPassword] = useState("");
   const [maxPlayer, setMaxPlayer] = useState(2);
 
   useEffect(() => {
-    if (!localStorage.getItem("id")) {
-      localStorage.setItem("id", uuid());
-    }
+    isPlaying();
   }, []);
+
+  const clearForm = () => {
+    setPlayerName("");
+    setRoomName("");
+    setPassword("");
+    setMaxPlayer(2);
+  };
 
   const handleCloseNewGame = () => {
     setShowNewGame(false);
@@ -28,6 +32,7 @@ export default function landing() {
 
   const handleShowNewGame = () => {
     setShowNewGame(true);
+    clearForm();
   };
 
   const handleCloseJoinGame = () => {
@@ -36,13 +41,14 @@ export default function landing() {
 
   const handleShowJoinGame = () => {
     setShowJoinGame(true);
+    clearForm();
   };
 
   const router = useRouter();
 
   const create = async () => {
     const res = await axios.post(
-      "http://localhost:8080/match/create",
+      `http://${url}/match/create`,
       {
         maxPlayer: maxPlayer,
         roomName: roomName,
@@ -58,8 +64,53 @@ export default function landing() {
     if (res.data.ok) {
       localStorage.setItem("playerID", res.data.playerID);
       localStorage.setItem("matchID", res.data.matchID);
+      router.push("/Waiting");
     }
     return;
+  };
+
+  const join = async () => {
+    const res = await axios.put(
+      `http://${url}/match/join`,
+      {
+        roomName: roomName,
+        password: password,
+        playerName: playerName,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    if (res.data.ok) {
+      localStorage.setItem("playerID", res.data.playerID);
+      localStorage.setItem("matchID", res.data.matchID);
+      router.push("/Waiting");
+    }
+    return;
+  };
+
+  const check = async (playerID, matchID) => {
+    const res = await axios.get(
+      `http://${url}/match/check?playerID=${playerID}&matchID=${matchID}`
+    );
+    if (res.data.ok) {
+      router.push("/Waiting");
+    } else {
+      localStorage.removeItem("playerID");
+      localStorage.removeItem("matchID");
+    }
+    return;
+  };
+
+  const isPlaying = () => {
+    if (localStorage.getItem("playerID") && localStorage.getItem("matchID")) {
+      check(localStorage.getItem("playerID"), localStorage.getItem("matchID"));
+    } else {
+      localStorage.removeItem("playerID");
+      localStorage.removeItem("matchID");
+    }
   };
 
   return (
@@ -212,7 +263,7 @@ export default function landing() {
           </form>
           <div style={{ position: "absolute", bottom: 15 }}>
             <button
-              onClick={() => router.push("/game")}
+              onClick={() => create()}
               class="btn"
               style={{ background: "#ffd284", border: "2px solid #fa9305" }}
             >
@@ -250,6 +301,7 @@ export default function landing() {
                     class="form-control"
                     id="inputUsername3"
                     placeholder="Username..."
+                    onChange={(e) => setPlayerName(e.target.value)}
                   />
                 </div>
               </div>
@@ -263,6 +315,7 @@ export default function landing() {
                     class="form-control"
                     id="inputRoomName3"
                     placeholder="Room Name..."
+                    onChange={(e) => setRoomName(e.target.value)}
                   />
                 </div>
               </div>
@@ -276,6 +329,7 @@ export default function landing() {
                     class="form-control"
                     id="inputPassword3"
                     placeholder="Password..."
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
               </div>
@@ -289,6 +343,7 @@ export default function landing() {
                 background: "#ffd284",
                 border: "2px solid #fa9305",
               }}
+              onClick={() => join()}
             >
               Join
             </button>
