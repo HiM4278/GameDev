@@ -9,9 +9,9 @@ const Board = dynamic(() => import("../../components/Board"), {
 export default function Home() {
   const containerRef = useRef(null);
   return (
-    <div className="game-container">
+    <div className="game-container" ref={containerRef}>
       <ConstructionEditor></ConstructionEditor>
-      <div className="board-container" ref={containerRef}>
+      <div className="board-container">
         <Board container={containerRef}></Board>
       </div>
     </div>

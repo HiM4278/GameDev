@@ -1,6 +1,8 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Editor, { loader } from "@monaco-editor/react";
-import {ArrowLeft, ArrowRight} from "tabler-icons-react";
+// import { ArrowLeft, ArrowRight } from "tabler-icons-react";
+import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 
 export default function ConstructionEditor() {
   const [view, setView] = useState(false);
@@ -130,13 +132,41 @@ export default function ConstructionEditor() {
   }, []);
 
   return (
-      <div className="plan-sidebar" style={{width : view ? '40%' : 0 }}>
-        <div>
-          <div className="button" style={{left : view ? '40%' : 0}}>
-            <button onClick={()=>onClickHander()} > {view ? <ArrowLeft/>: <ArrowRight/>} </button>
-          </div>
-          { view ? <div>
-            <div className="editor-header" >
+    <div className="plan-sidebar" style={{ width: view ? "40%" : 0 }}>
+      <div>
+        <div className="button" style={{ left: view ? "40%" : 0 }}>
+          <button
+            onClick={() => onClickHander()}
+            style={{
+              borderRadius: "20px",
+              backgroundColor: "#FFCDB2",
+              width: "40px",
+              height: "125px",
+            }}
+          >
+            {" "}
+            {view ? (
+              <ArrowLeftIcon
+                style={{
+                  height: "50px",
+                  width: "40px",
+                  color: "red",
+                }}
+              />
+            ) : (
+              <ArrowRightIcon
+                style={{
+                  height: "50px",
+                  width: "40px",
+                  color: "red",
+                }}
+              />
+            )}{" "}
+          </button>
+        </div>
+        {view ? (
+          <div>
+            <div className="editor-header">
               My Construction Plan
               <div className="editor-btn-run">
                 <div className="editor.timer" style={{ marginRight: "15px" }}>
@@ -147,17 +177,20 @@ export default function ConstructionEditor() {
             </div>
             <div className="editor-container">
               <Editor
-                  height="100vh"
-                  width="100%"
-                  language={"upbeat"}
-                  value={""}
-                  s
-                  theme={"tomorrow-night"}
-                  defaultValue="# Construct here"
+                height="100vh"
+                width="100%"
+                language={"upbeat"}
+                value={""}
+                s
+                theme={"tomorrow-night"}
+                defaultValue="# Construct here"
               />
             </div>
-          </div> : false }
-        </div>
+          </div>
+        ) : (
+          false
+        )}
       </div>
+    </div>
   );
 }
