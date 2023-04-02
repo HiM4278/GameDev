@@ -26,7 +26,9 @@ export const createTerritory = (m, n) => {
           new Region(
             horizontalDistance * col,
             verticalDistance * row + offset - 18 * 3,
-            ""
+            "",
+              1,
+              "#FB2C00"
           )
         );
       }
@@ -40,7 +42,8 @@ export const createTerritory = (m, n) => {
           new Region(
             horizontalDistance * col,
             verticalDistance * row + offset - 18 * 3,
-            ""
+            "",2, "#003DFB"
+
           )
         );
       }

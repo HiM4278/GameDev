@@ -5,65 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="redesign the way to create match and player">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/GameController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/MatchMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WebSocketConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/parser/Parser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/game/object/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2566_14_33_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2566_14_33__Changes_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/Test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/Plan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/Plan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/expression/BinaryArithExpr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/expression/BinaryArithExpr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/expression/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/expression/Expression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/expression/Identifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/expression/Identifier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/expression/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/expression/Info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/expression/IntLit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/expression/IntLit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/AssignStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/AssignStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/BlockStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/BlockStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/IfStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/IfStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/Statement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/Statement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/WhileStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/WhileStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/command/AttackCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/AttackCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/command/DoneCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/DoneCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/command/MoveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/MoveCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/command/RegionCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/RegionCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/node/statement/command/RelocateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/RelocateCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/parser/Parser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/parser/PlanParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/parser/PlanParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/tokenizer/PlanTokenizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/tokenizer/PlanTokenizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/evaluator/tokenizer/Tokenizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/tokenizer/Tokenizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exeption/EvalException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exeption/EvalException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exeption/SyntaxErrorException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exeption/SyntaxErrorException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exeption/UnknownTokenException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/exeption/UnknownTokenException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/extra/Counter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/extra/Counter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/extra/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/extra/Direction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/extra/GameTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/extra/GameTimer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/extra/LoopCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/extra/LoopCounter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/Configuration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/ConstructionPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/ConstructionPlan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/Match.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Region.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/Region.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/main/Territory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/Territory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/object/CityCrew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/object/CityCrew.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/object/GameObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/object/Land.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/object/Land.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/object/Realty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/object/Realty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/object/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/object/Unit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/evaluator/game/main/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/evaluator/game/main/PlayerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/evaluator/game/object/CityCrewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/evaluator/game/object/CityCrewTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/evaluator/game/object/LandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/evaluator/game/object/LandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/evaluator/parser/ExpressionEvalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/evaluator/parser/ExpressionEvalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/evaluator/parser/ExpressionParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/evaluator/parser/ExpressionParserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/evaluator/tokenizer/PlanTokenizerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/evaluator/tokenizer/PlanTokenizerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/Classes/Region.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/Classes/Region.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/Lib/createTerritory.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/Lib/createTerritory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/Board.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/Board.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/ConstructionEditor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/ConstructionEditor.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/src/pages/index.js" afterDir="false" />

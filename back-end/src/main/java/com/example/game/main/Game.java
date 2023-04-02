@@ -14,7 +14,6 @@ public class Game {
     public static final Configuration configuration = Configuration.instance(Paths.get("Configuration.txt"));
 
     public UUID CreateMatch(Player host, String roomName, String password, int maxPlayer){
-
         for (Match m : matches){
             if(m.getRoomName().equals(roomName)) {
                 return null;
@@ -23,6 +22,26 @@ public class Game {
         Match match = new Match(roomName,password,host,maxPlayer);
         matches.add(match);
         return match.getId();
+    }
+
+    public boolean checkMatch(UUID playerID, UUID matchID){
+        for (Match m : matches){
+            System.out.println(matchID);
+            System.out.println(m.getId());
+            System.out.println("-------------");
+            if(m.getId().equals(matchID)) {
+                System.out.println(m.getPlayers());
+                for (Player p : m.getPlayers()){
+                    System.out.println(playerID);
+                    System.out.println(p.getId());
+                    System.out.println("-------------");
+                    if(p.getId().equals(playerID)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     public void updateMatches(){

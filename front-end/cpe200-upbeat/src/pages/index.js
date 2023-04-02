@@ -231,7 +231,7 @@ export default function landing() {
           </form>
           <div style={{ position: "absolute", bottom: 15 }}>
             <button
-              onClick={() => router.push("/game")}
+              onClick={() => router.push("/Waiting")}
               class="btn"
               style={{
                 background: "#ffd284",

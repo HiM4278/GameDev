@@ -25,6 +25,7 @@ public class Match {
         this.password = password;
         this.host = host;
         this.maxPlayer = maxPlayer;
+        this.players.add(host);
         this.territory = new Territory((int)Game.configuration.getM(), (int)Game.configuration.getN());
     }
 
