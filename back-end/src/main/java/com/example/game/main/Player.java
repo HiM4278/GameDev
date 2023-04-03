@@ -17,6 +17,7 @@ import static com.example.game.main.Game.configuration;
 @Getter
 public class Player {
     private final String playerName;
+    private Match match;
     private String state;
     private final UUID id;
     private String color;
@@ -53,19 +54,21 @@ public class Player {
         this.turn++;
     }
 
-    public boolean SubmitPlan(String src) throws SyntaxErrorException {
+    public String SubmitPlan(String src) {
         try {
+            System.out.println(src);
             plan.updatePlan(src);
-            plan.parse();
-            return true;
+            String err = plan.parse();
+            endTurn();
+            return err;
         } catch (SyntaxErrorException e){
             e.printStackTrace();
+            return e.getMessage();
         }
-        return false;
     }
 
-    public void RunPlan(String src) throws SyntaxErrorException {
-
+    public String RunPlan() {
+        return plan.run();
     }
 
     public void endTurn(){

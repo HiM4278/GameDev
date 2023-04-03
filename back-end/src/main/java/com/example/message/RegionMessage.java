@@ -19,10 +19,17 @@ public class RegionMessage {
 
     public RegionMessage(Region region){
         if(region.getLand() != null){
-            this.isCityCenter = region.getLand().isCityCenters();
-            this.ownerID = region.getLand().getOwner().getId();
-            this.isEmpty = false;
-            this.color = region.getLand().getOwner().getColor();
+            if(region.getLand().getOwner()==null) {
+                this.ownerID = UUID.randomUUID();
+                this.isEmpty = true;
+                this.color = "";
+                this.isCityCenter = false;
+            }else {
+                this.color = region.getLand().getOwner().getColor();
+                this.ownerID = region.getLand().getOwner().getId();
+                this.isEmpty = false;
+                this.isCityCenter = region.getLand().isCityCenters();
+            }
             this.deposit = region.getLand().getDeposit();
         }else {
             this.isCityCenter = false;

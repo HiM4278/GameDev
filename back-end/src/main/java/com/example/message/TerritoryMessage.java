@@ -12,15 +12,16 @@ public class TerritoryMessage {
     private RegionMessage[][] regions;
     private int m,n;
 
-    public TerritoryMessage(Territory territory){
+    private UUID currentPlayer;
+
+    public TerritoryMessage(Match match){
+        Territory territory = match.getTerritory();
         this.m = territory.getM();
         this.n = territory.getN();
         this.regions = new RegionMessage[m][n];
 
         for(int i = 1; i <= m; i++) {
             for(int j = 1; j <= n; j++) {
-                System.out.println(i+" "+j);
-                System.out.println(territory.getRegions(i,j));
                 regions[i-1][j-1] = new RegionMessage(territory.getRegions(i,j));
             }
             System.out.println();

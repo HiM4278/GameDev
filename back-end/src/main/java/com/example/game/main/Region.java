@@ -44,13 +44,15 @@ public class Region {
     }
     public boolean isAdjacent(Player player){
         for(Region neighbor : neighbors.values().toArray(new Region[0])){
-            if(neighbor.getLand() != null && neighbor.getLand().getOwner() == player) return true;
+            if(neighbor != null) {
+                if(neighbor.getLand()!=null && neighbor.getLand().getOwner()==player) return true;
+            }
         }
         return false;
     }
 
     public Land getLand(){
-        return land;
+        return this.land;
     }
     public Unit getUnit(){
         return unit;

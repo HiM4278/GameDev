@@ -47,6 +47,7 @@ public class Match {
         for(Player player : players) {
             player.initCityCenter(territory.RandomRegion());
         }
+        currPlayerIndex = new LoopCounter(players.size());
         isPlaying = true;
     }
 

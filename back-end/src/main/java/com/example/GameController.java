@@ -3,10 +3,7 @@ package com.example;
 import com.example.game.main.Game;
 import com.example.game.main.Match;
 import com.example.game.main.Player;
-import com.example.message.CreateMatchMessage;
-import com.example.message.JoinMatchMessage;
-import com.example.message.MatchMessage;
-import com.example.message.TerritoryMessage;
+import com.example.message.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -92,9 +89,34 @@ public class GameController {
         Match match = game.findMatch(matchID);
         if(match != null) {
             System.out.println(match.getTerritory());
-            return new TerritoryMessage(match.getTerritory());
+            return new TerritoryMessage(match);
         }else {
             return null;
         }
+    }
+
+    @CrossOrigin(origins = "*")
+    @PostMapping(value = "/game/run")
+    public String run(@RequestBody ConstructionMessage message) {
+        Match match = game.findMatch(message.getMatchID());
+        if(match != null){
+            for (Player p : match.getPlayers()){
+                if(p.getId().equals(message.getPlayerID())) {
+                    String status = p.SubmitPlan(message.getCode());
+                    if(status.equals("")){
+                        status = p.RunPlan();
+                        if(status.equals("")) {
+                            messageSender.convertAndSend("/topic/game/map/"+match.getId(), new TerritoryMessage(match));
+                            return "{\"ok\":true}";
+                        }else {
+                            return "{\"ok\":false,\"error\":"+status+"}";
+                        }
+                    }else {
+                        return "{\"ok\":false,\"error\":"+status+"}";
+                    }
+                }
+            }
+        }
+        return "{\"ok\":false}";
     }
 }

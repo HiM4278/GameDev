@@ -37,7 +37,7 @@ public class Land implements Realty{
     }
 
     @Override
-    public boolean decrease(long money) {
+    public boolean collect(long money) {
         if (deposit < money){
             return false;
         } else if(deposit == money) {
@@ -52,6 +52,16 @@ public class Land implements Realty{
             }
             return true;
         }
+    }
+
+    @Override
+    public boolean decrease(long money) {
+        deposit = Math.max(deposit - money, 0);
+        if(deposit <= 0){
+            deposit = 0;
+            owner = null; // if Region's deposit == 0, The region will have no owner.
+        }
+        return true;
     }
 
     @Override

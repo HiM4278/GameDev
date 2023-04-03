@@ -12,6 +12,7 @@ import com.example.exeption.SyntaxErrorException;
 import com.example.exeption.UnknownTokenException;
 import com.example.extra.Direction;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
@@ -27,6 +28,7 @@ public class PlanParser implements Parser {
     public Plan parse() throws SyntaxErrorException {
         Plan plan = parsePlan();
         if(tokenizer.hasNextToken()) throw new SyntaxErrorException("leftover token");
+        System.out.println("-----------------");
         return plan;
     }
 
@@ -37,9 +39,9 @@ public class PlanParser implements Parser {
     }
 
     private Plan parsePlan() throws SyntaxErrorException {
-        LinkedList<Statement> statements = new LinkedList<>();
+        ArrayList<Statement> statements = new ArrayList<>();
         while(tokenizer.hasNextToken()){
-            statements.push(parseStatement());
+            statements.add(parseStatement());
         }
         return new Plan(statements);
     }

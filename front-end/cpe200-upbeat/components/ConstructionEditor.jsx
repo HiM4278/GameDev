@@ -4,10 +4,12 @@ import Editor, { loader } from "@monaco-editor/react";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
-import Countdown, {zeroPad} from "react-countdown";
-import {render} from "react-dom";
+import Countdown, { zeroPad } from "react-countdown";
+import { render } from "react-dom";
+import { url } from "../Lib/constant";
+import axios from "axios";
 
-export default function ConstructionEditor() {
+export default function ConstructionEditor(props) {
   const [view, setView] = useState(true);
   const [code, setCode] = useState("");
 
@@ -15,9 +17,27 @@ export default function ConstructionEditor() {
     setCode(newValue);
   }
 
-  const renderer = ({minutes, seconds}) => (
-      <span>
-        {zeroPad(minutes)}:{zeroPad(seconds)}
+  const run = async () => {
+    const res = await axios.post(
+      `http://${url}/game/run`,
+      {
+        matchID: localStorage.getItem("matchID"),
+        playerID: localStorage.getItem("playerID"),
+        code: code,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    console.log(res.data);
+    return;
+  };
+
+  const renderer = ({ minutes, seconds }) => (
+    <span>
+      {zeroPad(minutes)}:{zeroPad(seconds)}
     </span>
   );
   const onClickHander = () => {
@@ -184,11 +204,9 @@ export default function ConstructionEditor() {
             <div className="editor-header">
               My Construction Plan
               <div className="editor-btn-run">
-                <Countdown
-                    date={Date.now() + 1800000}
-                    renderer={renderer}
-                />
+                <Countdown date={Date.now() + 1800000} renderer={renderer} />
                 <PlayCircleFilledWhiteIcon
+                  onClick={() => run()}
                   style={{ color: "#4DA167", width: "70px", height: "70px" }}
                 />
               </div>

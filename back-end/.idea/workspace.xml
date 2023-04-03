@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="generate map completed">
+    <list default="true" id="ae3d9051-5c2f-4624-b7c2-15ddceb5c461" name="Changes" comment="update AST">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/message/ConstructionMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Configuration.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Configuration.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/Plan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/Plan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/expression/BinaryArithExpr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/expression/BinaryArithExpr.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/expression/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/expression/Expression.java" afterDir="false" />
@@ -15,17 +18,23 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/AssignStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/AssignStatement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/BlockStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/BlockStatement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/IfStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/IfStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/Statement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/Statement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/WhileStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/WhileStatement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/AttackCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/AttackCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/DoneCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/DoneCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/MoveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/MoveCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/RegionCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/RegionCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/RelocateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/node/statement/command/RelocateCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/evaluator/parser/PlanParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/evaluator/parser/PlanParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/main/ConstructionPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/ConstructionPlan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/main/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/Match.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/evaluator/parser/ExpressionEvalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/evaluator/parser/ExpressionEvalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/main/Region.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/main/Region.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/object/CityCrew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/object/CityCrew.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/object/Land.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/object/Land.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/object/Realty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/object/Realty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/message/RegionMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/message/RegionMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/message/TerritoryMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/message/TerritoryMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/Board.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/Board.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/ConstructionEditor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/cpe200-upbeat/components/ConstructionEditor.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,13 +282,6 @@
       <workItem from="1678558759013" duration="3846000" />
       <workItem from="1678603165324" duration="1450000" />
       <workItem from="1678682574244" duration="1198000" />
-    </task>
-    <task id="LOCAL-00004" summary="Update gitignore">
-      <created>1676366955587</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1676366955587</updated>
     </task>
     <task id="LOCAL-00005" summary="Update gitignore">
       <created>1676367314288</created>
@@ -617,7 +619,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680466991980</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="update AST">
+      <created>1680478719797</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1680478719797</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -650,7 +659,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="add line in SyntaxError information" />
     <MESSAGE value="handle reserved word" />
     <MESSAGE value="handdle full line comment" />
     <MESSAGE value="prettyPrint completed" />
@@ -675,6 +683,23 @@
     <MESSAGE value="redesign the way to create match and player" />
     <MESSAGE value="Init topic territory" />
     <MESSAGE value="generate map completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="generate map completed" />
+    <MESSAGE value="update AST" />
+    <option name="LAST_COMMIT_MESSAGE" value="update AST" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/game/object/CityCrew.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/game/main/Player.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

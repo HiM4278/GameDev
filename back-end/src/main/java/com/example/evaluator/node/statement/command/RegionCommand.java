@@ -18,10 +18,11 @@ public class RegionCommand implements Statement {
 
     @Override
     public boolean execute(HashMap<String, Long> identifiers, Player player) throws EvalException {
+        player.getPlan().updateIdentifiers();
         if(type == RegionCommandType.COLLECT){
-            return !player.getCrew().collect(volume.eval(identifiers));
+            return !player.getCrew().collect(volume.eval(identifiers, player));
         }else if(type == RegionCommandType.INVEST){
-            player.getCrew().invest(volume.eval(identifiers));
+            player.getCrew().invest(volume.eval(identifiers, player));
         }
         return false;
     }

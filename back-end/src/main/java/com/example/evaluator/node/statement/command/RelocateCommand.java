@@ -14,6 +14,7 @@ public class RelocateCommand implements Statement {
 
     @Override
     public boolean execute(HashMap<String, Long> identifiers, Player player) throws EvalException {
+        player.getPlan().updateIdentifiers();
         player.getCrew().relocate(player.getCityCenter().getPosition());
         return true;
     }

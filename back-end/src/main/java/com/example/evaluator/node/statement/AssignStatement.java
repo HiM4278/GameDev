@@ -27,7 +27,13 @@ public class AssignStatement implements Statement{
 
     @Override
     public boolean execute(HashMap<String, Long> identifiers, Player player) throws EvalException {
-        if(!isConstVar(identifier)) identifiers.put(identifier, value.eval(identifiers));
+        player.getPlan().updateIdentifiers();
+        if(!isConstVar(identifier)){
+            if(!identifiers.containsKey(identifier)){
+                identifiers.put(identifier, 0L);
+            }
+            identifiers.put(identifier, value.eval(identifiers, player));
+        }
         return false;
     }
 

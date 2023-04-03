@@ -16,6 +16,7 @@ public class MoveCommand implements Statement {
 
     @Override
     public boolean execute(HashMap<String, Long> identifiers, Player player) throws EvalException {
+        player.getPlan().updateIdentifiers();
         return !player.getCrew().move(direction);
     }
 

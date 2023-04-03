@@ -19,7 +19,8 @@ public class AttackCommand implements Statement {
 
     @Override
     public boolean execute(HashMap<String, Long> identifiers, Player player) throws EvalException {
-        player.getCrew().shoot(direction,volume.eval(identifiers));
+        player.getPlan().updateIdentifiers();
+        player.getCrew().shoot(direction,volume.eval(identifiers, player));
         return false;
     }
 

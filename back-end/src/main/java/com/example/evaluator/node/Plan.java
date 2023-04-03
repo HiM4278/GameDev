@@ -5,13 +5,15 @@ import com.example.exeption.EvalException;
 import com.example.exeption.SyntaxErrorException;
 import com.example.game.main.Player;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Plan implements Node {
-    private final List<Statement> statements;
+    private final ArrayList<Statement> statements;
 
-    public Plan(List<Statement> statements) throws SyntaxErrorException {
+    public Plan(ArrayList<Statement> statements) throws SyntaxErrorException {
         if(statements.isEmpty()){
             throw new SyntaxErrorException("The construction plan must contain at least one statement");
         }else {
@@ -34,4 +36,6 @@ public class Plan implements Node {
             }
         }
     }
+
+
 }

@@ -41,7 +41,8 @@ public class IfStatement implements Statement{
 
     @Override
     public boolean execute(HashMap<String, Long> identifiers, Player player) throws EvalException {
-        if(condition.eval(identifiers) > 0){
+        player.getPlan().updateIdentifiers();
+        if(condition.eval(identifiers, player) > 0){
             return statementIfTrue.execute(identifiers, player);
         }else {
             return statementIfFalse.execute(identifiers, player);

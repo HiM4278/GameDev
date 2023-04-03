@@ -1,6 +1,7 @@
 package com.example.evaluator.node.expression;
 
 import com.example.exeption.EvalException;
+import com.example.game.main.Player;
 
 import java.util.Map;
 
@@ -10,7 +11,7 @@ public class IntLit implements Expression {
         this.value = value;
     }
     @Override
-    public long eval(Map<String, Long> identifier) throws EvalException {
+    public long eval(Map<String, Long> identifier, Player player) throws EvalException {
         return value;
     }
 

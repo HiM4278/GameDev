@@ -34,11 +34,14 @@ public class CityCrew implements Unit{
     }
 
     private boolean updatePosition(Region newPos){
-        if(newPos.getUnit() == null){
-            this.position = newPos;
-            newPos.setUnit(this);
-            return true;
-        } return false;
+        if(newPos != null) {
+            if(newPos.getUnit()==null) {
+                this.position = newPos;
+                newPos.setUnit(this);
+                return true;
+            }
+            return false;
+        }return true;
     }
 
     public void moveToCityCenter(){
@@ -68,7 +71,10 @@ public class CityCrew implements Unit{
             if (position.getNeighbor(direction) != null){
                 Region r = position.getNeighbor(direction);
                 Budget -= value;
-                r.getLand().increase(value);
+                if(r.getLand() != null){
+                    System.out.println("shoot");
+                    r.getLand().decrease(value);
+                }
             }
             return true;
         }
@@ -78,16 +84,19 @@ public class CityCrew implements Unit{
         Budget -= 1;
         checkBudget();
         if (Budget < value) return;
+        System.out.println(position.getX()+" "+position.getY());
         if(position.getLand() == null && position.isAdjacent(player)){
-            player.createLand(position);
+            Land land = player.createLand(position);
+            land.increase(value);
+        }else {
+            position.getLand().increase(value);
         }
-        position.getLand().increase(value);
     }
 
     public boolean collect(long value){
         Budget -= 1;
         checkBudget();
-        if (position.getLand().decrease(value)){
+        if (position.getLand() != null && position.getLand().collect(value)){
             Budget += value;
             return true;
         } else {

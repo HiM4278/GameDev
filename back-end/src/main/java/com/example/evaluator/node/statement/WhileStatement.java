@@ -27,8 +27,9 @@ public class WhileStatement implements Statement{
 
     @Override
     public boolean execute(HashMap<String, Long> identifiers, Player player) throws EvalException {
+        player.getPlan().updateIdentifiers();
         boolean isEnd = false;
-        while(condition.eval(identifiers) > 0 && !isEnd){
+        while(condition.eval(identifiers, player) > 0 && !isEnd){
             isEnd = statement.execute(identifiers, player);
         }
         return isEnd;

@@ -34,6 +34,7 @@ public class BlockStatement implements Statement{
 
     @Override
     public boolean execute(HashMap<String, Long> identifiers, Player player) throws EvalException {
+        player.getPlan().updateIdentifiers();
         boolean isEnd = false;
         for(Statement statement: statements) {
             isEnd = statement.execute(identifiers, player);
